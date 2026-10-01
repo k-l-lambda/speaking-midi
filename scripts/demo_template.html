@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Speaking MIDI · Audio demos</title>
+<style>
+body{font:16px/1.6 system-ui,sans-serif;color:#203040;background:#f5f7fa;max-width:1120px;margin:auto;padding:24px}
+h1,h2,h3{line-height:1.2}h1{font-size:2.5rem}section{background:white;border:1px solid #d9e1ea;border-radius:16px;padding:24px;margin:28px 0}a{color:#075eb0}img,canvas{width:100%;height:auto}canvas{height:320px;cursor:crosshair;border:1px solid #d9e1ea}audio{display:block;width:100%;margin:8px 0}.players{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}details{margin:18px 0}label{font-weight:600}footer{font-size:.9rem;color:#536273}.velocity-key{display:flex;align-items:center;gap:8px;font-size:.85rem}.velocity-key span{display:inline-block;width:140px;height:10px;background:linear-gradient(to right,hsl(240 72% 46%),hsl(191 72% 46%),hsl(142 72% 46%),hsl(94 72% 46%),hsl(45 72% 46%));border-radius:4px}
+</style>
+<h1>Speaking MIDI</h1>
+<p>Two approximately eight-second Qwen3-TTS recordings, fitted using only the Grand Piano preset in <code>gm.sf3</code>. Both use Qwen3-TTS 1.7B VoiceDesign with the same recorded voice-design instruction. Compare the speech with its piano reconstruction, then inspect the exported MIDI.</p>
+<p>Listen before revealing the transcript. Lower spectral error does not establish speech intelligibility. These longer examples have not received ASR or human listening evaluation. Playback uses saved audio; no model download or external service is required.</p>
+<details><summary>Voice description used for both languages</summary><p lang="zh"><!-- VOICE_INSTRUCTION --></p><p>This exact instruction was supplied to VoiceDesign for both recordings.</p></details>
+<!-- DEMO_CARDS -->
+<footer>All players share the target amplitude calibration. Piano WAVs include 0.5 seconds of release tail beyond the speech duration; that extra tail is excluded from spectral metrics.</footer>
+<script>
+const players = Array.from(document.querySelectorAll('audio'));
+for (const audio of players) audio.addEventListener('play', () => {
+  for (const other of players) if (other !== audio) other.pause();
+});
+for (const canvas of document.querySelectorAll('canvas[data-roll]')) {
+  const name = canvas.dataset.roll;
+  const {seconds, notes} = JSON.parse(document.getElementById('notes-' + name).textContent);
+  const audio = document.querySelector('audio[data-piano="' + name + '"]');
+  const low = Math.min(...notes.map(n => n.pitch)) - 2;
+  const high = Math.max(...notes.map(n => n.pitch)) + 2;
+  const left = 48, top = 14, bottom = 30, right = 14;
+  let frame = null;
+  function draw() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    const scale = window.devicePixelRatio || 1;
+    canvas.width = Math.round(w * scale); canvas.height = Math.round(h * scale);
+    const c = canvas.getContext('2d'); c.scale(scale, scale);
+    const pw = w - left - right, ph = h - top - bottom;
+    const x = time => left + time / seconds * pw;
+    const y = pitch => top + (high - pitch) / (high - low) * ph;
+    c.fillStyle = '#fff'; c.fillRect(0, 0, w, h);
+    c.font = '12px system-ui'; c.textAlign = 'right';
+    for (let pitch = Math.ceil(low); pitch <= high; pitch++) {
+      if ([1,3,6,8,10].includes(pitch % 12)) {
+        c.fillStyle = '#f2f5f8'; c.fillRect(left, y(pitch + .5), pw, ph / (high - low));
+      }
+      if (pitch % 12 === 0) {
+        c.fillStyle = '#475569'; c.fillText('C' + (pitch / 12 - 1), left - 6, y(pitch) + 4);
+      }
+    }
+    c.textAlign = 'center';
+    for (let t = 0; t <= seconds; t++) {
+      c.strokeStyle = '#dae2ec'; c.beginPath(); c.moveTo(x(t), top); c.lineTo(x(t), h-bottom); c.stroke();
+      c.fillStyle = '#475569'; c.fillText(t + 's', x(t), h - 9);
+    }
+    for (const n of notes) {
+      c.fillStyle = `hsl(${240 - n.velocity / 127 * 195} 72% 46%)`;
+      c.fillRect(x(n.start), y(n.pitch + .4), Math.max(1, n.duration / seconds * pw), .8 * ph / (high-low));
+    }
+    c.strokeStyle = '#e11d48'; c.lineWidth = 2; c.beginPath();
+    c.moveTo(x(audio.currentTime), top); c.lineTo(x(audio.currentTime), h-bottom); c.stroke();
+  }
+  function animate() { draw(); frame = audio.paused ? null : requestAnimationFrame(animate); }
+  audio.addEventListener('play', () => { if (frame === null) animate(); });
+  for (const event of ['timeupdate', 'seeked', 'loadedmetadata', 'ended']) audio.addEventListener(event, draw);
+  canvas.addEventListener('click', event => {
+    if (!Number.isFinite(audio.duration)) return;
+    const bounds = canvas.getBoundingClientRect();
+    audio.currentTime = Math.max(0, Math.min(audio.duration,
+      (event.clientX - bounds.left - left) / (bounds.width - left - right) * seconds));
+    draw();
+  });
+  new ResizeObserver(draw).observe(canvas);
+  draw();
+}
+</script>
+</html>

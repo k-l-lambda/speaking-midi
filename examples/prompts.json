@@ -1,0 +1,14 @@
+[
+  {
+    "name": "en",
+    "text": "Good morning, everyone. The warm sunlight is streaming through the open window. Listen carefully as the piano tries to repeat each of these words.",
+    "language": "English",
+    "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。"
+  },
+  {
+    "name": "zh",
+    "text": "清晨的阳光照进窗户，微风轻轻吹过。请仔细听，钢琴正在模仿我说话。",
+    "language": "Chinese",
+    "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。"
+  }
+]

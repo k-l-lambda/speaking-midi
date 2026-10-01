@@ -1,0 +1,158 @@
+{
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+  "source": {
+    "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+    "revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+  },
+  "mode": "voice_design",
+  "seed": 42,
+  "seed_policy": "Reset RNG before each sample",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "max_new_tokens": 512,
+  "samples": [
+    {
+      "name": "en",
+      "text": "Good morning, everyone. The warm sunlight is streaming through the open window. Listen carefully as the piano tries to repeat each of these words.",
+      "language": "English",
+      "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。",
+      "seed": 42,
+      "sample_rate": 24000,
+      "seconds": 7.84,
+      "wall_seconds": 22.045827865600586
+    },
+    {
+      "name": "zh",
+      "text": "清晨的阳光照进窗户，微风轻轻吹过。请仔细听，钢琴正在模仿我说话。",
+      "language": "Chinese",
+      "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。",
+      "seed": 42,
+      "sample_rate": 24000,
+      "seconds": 7.6,
+      "wall_seconds": 21.006908416748047
+    }
+  ],
+  "fitting": {
+    "max_notes": 240,
+    "renderer": "FluidSynth / bank 0 / program 0",
+    "soundfont": "gm.sf3 / Grand Piano"
+  },
+  "assets": {
+    "en": {
+      "baseline.json": {
+        "bytes": 50852,
+        "sha256": "3d210d64f43b59e990a545f5d2359d8f1713c70821bba6f1ca3feac71d08a53d"
+      },
+      "baseline.mid": {
+        "bytes": 2989,
+        "sha256": "1cc22cd12d8bbfe89bef508059f93b2a70c0bd19f3aa7d362ddf8291b640ef6b"
+      },
+      "baseline.wav": {
+        "bytes": 800720,
+        "sha256": "f6873a0a2e7b3c501dd968f4b0617fc5cc09d2c57b5b39935cde3cf6834e1a35"
+      },
+      "dictionary.json": {
+        "bytes": 18032,
+        "sha256": "21ca1dcd114fac170bae1090406ec53cfe37bccfa70bb43118b632a3abc2d3ed"
+      },
+      "dictionary.mid": {
+        "bytes": 1163,
+        "sha256": "e272c5714faf3f33700bf401f63f2749c58bdac4ad9a11ecd0c22c8a516f2348"
+      },
+      "dictionary.wav": {
+        "bytes": 800720,
+        "sha256": "742f148aa275c6dddfcb6560cbd8ba030551529fde0229b447ef6ac8feaa32d0"
+      },
+      "metrics.json": {
+        "bytes": 8495,
+        "sha256": "784dae0430c67d30787d3e75d4b54db753251967d615ee316890ea9d612495b0"
+      },
+      "piano-roll.png": {
+        "bytes": 40302,
+        "sha256": "18aec3f6fa07270348a4850c38f8ccf1527d8ea26add0b78a321596129da55cc"
+      },
+      "refined.json": {
+        "bytes": 16783,
+        "sha256": "6b6f5be56ddf2054f7916341505d2fc78ee564432d6acea18e07cd94ac29ba01"
+      },
+      "refined.mid": {
+        "bytes": 1086,
+        "sha256": "8aadea10b007d9cbfda5b857b7006b3df1740bfd6a1dd3ca500d0fa01c3e1e41"
+      },
+      "refined.wav": {
+        "bytes": 800720,
+        "sha256": "172bd6bf885f644f9a19709808789eddf4ccaa10dcafa4f3e14db5ed2c609d1d"
+      },
+      "source.wav": {
+        "bytes": 752720,
+        "sha256": "e42e173487b2580d83642c0be5d8a3b0208fe8458bd912df8c5176b8c3fd107d"
+      },
+      "spectrogram.png": {
+        "bytes": 1325745,
+        "sha256": "3d35889bddc5e29fdc6b7e30366db2ef80dbd7732e2576565bae0552aa834ac9"
+      },
+      "target.wav": {
+        "bytes": 752720,
+        "sha256": "7c7d9b4552ffe187ee05629102a8fd056b583265f8126f2750160c99bf31b57f"
+      }
+    },
+    "zh": {
+      "baseline.json": {
+        "bytes": 49646,
+        "sha256": "e4e95244fc2cbe99283e3f79d24ddbf78a3ee5859d119d862776f93415216661"
+      },
+      "baseline.mid": {
+        "bytes": 2884,
+        "sha256": "68bdd5fb7ac113d0bb98162e1b9e81fff2da4e878eb575814746caf7d56478f2"
+      },
+      "baseline.wav": {
+        "bytes": 777680,
+        "sha256": "a1b0aaa621365a5c584e3db944faa19534ce05d7cc989f29d72f46b285133a8c"
+      },
+      "dictionary.json": {
+        "bytes": 13985,
+        "sha256": "7c65f5e04e84a9c0af7cf68204150688e52228e5bcab2d3bfc9d37569b598a6a"
+      },
+      "dictionary.mid": {
+        "bytes": 898,
+        "sha256": "680f52b1fcc2162f8a5c48f62ed2e0b6c5f7f144d5c01c39b8223428998f062e"
+      },
+      "dictionary.wav": {
+        "bytes": 777680,
+        "sha256": "2ede3a5f1b26c8ae602da5c2b80e6de747021a2b00b4fbc7c50c9d4498467de2"
+      },
+      "metrics.json": {
+        "bytes": 7625,
+        "sha256": "adb3ac282760ebc04248d106d170a2e47d2b8bb75e72e51890150641e23d9b0f"
+      },
+      "piano-roll.png": {
+        "bytes": 40623,
+        "sha256": "c6c26a6e4abf3dd318d5ba2495edc27a890baaf84457f4db9e4275457d72b51b"
+      },
+      "refined.json": {
+        "bytes": 13196,
+        "sha256": "0fd2c9594cfda44e0a85e768de4725eae6b3a929510453b91dde465c20959379"
+      },
+      "refined.mid": {
+        "bytes": 866,
+        "sha256": "81dc4ddc02681026ebb2b13ba82a85dbf9a600aa8b6a4aae39500b17b6315cc4"
+      },
+      "refined.wav": {
+        "bytes": 777680,
+        "sha256": "558805b121cbf61fbe5034a7d4c144f013d0933eb95984174afb87787308101c"
+      },
+      "source.wav": {
+        "bytes": 729680,
+        "sha256": "a5df11b09e3005ed91d214164f4a14fc542b4ba5310285485ca913b64ce8566a"
+      },
+      "spectrogram.png": {
+        "bytes": 1141491,
+        "sha256": "477c2e0c97fe876df8c4e468257b605e10e35d6b02dd841bbe0e4e211242c705"
+      },
+      "target.wav": {
+        "bytes": 729680,
+        "sha256": "aaed6dd1bf76925b5ac4f7fcfc5c5abbe3274c4d8ffd73fa9d76e8d3221735c9"
+      }
+    }
+  }
+}

@@ -13,6 +13,7 @@ def main():
     ap.add_argument('--soundfont',default=SFONT); ap.add_argument('--max-notes',type=int,default=240)
     args=ap.parse_args(); out=Path(args.out); out.mkdir(parents=True,exist_ok=True)
     started=time.time(); y=load_audio(args.input); seconds=len(y)/SR
+    render_loss=make_log_band_loss(y)
     sf.write(out/'target.wav',y,SR,subtype='FLOAT')
     piano=Piano(args.soundfont)
     atoms,params,config=make_dictionary(piano,'outputs/cache')
@@ -54,7 +55,7 @@ def main():
                        max(n.start,variant.start)<min(n.start+n.duration,variant.start+variant.duration)-1e-7
                        for j,n in enumerate(best)): continue
                 candidate[i]=variant
-            a=piano.render(candidate,seconds+.5); loss=metrics(y,a)['log_band_mae']
+            a=piano.render(candidate,seconds+.5); loss=render_loss(a)
             if loss<win: winner=candidate; win=loss
         best=winner; best_loss=win
         if i%40==0: print('renderer refine remaining',i,'loss',best_loss,flush=True)
@@ -81,7 +82,7 @@ def main():
         ax.set_ylim(0,6000); ax.set_ylabel(name+'\nHz')
     axs[-1].set_xlabel('seconds'); fig.tight_layout(); fig.savefig(out/'spectrogram.png'); plt.close(fig)
     items=''.join(f'<h2>{name}</h2><audio controls src="{name}.wav"></audio>' for name in ['target','baseline','dictionary','refined'])
-    (out/'listen.html').write_text('<!doctype html><meta charset="utf-8"><title>Talking MIDI experiment</title><h1>Fixed-piano speech fitting</h1>'+items+'<p>Same gain, no per-player normalization. Listen before reading the transcript.</p><img width="100%" src="spectrogram.png"><pre>'+json.dumps(results,indent=2)+'</pre>')
+    (out/'listen.html').write_text('<!doctype html><meta charset="utf-8"><title>Speaking MIDI experiment</title><h1>Fixed-piano speech fitting</h1>'+items+'<p>Same gain, no per-player normalization. Listen before reading the transcript.</p><img width="100%" src="spectrogram.png"><pre>'+json.dumps(results,indent=2)+'</pre>')
     piano.close(); print(json.dumps(results,indent=2),flush=True)
 
 if __name__=='__main__': main()

@@ -4,13 +4,61 @@ An experimental system for approximating speech and other audio with MIDI render
 
 The first experiment uses locally generated Qwen3-TTS speech. Compared with a calibrated spectral-peak baseline, the final system reduced log-band spectral error by **18.4% for Chinese and 17.1% for English**. Reliable speech intelligibility has not been demonstrated: auxiliary speech recognition still fails on most of the piano output. See [RESULTS.md](RESULTS.md) for measurements and listening links.
 
+## Eight-second demos
+
+These additional examples use **Qwen3-TTS-12Hz-1.7B-VoiceDesign**, with the same requested voice description for English and Chinese:
+
+> 一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。
+
+English translation: A gentle, confident young woman with a clear voice, a warm tone, and a light, engaging delivery. The exact Chinese instruction is passed to `generate_voice_design` for both clips and recorded in the manifest.
+
+Measured speech durations are **English 7.84 s** and **Chinese 7.60 s**. All demo resources are committed under [`examples/`](examples/), including original speech, normalized targets, reconstructed audio, MIDI files, plots, and measured results. The piano recordings retain an additional 0.5 seconds of release tail.
+
+For audio players and a MIDI cursor synchronized with piano playback, open [`examples/index.html`](examples/index.html) from a local checkout in your browser. The page works offline without model weights or a web service. Click the piano roll to seek. The static plots and audio links below provide the same examples directly from the README.
+
+### English
+
+[Target speech](examples/en/target.wav) · [Fitted piano audio](examples/en/refined.wav) · [Baseline audio](examples/en/baseline.wav) · [Download MIDI](examples/en/refined.mid) · [Metrics](examples/en/metrics.json)
+
+<details>
+<summary>Show the English transcript</summary>
+
+Good morning, everyone. The warm sunlight is streaming through the open window. Listen carefully as the piano tries to repeat each of these words.
+
+</details>
+
+![English spectrograms: target, spectral baseline, dictionary fit, and refined piano, using the same display scale](examples/en/spectrogram.png)
+
+![English exported MIDI piano roll: horizontal position is time, vertical position is pitch, and color is velocity](examples/en/piano-roll.png)
+
+### Chinese
+
+[Target speech](examples/zh/target.wav) · [Fitted piano audio](examples/zh/refined.wav) · [Baseline audio](examples/zh/baseline.wav) · [Download MIDI](examples/zh/refined.mid) · [Metrics](examples/zh/metrics.json)
+
+<details>
+<summary>Show the Chinese transcript</summary>
+
+清晨的阳光照进窗户，微风轻轻吹过。请仔细听，钢琴正在模仿我说话。
+
+English translation: Morning sunlight shines through the window, and a gentle breeze passes by. Listen carefully: the piano is imitating my speech.
+
+</details>
+
+![Chinese spectrograms: target, spectral baseline, dictionary fit, and refined piano, using the same display scale](examples/zh/spectrogram.png)
+
+![Chinese exported MIDI piano roll: horizontal position is time, vertical position is pitch, and color is velocity](examples/zh/piano-roll.png)
+
+Piano-roll rectangles show MIDI key-hold intervals, not the full audible release. These longer demos have not received human intelligibility or ASR evaluation; the recognition scores in [RESULTS.md](RESULTS.md) apply only to the earlier short samples. See [`examples/README.md`](examples/README.md) for provenance, measurements, and regeneration commands.
+
 ## Running the experiment
 
 The existing workstation environment uses `.venv` with the installed CUDA-enabled PyTorch. Additional Python dependencies are installed in that virtual environment. FluidSynth and SoX are available from Ubuntu packages extracted into `.local` without modifying the system installation.
 
 ```bash
 # Generate Chinese and English speech using the standard Hugging Face cache.
-scripts/env.sh scripts/generate_speech.py
+scripts/env.sh scripts/generate_speech.py \
+  --model Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign \
+  --samples examples/prompts.json
 
 # Fit the generated recordings and export MIDI, audio, and evaluation artifacts.
 scripts/env.sh -m speaking_midi outputs/tts/zh.wav --out outputs/zh
@@ -23,11 +71,15 @@ scripts/env.sh -m unittest discover -s tests -v
 If the standard model download is unreliable, use the resumable mirror downloader instead of the first command above:
 
 ```bash
-python3 scripts/download_model.py
-scripts/env.sh scripts/generate_speech.py --model-path .local/models/qwen3-tts
+python3 scripts/download_model.py \
+  --repo Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign \
+  --out .local/models/qwen3-tts-voice-design
+scripts/env.sh scripts/generate_speech.py \
+  --model-path .local/models/qwen3-tts-voice-design \
+  --samples examples/prompts.json
 ```
 
-The mirror downloader connects directly to `hf-mirror.com`, checks partial response ranges, and verifies each assembled weight file against its published SHA256. It records the model revision and stores the model in `.local/models/qwen3-tts`.
+The mirror downloader connects directly to `hf-mirror.com`, checks partial response ranges, and verifies each assembled weight file against its published SHA256. It records the model revision and stores the model in the specified local directory.
 
 To fit another audio file or select another SoundFont:
 
@@ -48,15 +100,15 @@ On a new machine, use Python 3.10 or later, create `.venv`, install `requirement
 
 A MIDI candidate is a set of note events:
 
-\[
+$$
 M = \{(p_i, v_i, s_i, d_i)\}_{i=1}^{N},
-\]
+$$
 
-where each event specifies pitch, velocity, onset time, and key-hold duration. Let \(R_\theta(M)\) denote the audio produced by a synthesizer with fixed settings \(\theta\). The objective is to find a compact event set whose rendered audio is close to target waveform \(y\):
+where each event specifies pitch, velocity, onset time, and key-hold duration. Let $R_\theta(M)$ denote the audio produced by a synthesizer with fixed settings $\theta$. The objective is to find a compact event set whose rendered audio is close to target waveform $y$:
 
-\[
+$$
 \min_M D\bigl(y, R_\theta(M)\bigr).
-\]
+$$
 
 This is a discrete inverse-synthesis problem. The synthesizer is the forward model, and the search tries to infer useful controls for it. Qwen3-TTS supplies test recordings; it does not predict MIDI or participate in fitting. The current fitter is an optimization procedure without a trained speech-to-MIDI network.
 
@@ -108,11 +160,11 @@ The analysis uses a centered short-time Fourier transform (STFT) with a Hann win
 - Frequency-bin spacing: approximately 11.72 Hz.
 - Boundary padding: zeros.
 
-Let \(S(y)=|\operatorname{STFT}(y)|\). Multiplication by a nonnegative filter bank \(B\) produces the fitting features:
+Let $S(y)=|\operatorname{STFT}(y)|$. Multiplication by a nonnegative filter bank $B$ produces the fitting features:
 
-\[
+$$
 Y = F(y) = B S(y).
-\]
+$$
 
 The filter bank contains 96 triangular bands, with edges spaced on a mel-like frequency scale from 60 Hz to 10 kHz. Features are sums of **magnitudes**, not power spectra, decibel spectra, or complex STFT coefficients. This reduces the frequency dimension and tolerates some frequency mismatch while retaining the broad spectral shape associated with speech formants.
 
@@ -128,9 +180,9 @@ The dictionary contains every combination of:
 | Velocity | 45, 75, 105 |
 | Key-hold duration | 60, 120, 240 ms |
 
-This gives \(73\times3\times3=657\) templates. Each event starts at time zero and is rendered for 540 ms, then transformed with the same feature extractor as the target. The resulting dictionary has shape **657 × 96 × 55**: template, frequency band, and time frame.
+This gives $73\times3\times3=657$ templates. Each event starts at time zero and is rendered for 540 ms, then transformed with the same feature extractor as the target. The resulting dictionary has shape **657 × 96 × 55**: template, frequency band, and time frame.
 
-Each atom \(A_k\) therefore describes an evolving spectrum, including attack, decay, and some release energy. All atoms have the same total length. The longest hold leaves 300 ms for release; shorter holds leave more. Any audio remaining beyond 540 ms is truncated in the dictionary, even though the synthesizer may produce a longer tail during full reconstruction.
+Each atom $A_k$ therefore describes an evolving spectrum, including attack, decay, and some release energy. All atoms have the same total length. The longest hold leaves 300 ms for release; shorter holds leave more. Any audio remaining beyond 540 ms is truncated in the dictionary, even though the synthesizer may produce a longer tail during full reconstruction.
 
 Measuring separate velocities avoids assuming that MIDI velocity simply scales a fixed spectrum. No fitted continuous amplitude coefficient is converted into a guessed velocity: the initial search selects one of the measured discrete events directly. The dictionary is cached in `outputs/cache/` using its configuration hash.
 
@@ -138,38 +190,38 @@ Measuring separate velocities avoids assuming that MIDI velocity simply scales a
 
 The approximation assumes that shifted note **magnitude features** add:
 
-\[
+$$
 \widehat{Y} \approx \sum_i T_{t_i} A_{k_i},
-\]
+$$
 
-where \(T_t\) places an atom at onset frame \(t\). This provides a fast surrogate for evaluating many potential MIDI events.
+where $T_t$ places an atom at onset frame $t$. This provides a fast surrogate for evaluating many potential MIDI events.
 
 To reduce domination by the strongest frequency bands, calculate the target RMS in each band and apply a weight:
 
-\[
+$$
 r_b = \sqrt{\frac{1}{T}\sum_t Y_{b,t}^2},
 \qquad
 w_b = \frac{1}{\sqrt{\max(r_b,0.15)}}.
-\]
+$$
 
-Apply the same weights to target and atoms: \(\widetilde{Y}=w\odot Y\) and \(\widetilde{A}_k=w\odot A_k\). The floor limits amplification of nearly empty bands. Initialize the residual as \(E=\widetilde{Y}\), padded with zeros on the right so that full atoms can be scored near the end.
+Apply the same weights to target and atoms: $\widetilde{Y}=w\odot Y$ and $\widetilde{A}_k=w\odot A_k$. The floor limits amplification of nearly empty bands. Initialize the residual as $E=\widetilde{Y}$, padded with zeros on the right so that full atoms can be scored near the end.
 
 For an eligible atom at a candidate onset, the reduction in squared residual norm is:
 
-\[
+$$
 \begin{aligned}
 \Delta(k,t)
 &= \|E\|_F^2 - \|E-T_t\widetilde{A}_k\|_F^2 \\
 &= 2\langle E,T_t\widetilde{A}_k\rangle
    - \|\widetilde{A}_k\|_F^2.
 \end{aligned}
-\]
+$$
 
 The cross-correlation term is computed for all atoms and positions with PyTorch `conv1d`, using CUDA when available. The atom-energy term penalizes selecting notes that introduce more energy than the residual can support.
 
 At each iteration:
 
-1. Select the eligible atom and onset with the largest positive \(\Delta\).
+1. Select the eligible atom and onset with the largest positive $\Delta$.
 2. Reject a candidate if its key-hold interval would extend beyond the input duration.
 3. Add its measured pitch, velocity, duration, and grid-aligned onset to the event list.
 4. Subtract the shifted atom from the residual.
@@ -183,18 +235,18 @@ Search stops when no positive improvement remains or the iteration limit is reac
 
 Magnitude addition is approximate: in general,
 
-\[
+$$
 |\operatorname{STFT}(a+b)|
 \ne |\operatorname{STFT}(a)|+|\operatorname{STFT}(b)|.
-\]
+$$
 
 Phase interactions, the finite dictionary tail, and centered-window onset boundaries all cause differences between the surrogate and actual audio. The refinement stage renders complete candidate event sets through FluidSynth and evaluates:
 
-\[
+$$
 D_{\log}(y,\hat y)
 = \frac{1}{96T}\sum_{b,t}
 \left|\log(1+F(y)_{b,t})-\log(1+F(\hat y)_{b,t})\right|.
-\]
+$$
 
 The logarithm compresses strong components so they contribute less disproportionately than in a linear magnitude loss. This objective differs from the weighted squared loss used during pursuit; reducing one does not necessarily reduce the other.
 
@@ -209,7 +261,7 @@ The best measured improvement is accepted. These alternatives are evaluated sepa
 
 The local pass does not change pitch, add new events, or iterate until convergence. It can move velocities and durations away from the dictionary grid, but remains a limited coordinate search. There is no differentiable synthesizer or backpropagation through FluidSynth.
 
-Candidates during refinement are rendered from their event lists. For each saved method, the code exports a MIDI file, reads it back, and renders that decoded sequence for the reported metrics. This checks the actual exported representation rather than reporting only the dictionary approximation.
+The fixed target log-band features are cached across trials; a regression test checks that this cached objective equals the reported log-band metric. Candidates during refinement are rendered from their event lists. For each saved method, the code exports a MIDI file, reads it back, and renders that decoded sequence for the reported metrics. This checks the actual exported representation rather than reporting only the dictionary approximation.
 
 ### 5. Export timing and measure rendering variability
 
@@ -223,16 +275,16 @@ The baseline is a locally implemented heuristic comparison. It uses the same STF
 
 Each selected frequency maps to the nearest equal-tempered MIDI pitch:
 
-\[
+$$
 p=\operatorname{round}\left(69+12\log_2(f/440)\right).
-\]
+$$
 
 Duplicate pitches within the group and pitches outside 36–108 are discarded. Notes last 60 ms. Initial velocity is a clipped logarithmic function of peak magnitude relative to the recording-wide maximum:
 
-\[
+$$
 v=\operatorname{int}\left[\operatorname{clip}
 \left(90+25\log_{10}(a/a_{\max}),30,110\right)\right].
-\]
+$$
 
 To reduce simple loudness mismatch, actual rendered candidates are compared at global velocity offsets −36, −24, −12, 0, and +12, choosing the lowest log-band loss. This calibration uses the renderer, but the baseline's pitch and timing decisions do not model piano spectra or envelopes. Its note count is not matched to the dictionary method, so the experiment is not an equal-budget ranking.
 
@@ -250,14 +302,14 @@ Each `outputs/<name>/` directory contains:
 | `listen.html` | Audio players for the target and three reconstructions |
 | `spectrogram.png` | Spectrogram comparison with shared display limits |
 
-Original TTS recordings and generation metadata remain in `outputs/tts/`.
+Original TTS recordings and generation metadata remain in `outputs/tts/` by default. Each sample records its seed and the instruction actually used. VoiceDesign uses `generate_voice_design`; the optional CustomVoice path requires a speaker, and rejects instructions with the 0.6B checkpoint because that SDK path would ignore them.
 
 The primary reported distance is `log_band_mae`, defined above. Linear STFT spectral convergence is also reported:
 
-\[
+$$
 \operatorname{SC}(y,\hat y)
 =\frac{\|S(y)-S(\hat y)\|_F}{\|S(y)\|_F}.
-\]
+$$
 
 Both are lower-is-better measures. Waveform RMSE is recorded but is sensitive to phase, making it difficult to interpret as perceptual speech similarity. Note count and audio peak help characterize the candidate without asserting intelligibility.
 
@@ -283,7 +335,10 @@ The script writes `outputs/asr.json` and measures both original targets and reco
 | `scripts/generate_speech.py` | Qwen3-TTS sample generation and provenance |
 | `scripts/download_model.py` | Resumable, verified model download through a mirror |
 | `scripts/evaluate_asr.py` | Auxiliary transcription and error-rate calculation |
-| `tests/test_roundtrip.py` | MIDI round-trip, rendering repeatability, and known single-note recovery |
+| `scripts/package_examples.py` | Portable demo assets, piano-roll plots, and generation manifest |
+| `scripts/demo_template.html` | Offline audio players and synchronized MIDI visualization |
+| `tests/test_roundtrip.py` | MIDI round-trip, rendering repeatability, cached objective equivalence, and single-note recovery |
+| `tests/test_examples.py` | Demo hashes, voice instructions, audio duration, MIDI consistency, and local links |
 
 The tests establish operation on limited controls, not general speech reconstruction quality. Piano attacks and decays constrain envelope matching; its coupled harmonics constrain spectral matching; unvoiced consonants and continuously changing speech pitch are especially difficult with discrete piano keys. A finite template grid, greedy initialization, and one local refinement pass add optimization limitations on top of those instrument constraints.
 
@@ -291,5 +346,5 @@ Useful next experiments include lower velocities, denser duration grids, multipl
 
 ## References
 
-- [Qwen3-TTS source](https://github.com/QwenLM/Qwen3-TTS) and [0.6B CustomVoice model card](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice). The experiment uses the built-in Vivian and Ryan voices and records model provenance with the generated samples.
+- [Qwen3-TTS source](https://github.com/QwenLM/Qwen3-TTS) and [0.6B CustomVoice model card](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice). The initial short experiment uses the built-in Vivian and Ryan voices. The longer demos use the [1.7B VoiceDesign model](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign) with a natural-language voice description. Both paths record model provenance with the generated samples.
 - [FluidSynth](https://www.fluidsynth.org/) and [pyFluidSynth](https://github.com/nwhitehead/pyfluidsynth), used for the fixed instrument renderer.

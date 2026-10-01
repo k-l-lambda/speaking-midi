@@ -196,6 +196,17 @@ def baseline(y, max_polyphony=8):
             notes.append(Note(p,vel,t*HOP/SR,step*HOP/SR))
     return notes
 
+def make_log_band_loss(y):
+    """Cache fixed target analysis for repeated renderer trials."""
+    target_log = np.log1p(features(y))
+    samples = len(y)
+
+    def loss(estimate):
+        estimate_log = np.log1p(features(estimate[:samples]))
+        return float(np.mean(np.abs(target_log - estimate_log)))
+
+    return loss
+
 def metrics(y, estimate):
     estimate=estimate[:len(y)]
     a=magnitude(y); b=magnitude(estimate)

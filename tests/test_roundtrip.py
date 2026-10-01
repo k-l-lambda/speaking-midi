@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 import numpy as np
-from speaking_midi.core import Piano, Note, write_midi, read_midi, SR, make_dictionary, fit_temporal, metrics
+from speaking_midi.core import Piano, Note, write_midi, read_midi, SR, make_dictionary, fit_temporal, metrics, make_log_band_loss
 
 class Roundtrip(unittest.TestCase):
     def test_midi_timing_and_audio(self):
@@ -21,6 +21,13 @@ class Roundtrip(unittest.TestCase):
             # FluidSynth has small first-voice/block and int16 dither differences.
             self.assertLess(metrics(audio,repeated)['spectral_convergence'],.01)
             piano.close()
+
+    def test_cached_objective_matches_reported_metric(self):
+        rng = np.random.default_rng(123)
+        target = rng.normal(0, .02, SR).astype(np.float32)
+        objective = make_log_band_loss(target)
+        for estimate in [np.zeros(SR), target, np.r_[target * .6, np.zeros(SR // 2)]]:
+            self.assertAlmostEqual(objective(estimate), metrics(target, estimate)['log_band_mae'], places=7)
 
     def test_dictionary_recovers_single_note(self):
         piano=Piano(); atoms,params,_=make_dictionary(piano,'outputs/cache')
