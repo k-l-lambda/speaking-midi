@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 import numpy as np
-from talking_midi.core import Piano, Note, write_midi, read_midi, SR, make_dictionary, fit_temporal, metrics
+from speaking_midi.core import Piano, Note, write_midi, read_midi, SR, make_dictionary, fit_temporal, metrics
 
 class Roundtrip(unittest.TestCase):
     def test_midi_timing_and_audio(self):

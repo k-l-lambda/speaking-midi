@@ -13,8 +13,8 @@ The existing workstation environment uses `.venv` with the installed CUDA-enable
 scripts/env.sh scripts/generate_speech.py
 
 # Fit the generated recordings and export MIDI, audio, and evaluation artifacts.
-scripts/env.sh -m talking_midi outputs/tts/zh.wav --out outputs/zh
-scripts/env.sh -m talking_midi outputs/tts/en.wav --out outputs/en
+scripts/env.sh -m speaking_midi outputs/tts/zh.wav --out outputs/zh
+scripts/env.sh -m speaking_midi outputs/tts/en.wav --out outputs/en
 
 # Run the implementation checks.
 scripts/env.sh -m unittest discover -s tests -v
@@ -32,7 +32,7 @@ The mirror downloader connects directly to `hf-mirror.com`, checks partial respo
 To fit another audio file or select another SoundFont:
 
 ```bash
-scripts/env.sh -m talking_midi /absolute/path/to/input.wav \
+scripts/env.sh -m speaking_midi /absolute/path/to/input.wav \
   --soundfont /absolute/path/to/instrument.sf3 \
   --out outputs/custom \
   --max-notes 240
@@ -278,8 +278,8 @@ The script writes `outputs/asr.json` and measures both original targets and reco
 
 | File | Responsibility |
 |---|---|
-| `talking_midi/core.py` | Rendering, MIDI I/O, features, dictionary, pursuit, baseline, and metrics |
-| `talking_midi/__main__.py` | Experiment orchestration, local refinement, plots, and listening page |
+| `speaking_midi/core.py` | Rendering, MIDI I/O, features, dictionary, pursuit, baseline, and metrics |
+| `speaking_midi/__main__.py` | Experiment orchestration, local refinement, plots, and listening page |
 | `scripts/generate_speech.py` | Qwen3-TTS sample generation and provenance |
 | `scripts/download_model.py` | Resumable, verified model download through a mirror |
 | `scripts/evaluate_asr.py` | Auxiliary transcription and error-rate calculation |
