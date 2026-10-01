@@ -14,6 +14,7 @@ from qwen_tts import Qwen3TTSModel
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model-path')
+    parser.add_argument('--device', choices=['auto', 'cpu', 'cuda'], default='auto')
     parser.add_argument('--model', help='Hugging Face model ID; inferred from local source.json when available')
     parser.add_argument('--samples', type=Path, help='JSON list of name/text/language and speaker or instruct records')
     parser.add_argument('--out', type=Path, default=Path('outputs/tts'))
@@ -39,8 +40,10 @@ def main():
         raise ValueError('Samples must have unique file stems, and the selection must not be empty')
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
+    device = ('cuda' if torch.cuda.is_available() else 'cpu') if args.device == 'auto' else args.device
+    dtype = torch.bfloat16 if device == 'cuda' else torch.float32
     model = Qwen3TTSModel.from_pretrained(
-        path, device_map='cuda:0', dtype=torch.bfloat16, attn_implementation='sdpa')
+        path, device_map=device, dtype=dtype, attn_implementation='sdpa')
     mode = model.model.tts_model_type
     samples = []
     for row in rows:
@@ -73,7 +76,7 @@ def main():
         print(record, flush=True)
     manifest = dict(model=repo, snapshot=str(path), source=source, mode=mode,
                     seed=args.seed, seed_policy='Reset RNG before each sample',
-                    dtype='bfloat16', attention='sdpa', max_new_tokens=512, samples=samples)
+                    device=device, dtype=str(dtype).removeprefix('torch.'), attention='sdpa', max_new_tokens=512, samples=samples)
     (args.out / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
 
 
