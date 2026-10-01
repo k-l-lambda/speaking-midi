@@ -160,7 +160,7 @@ The analysis uses a centered short-time Fourier transform (STFT) with a Hann win
 - Frequency-bin spacing: approximately 11.72 Hz.
 - Boundary padding: zeros.
 
-Let $S(y)=|\operatorname{STFT}(y)|$. Multiplication by a nonnegative filter bank $B$ produces the fitting features:
+Let $S(y)=|\mathrm{STFT}(y)|$. Multiplication by a nonnegative filter bank $B$ produces the fitting features:
 
 $$
 Y = F(y) = B S(y).
@@ -236,8 +236,8 @@ Search stops when no positive improvement remains or the iteration limit is reac
 Magnitude addition is approximate: in general,
 
 $$
-|\operatorname{STFT}(a+b)|
-\ne |\operatorname{STFT}(a)|+|\operatorname{STFT}(b)|.
+|\mathrm{STFT}(a+b)|
+\ne |\mathrm{STFT}(a)|+|\mathrm{STFT}(b)|.
 $$
 
 Phase interactions, the finite dictionary tail, and centered-window onset boundaries all cause differences between the surrogate and actual audio. The refinement stage renders complete candidate event sets through FluidSynth and evaluates:
@@ -276,13 +276,13 @@ The baseline is a locally implemented heuristic comparison. It uses the same STF
 Each selected frequency maps to the nearest equal-tempered MIDI pitch:
 
 $$
-p=\operatorname{round}\left(69+12\log_2(f/440)\right).
+p=\mathrm{round}\left(69+12\log_2(f/440)\right).
 $$
 
 Duplicate pitches within the group and pitches outside 36–108 are discarded. Notes last 60 ms. Initial velocity is a clipped logarithmic function of peak magnitude relative to the recording-wide maximum:
 
 $$
-v=\operatorname{int}\left[\operatorname{clip}
+v=\mathrm{int}\left[\mathrm{clip}
 \left(90+25\log_{10}(a/a_{\max}),30,110\right)\right].
 $$
 
@@ -307,7 +307,7 @@ Original TTS recordings and generation metadata remain in `outputs/tts/` by defa
 The primary reported distance is `log_band_mae`, defined above. Linear STFT spectral convergence is also reported:
 
 $$
-\operatorname{SC}(y,\hat y)
+\mathrm{SC}(y,\hat y)
 =\frac{\|S(y)-S(\hat y)\|_F}{\|S(y)\|_F}.
 $$
 
