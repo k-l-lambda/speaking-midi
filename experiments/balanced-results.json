@@ -1,0 +1,2521 @@
+{
+  "selection": {
+    "pilot_samples": [
+      "quiet-night",
+      "sonnet-18"
+    ],
+    "explored_weights": [
+      0.025,
+      0.05,
+      0.1,
+      0.2,
+      0.4
+    ],
+    "selected_weight": 0.05,
+    "reason": "Exploratory choice after inspecting both pilots: 0.025 barely restores Quiet Night envelope correlation; 0.05 improves log-band error and linear spectral convergence versus v1 while increasing correlation by over 0.05 on both pilots. Larger weights sacrifice more log-band fidelity.",
+    "frozen_before_validation": [
+      "spring-dawn",
+      "stork-tower",
+      "the-tyger"
+    ],
+    "independent_generalization_claim": false
+  },
+  "samples": [
+    {
+      "name": "quiet-night",
+      "title": "静夜思",
+      "seconds": 8.64,
+      "text": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+      "old": {
+        "spectral_convergence": 0.8031753897666931,
+        "log_band_mae": 0.4578131437301636,
+        "waveform_rmse": 0.04201411455869675,
+        "peak": 0.2062225341796875,
+        "mr_log_mae": 0.08130397150913875,
+        "envelope_correlation": 0.8122553147731906,
+        "notes": 147,
+        "wall_seconds": 464.80754121625796
+      },
+      "log_only": {
+        "spectral_convergence": 0.8197810053825378,
+        "log_band_mae": 0.43985071778297424,
+        "waveform_rmse": 0.04159406200051308,
+        "peak": 0.2050628662109375,
+        "mr_log_mae": 0.08038689320286115,
+        "envelope_correlation": 0.7417847137572476,
+        "notes": 151,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 14.523538755718619,
+          "cache_misses": 3491,
+          "candidates_evaluated": 6874,
+          "initial_additivity": {
+            "spectral_convergence": 0.005596368107944727,
+            "log_band_mae": 0.004801007453352213,
+            "waveform_rmse": 0.0001788860681699589,
+            "peak": 0.199066162109375
+          },
+          "verified_loss_history": [
+            0.47574564814567566,
+            0.45567619800567627,
+            0.44761112332344055,
+            0.442920446395874,
+            0.4398404061794281
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 31,
+                "velocity": 66,
+                "start": 35,
+                "delete": 10,
+                "pitch": 11
+              },
+              "proposed_loss": 0.4532012939453125,
+              "verified_loss": 0.45567619800567627
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 41,
+                "duration": 29,
+                "velocity": 63,
+                "pitch": 7,
+                "delete": 1
+              },
+              "proposed_loss": 0.44549107551574707,
+              "verified_loss": 0.44761112332344055
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "start": 24,
+                "velocity": 57,
+                "duration": 46,
+                "pitch": 5
+              },
+              "proposed_loss": 0.4408072829246521,
+              "verified_loss": 0.442920446395874
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 46,
+                "velocity": 52,
+                "start": 25,
+                "pitch": 3
+              },
+              "proposed_loss": 0.4377436637878418,
+              "verified_loss": 0.4398404061794281
+            }
+          ]
+        },
+        "initial_midi_sha256": "9c567501e8f9c496d3de35036f40c9ad135bfe8e88275913f1e0afeb95d31682",
+        "passes": 4,
+        "refinement": "cached-waveform-with-pitch"
+      },
+      "balanced": {
+        "spectral_convergence": 0.7656077742576599,
+        "log_band_mae": 0.4456469714641571,
+        "waveform_rmse": 0.04176576808094978,
+        "peak": 0.1964874267578125,
+        "mr_log_mae": 0.08100796490907669,
+        "envelope_correlation": 0.8664079112613267,
+        "envelope_nrmse": 0.4311056435108185,
+        "objective": 0.5121621489524841,
+        "weight": 0.05,
+        "notes": 155,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 15.292781139723957,
+          "cache_misses": 3541,
+          "candidates_evaluated": 6975,
+          "initial_additivity": {
+            "spectral_convergence": 0.00288351159542799,
+            "log_band_mae": 0.003825969295576215,
+            "waveform_rmse": 8.359851926798001e-05,
+            "peak": 0.1991119384765625
+          },
+          "verified_loss_history": [
+            0.5436806082725525,
+            0.5273869633674622,
+            0.5196940898895264,
+            0.5153737664222717,
+            0.5121673941612244
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 31,
+                "start": 33,
+                "velocity": 68,
+                "delete": 5,
+                "pitch": 12
+              },
+              "proposed_loss": 0.5252607464790344,
+              "verified_loss": 0.5273869633674622
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 35,
+                "velocity": 65,
+                "duration": 34,
+                "pitch": 7,
+                "delete": 2
+              },
+              "proposed_loss": 0.5174094438552856,
+              "verified_loss": 0.5196940898895264
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 76,
+                "duration": 38,
+                "start": 19,
+                "pitch": 5
+              },
+              "proposed_loss": 0.5132347941398621,
+              "verified_loss": 0.5153737664222717
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "velocity": 65,
+                "duration": 38,
+                "start": 18,
+                "pitch": 5
+              },
+              "proposed_loss": 0.5100393295288086,
+              "verified_loss": 0.5121673941612244
+            }
+          ]
+        },
+        "initial_midi_sha256": "9c567501e8f9c496d3de35036f40c9ad135bfe8e88275913f1e0afeb95d31682"
+      },
+      "rescored": {
+        "original": {
+          "log_band_mae": 0.4578131437301636,
+          "spectral_convergence": 0.8031308650970459,
+          "envelope_nrmse": 0.4896470904350281,
+          "envelope_correlation": 0.8122552633285522
+        },
+        "log_only": {
+          "log_band_mae": 0.43985071778297424,
+          "spectral_convergence": 0.8197124600410461,
+          "envelope_nrmse": 0.5465406179428101,
+          "envelope_correlation": 0.7417847514152527
+        },
+        "balanced": {
+          "log_band_mae": 0.4456469714641571,
+          "spectral_convergence": 0.7655990719795227,
+          "envelope_nrmse": 0.43110567331314087,
+          "envelope_correlation": 0.8664079308509827
+        }
+      },
+      "repeated_renders": [
+        {
+          "log_band_mae": 0.44584307074546814,
+          "spectral_convergence": 0.7655527591705322,
+          "envelope_nrmse": 0.4311543107032776,
+          "envelope_correlation": 0.8664500713348389
+        },
+        {
+          "log_band_mae": 0.44565120339393616,
+          "spectral_convergence": 0.7655988335609436,
+          "envelope_nrmse": 0.4311056137084961,
+          "envelope_correlation": 0.8664079308509827
+        },
+        {
+          "log_band_mae": 0.4456382989883423,
+          "spectral_convergence": 0.76559978723526,
+          "envelope_nrmse": 0.4311060607433319,
+          "envelope_correlation": 0.8664072155952454
+        }
+      ],
+      "asr": {
+        "sample": "quiet-night",
+        "variant": "balanced",
+        "hypothesis": "嫂子薄薄薄",
+        "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+        "audio_sha256": "bcdeb69f4d203bcec9195527b2990cb90b3b51a77956d623ceab4f6bdc0a4099",
+        "metric": "CER",
+        "error_rate": 1.0
+      },
+      "source_sha256": "7bdbca39bd9c406b639b9fda231219484711ca319bd4da9c0c9d991874707981"
+    },
+    {
+      "name": "spring-dawn",
+      "title": "春晓",
+      "seconds": 8.16,
+      "text": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+      "old": {
+        "spectral_convergence": 0.8086581826210022,
+        "log_band_mae": 0.3986579477787018,
+        "waveform_rmse": 0.040338609367609024,
+        "peak": 0.1453857421875,
+        "mr_log_mae": 0.07409552857279778,
+        "envelope_correlation": 0.7991887264769174,
+        "notes": 117,
+        "wall_seconds": 290.8593649677932
+      },
+      "log_only": {
+        "spectral_convergence": 0.8182555437088013,
+        "log_band_mae": 0.3811955153942108,
+        "waveform_rmse": 0.03919209539890289,
+        "peak": 0.1576690673828125,
+        "mr_log_mae": 0.07333245128393173,
+        "envelope_correlation": 0.7344362197560637,
+        "notes": 121,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 11.71418593917042,
+          "cache_misses": 2786,
+          "candidates_evaluated": 5292,
+          "initial_additivity": {
+            "spectral_convergence": 0.0026264593470841646,
+            "log_band_mae": 0.003339156275615096,
+            "waveform_rmse": 6.157450843602419e-05,
+            "peak": 0.13409423828125
+          },
+          "verified_loss_history": [
+            0.4123068153858185,
+            0.39688166975975037,
+            0.38891708850860596,
+            0.38403838872909546,
+            0.38119280338287354
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 48,
+                "start": 20,
+                "delete": 4,
+                "pitch": 15,
+                "duration": 27
+              },
+              "proposed_loss": 0.39532795548439026,
+              "verified_loss": 0.39688166975975037
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "pitch": 8,
+                "start": 35,
+                "delete": 1,
+                "velocity": 49,
+                "duration": 19
+              },
+              "proposed_loss": 0.38749945163726807,
+              "verified_loss": 0.38891708850860596
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "start": 8,
+                "duration": 32,
+                "velocity": 53,
+                "pitch": 4
+              },
+              "proposed_loss": 0.3825543522834778,
+              "verified_loss": 0.38403838872909546
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "velocity": 48,
+                "duration": 34,
+                "start": 7,
+                "pitch": 2
+              },
+              "proposed_loss": 0.3795817792415619,
+              "verified_loss": 0.38119280338287354
+            }
+          ]
+        },
+        "initial_midi_sha256": "f004f6f29d326b6a6f6981b8c128f43d1fa966f47e5a67cb8cc31051e96fe4ed",
+        "passes": 4,
+        "refinement": "cached-waveform-with-pitch"
+      },
+      "balanced": {
+        "spectral_convergence": 0.7764038443565369,
+        "log_band_mae": 0.38840994238853455,
+        "waveform_rmse": 0.04037575423717499,
+        "peak": 0.1533660888671875,
+        "mr_log_mae": 0.07477399706840515,
+        "envelope_correlation": 0.876220657280801,
+        "envelope_nrmse": 0.4866389036178589,
+        "objective": 0.4577510356903076,
+        "weight": 0.05,
+        "notes": 123,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 12.515327344182879,
+          "cache_misses": 2815,
+          "candidates_evaluated": 5351,
+          "initial_additivity": {
+            "spectral_convergence": 0.0066252462565898895,
+            "log_band_mae": 0.00453281681984663,
+            "waveform_rmse": 0.00016406105714850128,
+            "peak": 0.134063720703125
+          },
+          "verified_loss_history": [
+            0.4875381588935852,
+            0.47352734208106995,
+            0.46609988808631897,
+            0.46094977855682373,
+            0.4577418565750122
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 48,
+                "start": 26,
+                "duration": 24,
+                "delete": 1,
+                "pitch": 14
+              },
+              "proposed_loss": 0.4721069037914276,
+              "verified_loss": 0.47352734208106995
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "pitch": 7,
+                "start": 30,
+                "delete": 2,
+                "velocity": 61,
+                "duration": 13
+              },
+              "proposed_loss": 0.4645756483078003,
+              "verified_loss": 0.46609988808631897
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "pitch": 4,
+                "velocity": 57,
+                "duration": 28,
+                "start": 11
+              },
+              "proposed_loss": 0.45936569571495056,
+              "verified_loss": 0.46094977855682373
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "start": 13,
+                "velocity": 41,
+                "duration": 33,
+                "pitch": 7
+              },
+              "proposed_loss": 0.4559885859489441,
+              "verified_loss": 0.4577418565750122
+            }
+          ]
+        },
+        "initial_midi_sha256": "f004f6f29d326b6a6f6981b8c128f43d1fa966f47e5a67cb8cc31051e96fe4ed"
+      },
+      "rescored": {
+        "original": {
+          "log_band_mae": 0.3986579477787018,
+          "spectral_convergence": 0.8086466193199158,
+          "envelope_nrmse": 0.5927392840385437,
+          "envelope_correlation": 0.7991887331008911
+        },
+        "log_only": {
+          "log_band_mae": 0.3811955451965332,
+          "spectral_convergence": 0.8182381391525269,
+          "envelope_nrmse": 0.6314054727554321,
+          "envelope_correlation": 0.7344362139701843
+        },
+        "balanced": {
+          "log_band_mae": 0.38840994238853455,
+          "spectral_convergence": 0.7763981223106384,
+          "envelope_nrmse": 0.4866389334201813,
+          "envelope_correlation": 0.8762207627296448
+        }
+      },
+      "repeated_renders": [
+        {
+          "log_band_mae": 0.3884114921092987,
+          "spectral_convergence": 0.7763978838920593,
+          "envelope_nrmse": 0.48663851618766785,
+          "envelope_correlation": 0.8762211203575134
+        },
+        {
+          "log_band_mae": 0.3884100317955017,
+          "spectral_convergence": 0.776397168636322,
+          "envelope_nrmse": 0.4866376221179962,
+          "envelope_correlation": 0.876221239566803
+        },
+        {
+          "log_band_mae": 0.3883906900882721,
+          "spectral_convergence": 0.7763975858688354,
+          "envelope_nrmse": 0.48663851618766785,
+          "envelope_correlation": 0.876220166683197
+        }
+      ],
+      "asr": {
+        "sample": "spring-dawn",
+        "variant": "balanced",
+        "hypothesis": "你不是...你不是...你不是...你不是...",
+        "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+        "audio_sha256": "7b6af103eebe93440b58e592f2e3ceb5d87fdc0bb08b2932d7d7afe3b4454cd0",
+        "metric": "CER",
+        "error_rate": 0.95
+      },
+      "source_sha256": "316f58a7865d1f31822471e2e84f507af683ece80dab7b1f41414310796b6b67"
+    },
+    {
+      "name": "stork-tower",
+      "title": "登鹳雀楼",
+      "seconds": 7.6,
+      "text": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+      "old": {
+        "spectral_convergence": 0.8383367657661438,
+        "log_band_mae": 0.4152887761592865,
+        "waveform_rmse": 0.0392724983394146,
+        "peak": 0.1998443603515625,
+        "mr_log_mae": 0.07049657280246417,
+        "envelope_correlation": 0.71087062303392,
+        "notes": 134,
+        "wall_seconds": 349.91553551563993
+      },
+      "log_only": {
+        "spectral_convergence": 0.8426358699798584,
+        "log_band_mae": 0.39341047406196594,
+        "waveform_rmse": 0.038873396813869476,
+        "peak": 0.15850830078125,
+        "mr_log_mae": 0.07000148793061574,
+        "envelope_correlation": 0.6788008895351785,
+        "notes": 134,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 12.492313829250634,
+          "cache_misses": 2978,
+          "candidates_evaluated": 5884,
+          "initial_additivity": {
+            "spectral_convergence": 0.0027617323212325573,
+            "log_band_mae": 0.003918855916708708,
+            "waveform_rmse": 5.986576070426963e-05,
+            "peak": 0.183990478515625
+          },
+          "verified_loss_history": [
+            0.43309295177459717,
+            0.4123855233192444,
+            0.4032399356365204,
+            0.396618515253067,
+            0.39340901374816895
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 30,
+                "start": 20,
+                "velocity": 66,
+                "pitch": 17,
+                "delete": 8
+              },
+              "proposed_loss": 0.4092847406864166,
+              "verified_loss": 0.4123855233192444
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 43,
+                "velocity": 60,
+                "duration": 20,
+                "pitch": 9
+              },
+              "proposed_loss": 0.4002726376056671,
+              "verified_loss": 0.4032399356365204
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "duration": 41,
+                "start": 17,
+                "velocity": 69,
+                "pitch": 5
+              },
+              "proposed_loss": 0.3939492106437683,
+              "verified_loss": 0.396618515253067
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "velocity": 64,
+                "duration": 45,
+                "start": 13,
+                "pitch": 3
+              },
+              "proposed_loss": 0.39077267050743103,
+              "verified_loss": 0.39340901374816895
+            }
+          ]
+        },
+        "initial_midi_sha256": "128865d284b42e2ac730e98cbde5fb005f71a96c118114c6d639744d2350d187",
+        "passes": 4,
+        "refinement": "cached-waveform-with-pitch"
+      },
+      "balanced": {
+        "spectral_convergence": 0.7899211645126343,
+        "log_band_mae": 0.402181476354599,
+        "waveform_rmse": 0.04010773077607155,
+        "peak": 0.162933349609375,
+        "mr_log_mae": 0.07095405459403992,
+        "envelope_correlation": 0.8677372021910701,
+        "envelope_nrmse": 0.5332589149475098,
+        "objective": 0.4749535918235779,
+        "weight": 0.05,
+        "notes": 139,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 12.749195543117821,
+          "cache_misses": 3070,
+          "candidates_evaluated": 6034,
+          "initial_additivity": {
+            "spectral_convergence": 0.0029539051465690136,
+            "log_band_mae": 0.003989208489656448,
+            "waveform_rmse": 6.486399070126936e-05,
+            "peak": 0.1840057373046875
+          },
+          "verified_loss_history": [
+            0.51341712474823,
+            0.4937327206134796,
+            0.48460280895233154,
+            0.478590190410614,
+            0.47494542598724365
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 33,
+                "start": 19,
+                "velocity": 69,
+                "pitch": 15,
+                "delete": 3
+              },
+              "proposed_loss": 0.490570604801178,
+              "verified_loss": 0.4937327206134796
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 44,
+                "duration": 30,
+                "velocity": 58,
+                "pitch": 4
+              },
+              "proposed_loss": 0.48149344325065613,
+              "verified_loss": 0.48460280895233154
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "duration": 32,
+                "velocity": 74,
+                "start": 21,
+                "pitch": 8
+              },
+              "proposed_loss": 0.4756396412849426,
+              "verified_loss": 0.478590190410614
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 43,
+                "start": 18,
+                "velocity": 69,
+                "pitch": 2
+              },
+              "proposed_loss": 0.4720892608165741,
+              "verified_loss": 0.47494542598724365
+            }
+          ]
+        },
+        "initial_midi_sha256": "128865d284b42e2ac730e98cbde5fb005f71a96c118114c6d639744d2350d187"
+      },
+      "rescored": {
+        "original": {
+          "log_band_mae": 0.4152887761592865,
+          "spectral_convergence": 0.8383025527000427,
+          "envelope_nrmse": 0.6427575349807739,
+          "envelope_correlation": 0.7108705639839172
+        },
+        "log_only": {
+          "log_band_mae": 0.39341041445732117,
+          "spectral_convergence": 0.8426033854484558,
+          "envelope_nrmse": 0.6522255539894104,
+          "envelope_correlation": 0.6788008213043213
+        },
+        "balanced": {
+          "log_band_mae": 0.4021815061569214,
+          "spectral_convergence": 0.7899075150489807,
+          "envelope_nrmse": 0.5332589149475098,
+          "envelope_correlation": 0.8677371144294739
+        }
+      },
+      "repeated_renders": [
+        {
+          "log_band_mae": 0.4021810293197632,
+          "spectral_convergence": 0.789908766746521,
+          "envelope_nrmse": 0.5332590937614441,
+          "envelope_correlation": 0.8677353858947754
+        },
+        {
+          "log_band_mae": 0.40218114852905273,
+          "spectral_convergence": 0.7899088263511658,
+          "envelope_nrmse": 0.5332598090171814,
+          "envelope_correlation": 0.8677348494529724
+        },
+        {
+          "log_band_mae": 0.40218114852905273,
+          "spectral_convergence": 0.7899081110954285,
+          "envelope_nrmse": 0.5332589149475098,
+          "envelope_correlation": 0.8677360415458679
+        }
+      ],
+      "asr": {
+        "sample": "stork-tower",
+        "variant": "balanced",
+        "hypothesis": "我自己认为我们是第一代的我们是第一代的我是第一代的",
+        "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+        "audio_sha256": "0fdd6747f9239f70a2795f427282dc23c998e64b7ec51470b02b138d3126d70b",
+        "metric": "CER",
+        "error_rate": 1.2
+      },
+      "source_sha256": "0aae65399547fef6d999e4b929b252fc9a428e82c7f159779d3a9bd1ca061c08"
+    },
+    {
+      "name": "sonnet-18",
+      "title": "Sonnet 18 (opening couplet)",
+      "seconds": 4.64,
+      "text": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+      "old": {
+        "spectral_convergence": 0.760835587978363,
+        "log_band_mae": 0.3506465256214142,
+        "waveform_rmse": 0.04040311649441719,
+        "peak": 0.18505859375,
+        "mr_log_mae": 0.054936282336711884,
+        "envelope_correlation": 0.8147633714522864,
+        "notes": 80,
+        "wall_seconds": 99.83342863200232
+      },
+      "log_only": {
+        "spectral_convergence": 0.7755877375602722,
+        "log_band_mae": 0.33664166927337646,
+        "waveform_rmse": 0.04019428789615631,
+        "peak": 0.1710968017578125,
+        "mr_log_mae": 0.05440287788709005,
+        "envelope_correlation": 0.7935740656854544,
+        "notes": 84,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 6.828609413933009,
+          "cache_misses": 2167,
+          "candidates_evaluated": 3815,
+          "initial_additivity": {
+            "spectral_convergence": 0.0017519487300887704,
+            "log_band_mae": 0.004267072770744562,
+            "waveform_rmse": 4.917441037832759e-05,
+            "peak": 0.1567535400390625
+          },
+          "verified_loss_history": [
+            0.36574453115463257,
+            0.3492949306964874,
+            0.3425349295139313,
+            0.3392960727214813,
+            0.3366507887840271
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 38,
+                "duration": 19,
+                "start": 17,
+                "delete": 6,
+                "pitch": 7
+              },
+              "proposed_loss": 0.34554389119148254,
+              "verified_loss": 0.3492949306964874
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 16,
+                "velocity": 40,
+                "duration": 14,
+                "pitch": 6
+              },
+              "proposed_loss": 0.338641881942749,
+              "verified_loss": 0.3425349295139313
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 39,
+                "duration": 22,
+                "start": 11,
+                "pitch": 4
+              },
+              "proposed_loss": 0.3354986310005188,
+              "verified_loss": 0.3392960727214813
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 31,
+                "velocity": 34,
+                "pitch": 2,
+                "start": 10
+              },
+              "proposed_loss": 0.33303582668304443,
+              "verified_loss": 0.3366507887840271
+            }
+          ]
+        },
+        "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b",
+        "passes": 4,
+        "refinement": "cached-waveform-with-pitch"
+      },
+      "balanced": {
+        "spectral_convergence": 0.7313951849937439,
+        "log_band_mae": 0.34171557426452637,
+        "waveform_rmse": 0.04323528707027435,
+        "peak": 0.178436279296875,
+        "mr_log_mae": 0.05502319087584814,
+        "envelope_correlation": 0.8730527434363834,
+        "envelope_nrmse": 0.3994559645652771,
+        "objective": 0.4046053886413574,
+        "weight": 0.05,
+        "notes": 87,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 7.285388791933656,
+          "cache_misses": 2203,
+          "candidates_evaluated": 3887,
+          "initial_additivity": {
+            "spectral_convergence": 0.0017428990686312318,
+            "log_band_mae": 0.004250105936080217,
+            "waveform_rmse": 4.905910827801563e-05,
+            "peak": 0.156768798828125
+          },
+          "verified_loss_history": [
+            0.4342159032821655,
+            0.41845574975013733,
+            0.4111729860305786,
+            0.4071514904499054,
+            0.4046069085597992
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 36,
+                "duration": 23,
+                "start": 16,
+                "pitch": 7,
+                "delete": 2
+              },
+              "proposed_loss": 0.4147092401981354,
+              "verified_loss": 0.41845574975013733
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 19,
+                "velocity": 36,
+                "duration": 21,
+                "pitch": 8,
+                "delete": 1
+              },
+              "proposed_loss": 0.4075470566749573,
+              "verified_loss": 0.4111729860305786
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 40,
+                "duration": 25,
+                "start": 13,
+                "pitch": 1
+              },
+              "proposed_loss": 0.4033604562282562,
+              "verified_loss": 0.4071514904499054
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 29,
+                "velocity": 39,
+                "start": 9
+              },
+              "proposed_loss": 0.4009471833705902,
+              "verified_loss": 0.4046069085597992
+            }
+          ]
+        },
+        "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b"
+      },
+      "rescored": {
+        "original": {
+          "log_band_mae": 0.3506464958190918,
+          "spectral_convergence": 0.7608103156089783,
+          "envelope_nrmse": 0.48572221398353577,
+          "envelope_correlation": 0.8147633671760559
+        },
+        "log_only": {
+          "log_band_mae": 0.33664166927337646,
+          "spectral_convergence": 0.7755590677261353,
+          "envelope_nrmse": 0.5004099011421204,
+          "envelope_correlation": 0.7935740351676941
+        },
+        "balanced": {
+          "log_band_mae": 0.34171557426452637,
+          "spectral_convergence": 0.7313839793205261,
+          "envelope_nrmse": 0.3994559347629547,
+          "envelope_correlation": 0.8730526566505432
+        }
+      },
+      "repeated_renders": [
+        {
+          "log_band_mae": 0.3417055308818817,
+          "spectral_convergence": 0.7313841581344604,
+          "envelope_nrmse": 0.399456262588501,
+          "envelope_correlation": 0.8730528950691223
+        },
+        {
+          "log_band_mae": 0.3417184352874756,
+          "spectral_convergence": 0.7313844561576843,
+          "envelope_nrmse": 0.39945635199546814,
+          "envelope_correlation": 0.8730525374412537
+        },
+        {
+          "log_band_mae": 0.34170791506767273,
+          "spectral_convergence": 0.7313838005065918,
+          "envelope_nrmse": 0.3994565010070801,
+          "envelope_correlation": 0.873052716255188
+        }
+      ],
+      "asr": {
+        "sample": "sonnet-18",
+        "variant": "balanced",
+        "hypothesis": "I'll see you in the next episode.",
+        "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+        "audio_sha256": "04ad771eddb15213a280fee546d13f7e533812124af75e9ba6f3bfa411d3fbb8",
+        "metric": "WER",
+        "error_rate": 0.9375
+      },
+      "source_sha256": "55f718b8da437c778f35c9a22c8b0b8c7ab8c176e8a91ad460f036afa53cc5e5"
+    },
+    {
+      "name": "the-tyger",
+      "title": "The Tyger (first stanza)",
+      "seconds": 8.24,
+      "text": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+      "old": {
+        "spectral_convergence": 0.8239487409591675,
+        "log_band_mae": 0.4199138879776001,
+        "waveform_rmse": 0.047820184379816055,
+        "peak": 0.209442138671875,
+        "mr_log_mae": 0.07806702206532161,
+        "envelope_correlation": 0.8022322448883986,
+        "notes": 182,
+        "wall_seconds": 812.9634987763129
+      },
+      "log_only": {
+        "spectral_convergence": 0.8167303800582886,
+        "log_band_mae": 0.39922669529914856,
+        "waveform_rmse": 0.046954650431871414,
+        "peak": 0.21710205078125,
+        "mr_log_mae": 0.07598430290818214,
+        "envelope_correlation": 0.7966208743346094,
+        "notes": 187,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 18.102802332956344,
+          "cache_misses": 4084,
+          "candidates_evaluated": 8526,
+          "initial_additivity": {
+            "spectral_convergence": 0.003512684954330325,
+            "log_band_mae": 0.0050050620920956135,
+            "waveform_rmse": 0.00015805300790816545,
+            "peak": 0.235626220703125
+          },
+          "verified_loss_history": [
+            0.4463611841201782,
+            0.4161541759967804,
+            0.4075483977794647,
+            0.4026884138584137,
+            0.399222195148468
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "delete": 17,
+                "pitch": 22,
+                "velocity": 83,
+                "start": 45,
+                "duration": 38
+              },
+              "proposed_loss": 0.4116717576980591,
+              "verified_loss": 0.4161541759967804
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "velocity": 77,
+                "duration": 43,
+                "pitch": 12,
+                "start": 54,
+                "delete": 2
+              },
+              "proposed_loss": 0.4034349024295807,
+              "verified_loss": 0.4075483977794647
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "duration": 63,
+                "velocity": 90,
+                "pitch": 9,
+                "start": 22
+              },
+              "proposed_loss": 0.3987092673778534,
+              "verified_loss": 0.4026884138584137
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 82,
+                "velocity": 80,
+                "start": 21,
+                "pitch": 1
+              },
+              "proposed_loss": 0.39530742168426514,
+              "verified_loss": 0.399222195148468
+            }
+          ]
+        },
+        "initial_midi_sha256": "d48e1eb8f13c15ebcc1d38b8424df4ebcc753da1c25cf2dc004ca939934c97d4",
+        "passes": 4,
+        "refinement": "cached-waveform-with-pitch"
+      },
+      "balanced": {
+        "spectral_convergence": 0.8048956990242004,
+        "log_band_mae": 0.4027039706707001,
+        "waveform_rmse": 0.047745976597070694,
+        "peak": 0.203369140625,
+        "mr_log_mae": 0.07638932143648465,
+        "envelope_correlation": 0.9037231951706425,
+        "envelope_nrmse": 0.29085245728492737,
+        "objective": 0.46230512857437134,
+        "weight": 0.05,
+        "notes": 189,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 20.635507923085243,
+          "cache_misses": 4067,
+          "candidates_evaluated": 8574,
+          "initial_additivity": {
+            "spectral_convergence": 0.0036329340655356646,
+            "log_band_mae": 0.005053120665252209,
+            "waveform_rmse": 0.0001641300186747685,
+            "peak": 0.235748291015625
+          },
+          "verified_loss_history": [
+            0.5118904113769531,
+            0.4803681969642639,
+            0.47141897678375244,
+            0.4657108187675476,
+            0.4623306393623352
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "delete": 16,
+                "pitch": 26,
+                "velocity": 74,
+                "start": 44,
+                "duration": 43
+              },
+              "proposed_loss": 0.47591471672058105,
+              "verified_loss": 0.4803681969642639
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "velocity": 85,
+                "start": 49,
+                "pitch": 12,
+                "duration": 42,
+                "delete": 1
+              },
+              "proposed_loss": 0.46727049350738525,
+              "verified_loss": 0.47141897678375244
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "duration": 62,
+                "velocity": 97,
+                "pitch": 8,
+                "start": 18
+              },
+              "proposed_loss": 0.4616461992263794,
+              "verified_loss": 0.4657108187675476
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 77,
+                "start": 19,
+                "velocity": 81,
+                "pitch": 3
+              },
+              "proposed_loss": 0.4584102928638458,
+              "verified_loss": 0.4623306393623352
+            }
+          ]
+        },
+        "initial_midi_sha256": "d48e1eb8f13c15ebcc1d38b8424df4ebcc753da1c25cf2dc004ca939934c97d4"
+      },
+      "rescored": {
+        "original": {
+          "log_band_mae": 0.4199138879776001,
+          "spectral_convergence": 0.8238970637321472,
+          "envelope_nrmse": 0.3992125689983368,
+          "envelope_correlation": 0.8022322058677673
+        },
+        "log_only": {
+          "log_band_mae": 0.39922675490379333,
+          "spectral_convergence": 0.8166804909706116,
+          "envelope_nrmse": 0.41483232378959656,
+          "envelope_correlation": 0.7966209053993225
+        },
+        "balanced": {
+          "log_band_mae": 0.4027039706707001,
+          "spectral_convergence": 0.8048560619354248,
+          "envelope_nrmse": 0.29085245728492737,
+          "envelope_correlation": 0.9037231802940369
+        }
+      },
+      "repeated_renders": [
+        {
+          "log_band_mae": 0.4027474820613861,
+          "spectral_convergence": 0.8048526644706726,
+          "envelope_nrmse": 0.29089316725730896,
+          "envelope_correlation": 0.9036996364593506
+        },
+        {
+          "log_band_mae": 0.4027320444583893,
+          "spectral_convergence": 0.8048292994499207,
+          "envelope_nrmse": 0.29084521532058716,
+          "envelope_correlation": 0.9037352204322815
+        },
+        {
+          "log_band_mae": 0.40273433923721313,
+          "spectral_convergence": 0.8048291206359863,
+          "envelope_nrmse": 0.29084452986717224,
+          "envelope_correlation": 0.9037355184555054
+        }
+      ],
+      "asr": {
+        "sample": "the-tyger",
+        "variant": "balanced",
+        "hypothesis": ".",
+        "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+        "audio_sha256": "0432becb4c2c1300f05cb26e784ae81456a99bba53b9a438c94f97279d1b8303",
+        "metric": "WER",
+        "error_rate": 1.0
+      },
+      "source_sha256": "bd807433cebced5629a63b5cf0ecaf213c301ccf3fc110b9b20ab74dc6f94d04"
+    }
+  ],
+  "pilots": {
+    "quiet-night": {
+      "w0.025": {
+        "spectral_convergence": 0.7884923815727234,
+        "log_band_mae": 0.44126033782958984,
+        "waveform_rmse": 0.042169321328401566,
+        "peak": 0.1915435791015625,
+        "mr_log_mae": 0.08068190018335979,
+        "envelope_correlation": 0.8161356533998361,
+        "envelope_nrmse": 0.47683992981910706,
+        "objective": 0.4774901866912842,
+        "weight": 0.025,
+        "notes": 153,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 15.645082214847207,
+          "cache_misses": 3502,
+          "candidates_evaluated": 6916,
+          "initial_additivity": {
+            "spectral_convergence": 0.005596368107944727,
+            "log_band_mae": 0.004801007453352213,
+            "waveform_rmse": 0.0001788860681699589,
+            "peak": 0.199066162109375
+          },
+          "verified_loss_history": [
+            0.5097820162773132,
+            0.4931230843067169,
+            0.4851319193840027,
+            0.48089587688446045,
+            0.4774876832962036
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 32,
+                "start": 39,
+                "velocity": 65,
+                "delete": 8,
+                "pitch": 10
+              },
+              "proposed_loss": 0.49054470658302307,
+              "verified_loss": 0.4931230843067169
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 45,
+                "velocity": 60,
+                "duration": 31,
+                "pitch": 5,
+                "delete": 1
+              },
+              "proposed_loss": 0.4830029010772705,
+              "verified_loss": 0.4851319193840027
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 66,
+                "duration": 40,
+                "start": 25,
+                "pitch": 2
+              },
+              "proposed_loss": 0.4787265956401825,
+              "verified_loss": 0.48089587688446045
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "velocity": 67,
+                "duration": 40,
+                "start": 17,
+                "pitch": 3
+              },
+              "proposed_loss": 0.4754032492637634,
+              "verified_loss": 0.4774876832962036
+            }
+          ]
+        },
+        "initial_midi_sha256": "9c567501e8f9c496d3de35036f40c9ad135bfe8e88275913f1e0afeb95d31682"
+      },
+      "w0.05": {
+        "spectral_convergence": 0.7656077742576599,
+        "log_band_mae": 0.4456469714641571,
+        "waveform_rmse": 0.04176576808094978,
+        "peak": 0.1964874267578125,
+        "mr_log_mae": 0.08100796490907669,
+        "envelope_correlation": 0.8664079112613267,
+        "envelope_nrmse": 0.4311056435108185,
+        "objective": 0.5121621489524841,
+        "weight": 0.05,
+        "notes": 155,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 15.292781139723957,
+          "cache_misses": 3541,
+          "candidates_evaluated": 6975,
+          "initial_additivity": {
+            "spectral_convergence": 0.00288351159542799,
+            "log_band_mae": 0.003825969295576215,
+            "waveform_rmse": 8.359851926798001e-05,
+            "peak": 0.1991119384765625
+          },
+          "verified_loss_history": [
+            0.5436806082725525,
+            0.5273869633674622,
+            0.5196940898895264,
+            0.5153737664222717,
+            0.5121673941612244
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 31,
+                "start": 33,
+                "velocity": 68,
+                "delete": 5,
+                "pitch": 12
+              },
+              "proposed_loss": 0.5252607464790344,
+              "verified_loss": 0.5273869633674622
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 35,
+                "velocity": 65,
+                "duration": 34,
+                "pitch": 7,
+                "delete": 2
+              },
+              "proposed_loss": 0.5174094438552856,
+              "verified_loss": 0.5196940898895264
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 76,
+                "duration": 38,
+                "start": 19,
+                "pitch": 5
+              },
+              "proposed_loss": 0.5132347941398621,
+              "verified_loss": 0.5153737664222717
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "velocity": 65,
+                "duration": 38,
+                "start": 18,
+                "pitch": 5
+              },
+              "proposed_loss": 0.5100393295288086,
+              "verified_loss": 0.5121673941612244
+            }
+          ]
+        },
+        "initial_midi_sha256": "9c567501e8f9c496d3de35036f40c9ad135bfe8e88275913f1e0afeb95d31682"
+      },
+      "w0.1": {
+        "spectral_convergence": 0.755790114402771,
+        "log_band_mae": 0.45544394850730896,
+        "waveform_rmse": 0.043721821159124374,
+        "peak": 0.1767120361328125,
+        "mr_log_mae": 0.08263249446948369,
+        "envelope_correlation": 0.9183509756182435,
+        "envelope_nrmse": 0.3469802141189575,
+        "objective": 0.5738857984542847,
+        "weight": 0.1,
+        "notes": 155,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 15.884253118187189,
+          "cache_misses": 3544,
+          "candidates_evaluated": 6980,
+          "initial_additivity": {
+            "spectral_convergence": 0.005596368107944727,
+            "log_band_mae": 0.004801007453352213,
+            "waveform_rmse": 0.0001788860681699589,
+            "peak": 0.199066162109375
+          },
+          "verified_loss_history": [
+            0.6118911504745483,
+            0.5920564532279968,
+            0.5832289457321167,
+            0.577873945236206,
+            0.5738928914070129
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 25,
+                "start": 30,
+                "velocity": 77,
+                "delete": 5,
+                "pitch": 11
+              },
+              "proposed_loss": 0.5896275043487549,
+              "verified_loss": 0.5920564532279968
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 37,
+                "velocity": 74,
+                "duration": 28,
+                "pitch": 7,
+                "delete": 1
+              },
+              "proposed_loss": 0.5811998248100281,
+              "verified_loss": 0.5832289457321167
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "duration": 44,
+                "velocity": 76,
+                "start": 12,
+                "pitch": 2
+              },
+              "proposed_loss": 0.5758248567581177,
+              "verified_loss": 0.577873945236206
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 42,
+                "start": 14,
+                "velocity": 58,
+                "pitch": 5,
+                "delete": 1
+              },
+              "proposed_loss": 0.5718225240707397,
+              "verified_loss": 0.5738928914070129
+            }
+          ]
+        },
+        "initial_midi_sha256": "9c567501e8f9c496d3de35036f40c9ad135bfe8e88275913f1e0afeb95d31682"
+      },
+      "w0.2": {
+        "spectral_convergence": 0.7506663203239441,
+        "log_band_mae": 0.46859049797058105,
+        "waveform_rmse": 0.04469902813434601,
+        "peak": 0.2041015625,
+        "mr_log_mae": 0.08453154563903809,
+        "envelope_correlation": 0.9423894347643029,
+        "envelope_nrmse": 0.2986569106578827,
+        "objective": 0.6899770498275757,
+        "weight": 0.2,
+        "notes": 157,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 15.901463685091585,
+          "cache_misses": 3599,
+          "candidates_evaluated": 7027,
+          "initial_additivity": {
+            "spectral_convergence": 0.002879035659134388,
+            "log_band_mae": 0.0038388962857425213,
+            "waveform_rmse": 8.350474672624841e-05,
+            "peak": 0.199127197265625
+          },
+          "verified_loss_history": [
+            0.7479062080383301,
+            0.715283989906311,
+            0.7026463150978088,
+            0.6947178840637207,
+            0.6899797320365906
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 24,
+                "start": 23,
+                "pitch": 6,
+                "velocity": 94,
+                "delete": 4
+              },
+              "proposed_loss": 0.7131829261779785,
+              "verified_loss": 0.715283989906311
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "velocity": 78,
+                "duration": 28,
+                "pitch": 6,
+                "start": 36
+              },
+              "proposed_loss": 0.7005904912948608,
+              "verified_loss": 0.7026463150978088
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "start": 19,
+                "velocity": 76,
+                "duration": 39,
+                "pitch": 4,
+                "delete": 1
+              },
+              "proposed_loss": 0.6926637887954712,
+              "verified_loss": 0.6947178840637207
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "start": 11,
+                "duration": 57,
+                "velocity": 61,
+                "pitch": 2
+              },
+              "proposed_loss": 0.6880470514297485,
+              "verified_loss": 0.6899797320365906
+            }
+          ]
+        },
+        "initial_midi_sha256": "9c567501e8f9c496d3de35036f40c9ad135bfe8e88275913f1e0afeb95d31682"
+      },
+      "w0.4": {
+        "spectral_convergence": 0.7519283890724182,
+        "log_band_mae": 0.47910815477371216,
+        "waveform_rmse": 0.044970691204071045,
+        "peak": 0.2505340576171875,
+        "mr_log_mae": 0.08605857690175374,
+        "envelope_correlation": 0.9494949407838705,
+        "envelope_nrmse": 0.2698177993297577,
+        "objective": 0.9080079793930054,
+        "weight": 0.4,
+        "notes": 157,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 15.698418388143182,
+          "cache_misses": 3597,
+          "candidates_evaluated": 7013,
+          "initial_additivity": {
+            "spectral_convergence": 0.002882689470425248,
+            "log_band_mae": 0.003859772579744458,
+            "waveform_rmse": 8.357081969734281e-05,
+            "peak": 0.1990814208984375
+          },
+          "verified_loss_history": [
+            1.020211935043335,
+            0.955203652381897,
+            0.9323174953460693,
+            0.9177935123443604,
+            0.9080127477645874
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "start": 22,
+                "velocity": 99,
+                "duration": 20,
+                "pitch": 5,
+                "delete": 5
+              },
+              "proposed_loss": 0.9530670046806335,
+              "verified_loss": 0.955203652381897
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "velocity": 84,
+                "pitch": 8,
+                "start": 35,
+                "duration": 19
+              },
+              "proposed_loss": 0.930320143699646,
+              "verified_loss": 0.9323174953460693
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "start": 19,
+                "velocity": 80,
+                "duration": 40,
+                "pitch": 2
+              },
+              "proposed_loss": 0.9158907532691956,
+              "verified_loss": 0.9177935123443604
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 42,
+                "velocity": 69,
+                "start": 10,
+                "pitch": 3
+              },
+              "proposed_loss": 0.9061145186424255,
+              "verified_loss": 0.9080127477645874
+            }
+          ]
+        },
+        "initial_midi_sha256": "9c567501e8f9c496d3de35036f40c9ad135bfe8e88275913f1e0afeb95d31682"
+      }
+    },
+    "sonnet-18": {
+      "w0.025": {
+        "spectral_convergence": 0.7514088153839111,
+        "log_band_mae": 0.3377704918384552,
+        "waveform_rmse": 0.040697354823350906,
+        "peak": 0.172698974609375,
+        "mr_log_mae": 0.05462097997466723,
+        "envelope_correlation": 0.8440028655965549,
+        "envelope_nrmse": 0.4513032138347626,
+        "objective": 0.37173816561698914,
+        "weight": 0.025,
+        "notes": 86,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 7.1516497461125255,
+          "cache_misses": 2209,
+          "candidates_evaluated": 3855,
+          "initial_additivity": {
+            "spectral_convergence": 0.0017428155988454819,
+            "log_band_mae": 0.004266317933797836,
+            "waveform_rmse": 4.903378794551827e-05,
+            "peak": 0.1567840576171875
+          },
+          "verified_loss_history": [
+            0.3999846279621124,
+            0.3850798010826111,
+            0.37761932611465454,
+            0.3742792308330536,
+            0.37173300981521606
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 37,
+                "duration": 22,
+                "start": 17,
+                "pitch": 6,
+                "delete": 4
+              },
+              "proposed_loss": 0.3813890516757965,
+              "verified_loss": 0.3850798010826111
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "pitch": 9,
+                "velocity": 37,
+                "start": 22,
+                "duration": 14
+              },
+              "proposed_loss": 0.3738672435283661,
+              "verified_loss": 0.37761932611465454
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "duration": 22,
+                "velocity": 42,
+                "start": 10,
+                "pitch": 3
+              },
+              "proposed_loss": 0.3704509437084198,
+              "verified_loss": 0.3742792308330536
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "pitch": 1,
+                "start": 7,
+                "velocity": 27,
+                "duration": 40
+              },
+              "proposed_loss": 0.3680456280708313,
+              "verified_loss": 0.37173300981521606
+            }
+          ]
+        },
+        "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b"
+      },
+      "w0.05": {
+        "spectral_convergence": 0.7313951849937439,
+        "log_band_mae": 0.34171557426452637,
+        "waveform_rmse": 0.04323528707027435,
+        "peak": 0.178436279296875,
+        "mr_log_mae": 0.05502319087584814,
+        "envelope_correlation": 0.8730527434363834,
+        "envelope_nrmse": 0.3994559645652771,
+        "objective": 0.4046053886413574,
+        "weight": 0.05,
+        "notes": 87,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 7.285388791933656,
+          "cache_misses": 2203,
+          "candidates_evaluated": 3887,
+          "initial_additivity": {
+            "spectral_convergence": 0.0017428990686312318,
+            "log_band_mae": 0.004250105936080217,
+            "waveform_rmse": 4.905910827801563e-05,
+            "peak": 0.156768798828125
+          },
+          "verified_loss_history": [
+            0.4342159032821655,
+            0.41845574975013733,
+            0.4111729860305786,
+            0.4071514904499054,
+            0.4046069085597992
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 36,
+                "duration": 23,
+                "start": 16,
+                "pitch": 7,
+                "delete": 2
+              },
+              "proposed_loss": 0.4147092401981354,
+              "verified_loss": 0.41845574975013733
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 19,
+                "velocity": 36,
+                "duration": 21,
+                "pitch": 8,
+                "delete": 1
+              },
+              "proposed_loss": 0.4075470566749573,
+              "verified_loss": 0.4111729860305786
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 40,
+                "duration": 25,
+                "start": 13,
+                "pitch": 1
+              },
+              "proposed_loss": 0.4033604562282562,
+              "verified_loss": 0.4071514904499054
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 29,
+                "velocity": 39,
+                "start": 9
+              },
+              "proposed_loss": 0.4009471833705902,
+              "verified_loss": 0.4046069085597992
+            }
+          ]
+        },
+        "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b"
+      },
+      "w0.1": {
+        "spectral_convergence": 0.7252771854400635,
+        "log_band_mae": 0.34798622131347656,
+        "waveform_rmse": 0.043820224702358246,
+        "peak": 0.1805877685546875,
+        "mr_log_mae": 0.05617025618751844,
+        "envelope_correlation": 0.900187986851711,
+        "envelope_nrmse": 0.3495413064956665,
+        "objective": 0.46544918417930603,
+        "weight": 0.1,
+        "notes": 88,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 7.130206022877246,
+          "cache_misses": 2186,
+          "candidates_evaluated": 3894,
+          "initial_additivity": {
+            "spectral_convergence": 0.0017475718632340431,
+            "log_band_mae": 0.004281960427761078,
+            "waveform_rmse": 4.908593473373912e-05,
+            "peak": 0.1567230224609375
+          },
+          "verified_loss_history": [
+            0.5026572942733765,
+            0.4820809066295624,
+            0.4734208583831787,
+            0.46847110986709595,
+            0.465450644493103
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 43,
+                "duration": 20,
+                "start": 15,
+                "pitch": 6,
+                "delete": 2
+              },
+              "proposed_loss": 0.47839030623435974,
+              "verified_loss": 0.4820809066295624
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 23,
+                "velocity": 35,
+                "duration": 14,
+                "pitch": 7
+              },
+              "proposed_loss": 0.46953704953193665,
+              "verified_loss": 0.4734208583831787
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 41,
+                "duration": 26,
+                "start": 8,
+                "pitch": 3
+              },
+              "proposed_loss": 0.464767187833786,
+              "verified_loss": 0.46847110986709595
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 29,
+                "velocity": 40,
+                "start": 7
+              },
+              "proposed_loss": 0.4619694948196411,
+              "verified_loss": 0.465450644493103
+            }
+          ]
+        },
+        "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b"
+      },
+      "w0.2": {
+        "spectral_convergence": 0.7178918123245239,
+        "log_band_mae": 0.3583774268627167,
+        "waveform_rmse": 0.04337549954652786,
+        "peak": 0.1805419921875,
+        "mr_log_mae": 0.05734266216556231,
+        "envelope_correlation": 0.9249120937695929,
+        "envelope_nrmse": 0.31358206272125244,
+        "objective": 0.5796894431114197,
+        "weight": 0.2,
+        "notes": 89,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 7.191479153931141,
+          "cache_misses": 2157,
+          "candidates_evaluated": 3913,
+          "initial_additivity": {
+            "spectral_convergence": 0.0017514955252408981,
+            "log_band_mae": 0.004262662958353758,
+            "waveform_rmse": 4.919620550936088e-05,
+            "peak": 0.156768798828125
+          },
+          "verified_loss_history": [
+            0.6395747661590576,
+            0.6034484505653381,
+            0.5909984707832336,
+            0.583642303943634,
+            0.579698920249939
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 42,
+                "duration": 17,
+                "start": 18,
+                "pitch": 4,
+                "delete": 1
+              },
+              "proposed_loss": 0.599783718585968,
+              "verified_loss": 0.6034484505653381
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "pitch": 10,
+                "velocity": 35,
+                "duration": 17,
+                "start": 18
+              },
+              "proposed_loss": 0.5873732566833496,
+              "verified_loss": 0.5909984707832336
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 32,
+                "duration": 26,
+                "start": 13,
+                "pitch": 3
+              },
+              "proposed_loss": 0.5801357626914978,
+              "verified_loss": 0.583642303943634
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 24,
+                "velocity": 37,
+                "start": 7,
+                "pitch": 2
+              },
+              "proposed_loss": 0.5762996077537537,
+              "verified_loss": 0.579698920249939
+            }
+          ]
+        },
+        "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b"
+      },
+      "w0.4": {
+        "spectral_convergence": 0.7187930941581726,
+        "log_band_mae": 0.36412930488586426,
+        "waveform_rmse": 0.04395085200667381,
+        "peak": 0.18963623046875,
+        "mr_log_mae": 0.058319135258595146,
+        "envelope_correlation": 0.9313971184842891,
+        "envelope_nrmse": 0.2932300865650177,
+        "objective": 0.7963790893554688,
+        "weight": 0.4,
+        "notes": 90,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 7.363368776626885,
+          "cache_misses": 2153,
+          "candidates_evaluated": 3953,
+          "initial_additivity": {
+            "spectral_convergence": 0.0017512443009763956,
+            "log_band_mae": 0.004275404382497072,
+            "waveform_rmse": 4.918003105558455e-05,
+            "peak": 0.1567840576171875
+          },
+          "verified_loss_history": [
+            0.9133917689323425,
+            0.8446412682533264,
+            0.820479154586792,
+            0.8046935796737671,
+            0.7963795065879822
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 41,
+                "duration": 14,
+                "start": 23,
+                "pitch": 4
+              },
+              "proposed_loss": 0.8411656022071838,
+              "verified_loss": 0.8446412682533264
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 19,
+                "velocity": 38,
+                "duration": 16,
+                "pitch": 10
+              },
+              "proposed_loss": 0.8167948722839355,
+              "verified_loss": 0.820479154586792
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "duration": 21,
+                "velocity": 39,
+                "pitch": 3,
+                "start": 11
+              },
+              "proposed_loss": 0.8013789653778076,
+              "verified_loss": 0.8046935796737671
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 22,
+                "velocity": 43,
+                "start": 6
+              },
+              "proposed_loss": 0.7929577827453613,
+              "verified_loss": 0.7963795065879822
+            }
+          ]
+        },
+        "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b"
+      }
+    }
+  },
+  "ablation": {
+    "spectral": {
+      "quiet-night": {
+        "spectral_convergence": 0.7955417633056641,
+        "log_band_mae": 0.43986669182777405,
+        "waveform_rmse": 0.041444532573223114,
+        "peak": 0.1786346435546875,
+        "mr_log_mae": 0.08018305152654648,
+        "envelope_correlation": 0.7654587600165004,
+        "envelope_nrmse": 0.5301333069801331,
+        "objective": 0.4796438217163086,
+        "weight": 0.05,
+        "notes": 155,
+        "component": "spectral",
+        "spectral_weight": 0.05,
+        "envelope_weight": 0.0,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 16.948073610663414,
+          "cache_misses": 3469,
+          "candidates_evaluated": 6995,
+          "initial_additivity": {
+            "spectral_convergence": 0.005596368107944727,
+            "log_band_mae": 0.004801007453352213,
+            "waveform_rmse": 0.0001788860681699589,
+            "peak": 0.199066162109375
+          },
+          "verified_loss_history": [
+            0.5145435929298401,
+            0.49529576301574707,
+            0.4880233407020569,
+            0.48332077264785767,
+            0.479643315076828
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 35,
+                "velocity": 59,
+                "start": 42,
+                "delete": 7,
+                "pitch": 12
+              },
+              "proposed_loss": 0.492733359336853,
+              "verified_loss": 0.49529576301574707
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 45,
+                "duration": 32,
+                "velocity": 62,
+                "pitch": 5
+              },
+              "proposed_loss": 0.48577359318733215,
+              "verified_loss": 0.4880233407020569
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "start": 26,
+                "velocity": 70,
+                "duration": 37,
+                "pitch": 4
+              },
+              "proposed_loss": 0.48120132088661194,
+              "verified_loss": 0.48332077264785767
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 47,
+                "velocity": 58,
+                "start": 19,
+                "pitch": 4
+              },
+              "proposed_loss": 0.4775038957595825,
+              "verified_loss": 0.479643315076828
+            }
+          ]
+        },
+        "initial_midi_sha256": "9c567501e8f9c496d3de35036f40c9ad135bfe8e88275913f1e0afeb95d31682"
+      },
+      "sonnet-18": {
+        "spectral_convergence": 0.7580102682113647,
+        "log_band_mae": 0.33629682660102844,
+        "waveform_rmse": 0.04097258672118187,
+        "peak": 0.1726837158203125,
+        "mr_log_mae": 0.054255214830239616,
+        "envelope_correlation": 0.7932115286172859,
+        "envelope_nrmse": 0.49484649300575256,
+        "objective": 0.37419724464416504,
+        "weight": 0.05,
+        "notes": 86,
+        "component": "spectral",
+        "spectral_weight": 0.05,
+        "envelope_weight": 0.0,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 7.340008075814694,
+          "cache_misses": 2223,
+          "candidates_evaluated": 3861,
+          "initial_additivity": {
+            "spectral_convergence": 0.001743334112688899,
+            "log_band_mae": 0.004251135978847742,
+            "waveform_rmse": 4.89756312163081e-05,
+            "peak": 0.1567230224609375
+          },
+          "verified_loss_history": [
+            0.40350672602653503,
+            0.38718247413635254,
+            0.3801990747451782,
+            0.37674951553344727,
+            0.3741927742958069
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 33,
+                "duration": 25,
+                "start": 17,
+                "pitch": 6,
+                "delete": 4
+              },
+              "proposed_loss": 0.38338226079940796,
+              "verified_loss": 0.38718247413635254
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "pitch": 10,
+                "velocity": 41,
+                "duration": 10,
+                "start": 20
+              },
+              "proposed_loss": 0.37640711665153503,
+              "verified_loss": 0.3801990747451782
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "duration": 27,
+                "velocity": 39,
+                "start": 12,
+                "pitch": 2
+              },
+              "proposed_loss": 0.3730849623680115,
+              "verified_loss": 0.37674951553344727
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 34,
+                "velocity": 37,
+                "start": 10,
+                "pitch": 1
+              },
+              "proposed_loss": 0.3707337975502014,
+              "verified_loss": 0.3741927742958069
+            }
+          ]
+        },
+        "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b"
+      }
+    },
+    "envelope": {
+      "quiet-night": {
+        "spectral_convergence": 0.7923190593719482,
+        "log_band_mae": 0.4445773959159851,
+        "waveform_rmse": 0.04350542277097702,
+        "peak": 0.1954193115234375,
+        "mr_log_mae": 0.08151853581269582,
+        "envelope_correlation": 0.8553671167122076,
+        "envelope_nrmse": 0.4200541377067566,
+        "objective": 0.472811758518219,
+        "weight": 0.05,
+        "notes": 153,
+        "component": "envelope",
+        "spectral_weight": 0.0,
+        "envelope_weight": 0.05,
+        "trace": {
+          "objective": "BalancedLoss",
+          "device": "cuda",
+          "wall_seconds": 16.598440046422184,
+          "cache_misses": 3482,
+          "candidates_evaluated": 6932,
+          "initial_additivity": {
+            "spectral_convergence": 0.005596368107944727,
+            "log_band_mae": 0.004801007453352213,
+            "waveform_rmse": 0.0001788860681699589,
+            "peak": 0.199066162109375
+          },
+          "verified_loss_history": [
+            0.5050204396247864,
+            0.4886939525604248,
+            0.48067763447761536,
+            0.476064532995224,
+            0.472807377576828
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 32,
+                "velocity": 68,
+                "start": 34,
+                "delete": 8,
+                "pitch": 11
+              },
+              "proposed_loss": 0.4862402677536011,
+              "verified_loss": 0.4886939525604248
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 34,
+                "velocity": 57,
+                "duration": 39,
+                "pitch": 8,
+                "delete": 1
+              },
+              "proposed_loss": 0.4785677194595337,
+              "verified_loss": 0.48067763447761536
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 71,
+                "duration": 30,
+                "start": 24,
+                "pitch": 5
+              },
+              "proposed_loss": 0.47401854395866394,
+              "verified_loss": 0.476064532995224
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "velocity": 61,
+                "duration": 46,
+                "start": 16,
+                "pitch": 3
+              },
+              "proposed_loss": 0.47079721093177795,
+              "verified_loss": 0.472807377576828
+            }
+          ]
+        },
+        "initial_midi_sha256": "9c567501e8f9c496d3de35036f40c9ad135bfe8e88275913f1e0afeb95d31682"
+      },
+      "sonnet-18": {
+        "spectral_convergence": 0.7517631649971008,
+        "log_band_mae": 0.34109997749328613,
+        "waveform_rmse": 0.042234282940626144,
+        "peak": 0.1839599609375,
+        "mr_log_mae": 0.05558095251520475,
+        "envelope_correlation": 0.86987999211821,
+        "envelope_nrmse": 0.39853495359420776,
+        "objective": 0.3675327003002167,
+        "weight": 0.05,
+        "notes": 86,
+        "component": "envelope",
+        "spectral_weight": 0.0,
+        "envelope_weight": 0.05,
+        "trace": {
+          "objective": "BalancedLoss",
+          "device": "cuda",
+          "wall_seconds": 7.439431380014867,
+          "cache_misses": 2144,
+          "candidates_evaluated": 3840,
+          "initial_additivity": {
+            "spectral_convergence": 0.0017535315128043294,
+            "log_band_mae": 0.004301673267036676,
+            "waveform_rmse": 4.923815868096426e-05,
+            "peak": 0.1567840576171875
+          },
+          "verified_loss_history": [
+            0.3964458405971527,
+            0.3812520503997803,
+            0.373793363571167,
+            0.36998313665390015,
+            0.36751699447631836
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 36,
+                "duration": 21,
+                "start": 17,
+                "pitch": 8,
+                "delete": 4
+              },
+              "proposed_loss": 0.37740910053253174,
+              "verified_loss": 0.3812520503997803
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 20,
+                "velocity": 36,
+                "duration": 19,
+                "pitch": 8
+              },
+              "proposed_loss": 0.3700651228427887,
+              "verified_loss": 0.373793363571167
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 40,
+                "duration": 28,
+                "start": 9,
+                "pitch": 1
+              },
+              "proposed_loss": 0.3662464916706085,
+              "verified_loss": 0.36998313665390015
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 30,
+                "velocity": 42,
+                "start": 3
+              },
+              "proposed_loss": 0.3640514314174652,
+              "verified_loss": 0.36751699447631836
+            }
+          ]
+        },
+        "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b"
+      }
+    }
+  },
+  "asr_protocol": {
+    "model": "Systran/faster-whisper-base",
+    "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+    "library": "1.2.1",
+    "device": "cpu",
+    "compute_type": "int8",
+    "beam_size": 5,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "prompt": null,
+    "results": [
+      {
+        "sample": "quiet-night",
+        "variant": "balanced",
+        "hypothesis": "嫂子薄薄薄",
+        "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+        "audio_sha256": "bcdeb69f4d203bcec9195527b2990cb90b3b51a77956d623ceab4f6bdc0a4099",
+        "metric": "CER",
+        "error_rate": 1.0
+      },
+      {
+        "sample": "spring-dawn",
+        "variant": "balanced",
+        "hypothesis": "你不是...你不是...你不是...你不是...",
+        "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+        "audio_sha256": "7b6af103eebe93440b58e592f2e3ceb5d87fdc0bb08b2932d7d7afe3b4454cd0",
+        "metric": "CER",
+        "error_rate": 0.95
+      },
+      {
+        "sample": "stork-tower",
+        "variant": "balanced",
+        "hypothesis": "我自己认为我们是第一代的我们是第一代的我是第一代的",
+        "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+        "audio_sha256": "0fdd6747f9239f70a2795f427282dc23c998e64b7ec51470b02b138d3126d70b",
+        "metric": "CER",
+        "error_rate": 1.2
+      },
+      {
+        "sample": "sonnet-18",
+        "variant": "balanced",
+        "hypothesis": "I'll see you in the next episode.",
+        "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+        "audio_sha256": "04ad771eddb15213a280fee546d13f7e533812124af75e9ba6f3bfa411d3fbb8",
+        "metric": "WER",
+        "error_rate": 0.9375
+      },
+      {
+        "sample": "the-tyger",
+        "variant": "balanced",
+        "hypothesis": ".",
+        "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+        "audio_sha256": "0432becb4c2c1300f05cb26e784ae81456a99bba53b9a438c94f97279d1b8303",
+        "metric": "WER",
+        "error_rate": 1.0
+      }
+    ]
+  },
+  "cpu": {
+    "spectral_convergence": 0.7324546575546265,
+    "log_band_mae": 0.34168437123298645,
+    "waveform_rmse": 0.04336855188012123,
+    "peak": 0.178466796875,
+    "mr_log_mae": 0.055085192124048867,
+    "envelope_correlation": 0.8744711365704908,
+    "envelope_nrmse": 0.3981269299983978,
+    "objective": 0.40448930859565735,
+    "weight": 0.05,
+    "notes": 87,
+    "component": "joint",
+    "spectral_weight": 0.05,
+    "envelope_weight": 0.05,
+    "trace": {
+      "objective": "BalancedLoss",
+      "device": "cpu",
+      "wall_seconds": 25.835814575199038,
+      "cache_misses": 2190,
+      "candidates_evaluated": 3876,
+      "initial_additivity": {
+        "spectral_convergence": 0.004963455721735954,
+        "log_band_mae": 0.005428588483482599,
+        "waveform_rmse": 0.00015516897838097066,
+        "peak": 0.156768798828125
+      },
+      "verified_loss_history": [
+        0.43429848551750183,
+        0.41860100626945496,
+        0.41117575764656067,
+        0.4071316123008728,
+        0.40448376536369324
+      ],
+      "passes": [
+        {
+          "pass_index": 0,
+          "accepted": true,
+          "edits": {
+            "velocity": 38,
+            "duration": 24,
+            "start": 15,
+            "pitch": 6,
+            "delete": 2
+          },
+          "proposed_loss": 0.4146704375743866,
+          "verified_loss": 0.41860100626945496
+        },
+        {
+          "pass_index": 1,
+          "accepted": true,
+          "edits": {
+            "start": 22,
+            "velocity": 37,
+            "duration": 19,
+            "pitch": 7,
+            "delete": 1
+          },
+          "proposed_loss": 0.407594233751297,
+          "verified_loss": 0.41117575764656067
+        },
+        {
+          "pass_index": 2,
+          "accepted": true,
+          "edits": {
+            "duration": 20,
+            "velocity": 49,
+            "start": 9,
+            "pitch": 2
+          },
+          "proposed_loss": 0.40355074405670166,
+          "verified_loss": 0.4071316123008728
+        },
+        {
+          "pass_index": 3,
+          "accepted": true,
+          "edits": {
+            "duration": 27,
+            "velocity": 38,
+            "start": 12
+          },
+          "proposed_loss": 0.4009091258049011,
+          "verified_loss": 0.40448376536369324
+        }
+      ]
+    },
+    "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b"
+  }
+}

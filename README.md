@@ -358,6 +358,19 @@ OPENBLAS_NUM_THREADS=1 scripts/env.sh -m speaking_midi.optimize \
 
 The original command remains available. Log-spectral errors improve on this small corpus, while envelope correlation worsens; this is not a uniform quality improvement or evidence of intelligible piano speech. Run the report’s reproduction commands to generate an offline source/original/improved listening page at `outputs/poetry-backtest/index.html`.
 
+### Balanced spectral and envelope objective
+
+The [follow-up experiment](experiments/BALANCED_FITTING.md) addresses the envelope regression. It keeps the same cached search and adds linear spectral convergence, relative RMS-envelope error, and envelope correlation:
+
+$$
+L = L_{\mathrm{logband}} + 0.05\,\mathrm{SC}
+  + 0.05\left(\frac{\|E(\hat y)-E(y)\|_2}{\|E(y)\|_2} + 1-\rho(E(\hat y),E(y))\right).
+$$
+
+Here $E$ is the 10 ms RMS envelope. Relative envelope error constrains amplitude, while correlation constrains its shape and timing. The selected weight improves log-band error, linear spectral convergence and envelope correlation on all five recordings relative to the original optimizer. It sacrifices some of the log-only optimizer's gains, and three recordings have slightly worse multi-resolution spectral error. ASR still does not establish intelligibility.
+
+Use `--objective balanced --balance-weight .05` with `speaking_midi.optimize` to enable this experimental objective. Both candidate scoring and full-render pass verification use the combined loss, so a pass may trade one metric for another. `--device cpu` remains supported. The default is still `--objective log`; the report documents pilot selection, ablations, full CPU verification, and a four-way listening page.
+
 ## References
 
 - [Qwen3-TTS source](https://github.com/QwenLM/Qwen3-TTS) and [0.6B CustomVoice model card](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice). The initial short experiment uses the built-in Vivian and Ryan voices. The longer demos use the [1.7B VoiceDesign model](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign) with a natural-language voice description. Both paths record model provenance with the generated samples.

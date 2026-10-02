@@ -1,0 +1,8 @@
+{
+  "pilot_samples": ["quiet-night", "sonnet-18"],
+  "explored_weights": [0.025, 0.05, 0.1, 0.2, 0.4],
+  "selected_weight": 0.05,
+  "reason": "Exploratory choice after inspecting both pilots: 0.025 barely restores Quiet Night envelope correlation; 0.05 improves log-band error and linear spectral convergence versus v1 while increasing correlation by over 0.05 on both pilots. Larger weights sacrifice more log-band fidelity.",
+  "frozen_before_validation": ["spring-dawn", "stork-tower", "the-tyger"],
+  "independent_generalization_claim": false
+}

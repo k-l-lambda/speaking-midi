@@ -52,9 +52,16 @@ class BatchLogLoss:
             return (torch.log1p(self.bank@z)-self.target).abs().mean((1,2)).cpu().numpy()
 
 
-def refine_cached(piano,y,notes,*,passes=2,pitch=True,device=None):
+def refine_cached(piano,y,notes,*,passes=2,pitch=True,device=None,objective=None):
+    """Refine notes; a custom batched objective also validates real-render passes.
+
+    ``verified_loss_history`` records that selected objective, not necessarily
+    log-band MAE. The objective must expose a ``device`` attribute.
+    """
     started=time.monotonic();seconds=len(y)/SR;best=list(notes);cache=NoteCache(piano)
-    objective=BatchLogLoss(y,device);true_loss=make_log_band_loss(y)
+    custom_objective=objective is not None
+    objective=objective or BatchLogLoss(y,device)
+    true_loss=(lambda audio: float(objective([audio])[0])) if custom_objective else make_log_band_loss(y)
     audio=piano.render(best,seconds+.5);loss=true_loss(audio)
     approximation=cache.render(best,seconds+.5)
     fidelity=metrics(audio,approximation)
@@ -89,6 +96,6 @@ def refine_cached(piano,y,notes,*,passes=2,pitch=True,device=None):
         pass_reports.append(dict(pass_index=sweep,accepted=accepted,edits=edits,
                                  proposed_loss=proposal_loss,verified_loss=verified_loss))
         print('cached refine',pitch,sweep,'loss',loss,'accepted',accepted,'edits',edits,flush=True)
-    return best,dict(device=objective.device,wall_seconds=time.monotonic()-started,
+    return best,dict(objective=type(objective).__name__,device=objective.device,wall_seconds=time.monotonic()-started,
         cache_misses=cache.misses,candidates_evaluated=candidates_evaluated,initial_additivity=fidelity,
         verified_loss_history=history,passes=pass_reports)
