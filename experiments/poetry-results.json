@@ -1,0 +1,2553 @@
+{
+  "protocol": {
+    "renderer": {
+      "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+      "sr": 24000,
+      "hop": 240,
+      "nfft": 2048,
+      "preset_name": "Grand Piano",
+      "renderer_library_sha256": "6ef97148241a3c529ad1a528631a3610aa5ec75f3846ba5534cb494ddbe6812c",
+      "pitches": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "velocities": [
+        45,
+        75,
+        105
+      ],
+      "durations": [
+        0.06,
+        0.12,
+        0.24
+      ],
+      "tail": 0.3,
+      "gain": 0.8,
+      "bank": 0,
+      "program": 0,
+      "effects": false,
+      "renderer_revision": 3
+    },
+    "max_notes": 240,
+    "torch": "2.10.0+cu128",
+    "python": "3.10.12",
+    "target_rms": 0.035,
+    "metrics": "input interval only; fixed gain; no output normalization or time alignment"
+  },
+  "samples": [
+    {
+      "name": "quiet-night",
+      "title": "静夜思",
+      "language": "Chinese",
+      "text": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+      "seconds": 8.64,
+      "source_sha256": "7bdbca39bd9c406b639b9fda231219484711ca319bd4da9c0c9d991874707981",
+      "old": {
+        "silence": {
+          "spectral_convergence": 1.0,
+          "log_band_mae": 0.6307272911071777,
+          "waveform_rmse": 0.03500000014901161,
+          "peak": 0.0,
+          "mr_log_mae": 0.09133653839429219,
+          "envelope_correlation": 0.0
+        },
+        "baseline": {
+          "spectral_convergence": 0.8142528533935547,
+          "log_band_mae": 0.5274528861045837,
+          "waveform_rmse": 0.03820468485355377,
+          "peak": 0.0977783203125,
+          "mr_log_mae": 0.08385325471560161,
+          "envelope_correlation": 0.7936332547562429,
+          "notes": 577,
+          "wall_seconds": 5.6516127260401845
+        },
+        "dictionary": {
+          "spectral_convergence": 0.7823503017425537,
+          "log_band_mae": 0.48551926016807556,
+          "waveform_rmse": 0.045166946947574615,
+          "peak": 0.23138427734375,
+          "mr_log_mae": 0.08555063356955846,
+          "envelope_correlation": 0.8719546565229951,
+          "notes": 162,
+          "wall_seconds": 1.5709640039131045
+        },
+        "quick": {
+          "spectral_convergence": 0.7760071158409119,
+          "log_band_mae": 0.4756019413471222,
+          "waveform_rmse": 0.04260576516389847,
+          "peak": 0.19903564453125,
+          "mr_log_mae": 0.08288859700163205,
+          "envelope_correlation": 0.8572956709828681,
+          "notes": 162,
+          "wall_seconds": 2.0907662990503013
+        },
+        "v1": {
+          "spectral_convergence": 0.8031753897666931,
+          "log_band_mae": 0.4578131437301636,
+          "waveform_rmse": 0.04201411455869675,
+          "peak": 0.2062225341796875,
+          "mr_log_mae": 0.08130397150913875,
+          "envelope_correlation": 0.8122553147731906,
+          "notes": 147,
+          "wall_seconds": 464.80754121625796
+        }
+      },
+      "new": {
+        "spectral_convergence": 0.8197810053825378,
+        "log_band_mae": 0.43985071778297424,
+        "waveform_rmse": 0.04159406200051308,
+        "peak": 0.2050628662109375,
+        "mr_log_mae": 0.08038689320286115,
+        "envelope_correlation": 0.7417847137572476,
+        "notes": 151,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 14.523538755718619,
+          "cache_misses": 3491,
+          "candidates_evaluated": 6874,
+          "initial_additivity": {
+            "spectral_convergence": 0.005596368107944727,
+            "log_band_mae": 0.004801007453352213,
+            "waveform_rmse": 0.0001788860681699589,
+            "peak": 0.199066162109375
+          },
+          "verified_loss_history": [
+            0.47574564814567566,
+            0.45567619800567627,
+            0.44761112332344055,
+            0.442920446395874,
+            0.4398404061794281
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 31,
+                "velocity": 66,
+                "start": 35,
+                "delete": 10,
+                "pitch": 11
+              },
+              "proposed_loss": 0.4532012939453125,
+              "verified_loss": 0.45567619800567627
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 41,
+                "duration": 29,
+                "velocity": 63,
+                "pitch": 7,
+                "delete": 1
+              },
+              "proposed_loss": 0.44549107551574707,
+              "verified_loss": 0.44761112332344055
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "start": 24,
+                "velocity": 57,
+                "duration": 46,
+                "pitch": 5
+              },
+              "proposed_loss": 0.4408072829246521,
+              "verified_loss": 0.442920446395874
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 46,
+                "velocity": 52,
+                "start": 25,
+                "pitch": 3
+              },
+              "proposed_loss": 0.4377436637878418,
+              "verified_loss": 0.4398404061794281
+            }
+          ]
+        },
+        "initial_midi_sha256": "9c567501e8f9c496d3de35036f40c9ad135bfe8e88275913f1e0afeb95d31682",
+        "passes": 4,
+        "refinement": "cached-waveform-with-pitch"
+      },
+      "ablation": {
+        "cached-no-pitch": {
+          "spectral_convergence": 0.820546567440033,
+          "log_band_mae": 0.4424852728843689,
+          "waveform_rmse": 0.04155142232775688,
+          "peak": 0.182464599609375,
+          "mr_log_mae": 0.08063000440597534,
+          "envelope_correlation": 0.7567425393939767,
+          "notes": 146,
+          "trace": {
+            "device": "cuda",
+            "wall_seconds": 6.532732198946178,
+            "cache_misses": 1515,
+            "candidates_evaluated": 2303,
+            "initial_additivity": {
+              "spectral_convergence": 0.005704876501113176,
+              "log_band_mae": 0.0046677133068442345,
+              "waveform_rmse": 0.000176200206624344,
+              "peak": 0.206268310546875
+            },
+            "verified_loss_history": [
+              0.4579780399799347,
+              0.44657158851623535,
+              0.4424811601638794
+            ],
+            "passes": [
+              {
+                "pass_index": 0,
+                "accepted": true,
+                "edits": {
+                  "start": 24,
+                  "duration": 39,
+                  "velocity": 64,
+                  "delete": 1
+                },
+                "proposed_loss": 0.444792240858078,
+                "verified_loss": 0.44657158851623535
+              },
+              {
+                "pass_index": 1,
+                "accepted": true,
+                "edits": {
+                  "duration": 39,
+                  "velocity": 68,
+                  "start": 24
+                },
+                "proposed_loss": 0.44047972559928894,
+                "verified_loss": 0.4424811601638794
+              }
+            ]
+          }
+        },
+        "cached-pitch": {
+          "spectral_convergence": 0.8238028883934021,
+          "log_band_mae": 0.4414465129375458,
+          "waveform_rmse": 0.04184385761618614,
+          "peak": 0.18267822265625,
+          "mr_log_mae": 0.08066433543960254,
+          "envelope_correlation": 0.7564968635438242,
+          "notes": 147,
+          "trace": {
+            "device": "cuda",
+            "wall_seconds": 7.881851999089122,
+            "cache_misses": 2114,
+            "candidates_evaluated": 3262,
+            "initial_additivity": {
+              "spectral_convergence": 0.0023933497723191977,
+              "log_band_mae": 0.0034367740154266357,
+              "waveform_rmse": 6.598263280466199e-05,
+              "peak": 0.2062225341796875
+            },
+            "verified_loss_history": [
+              0.45781800150871277,
+              0.4462502896785736,
+              0.4414456784725189
+            ],
+            "passes": [
+              {
+                "pass_index": 0,
+                "accepted": true,
+                "edits": {
+                  "start": 24,
+                  "duration": 39,
+                  "velocity": 61,
+                  "pitch": 10
+                },
+                "proposed_loss": 0.4443425238132477,
+                "verified_loss": 0.4462502896785736
+              },
+              {
+                "pass_index": 1,
+                "accepted": true,
+                "edits": {
+                  "duration": 37,
+                  "velocity": 61,
+                  "start": 28,
+                  "pitch": 4
+                },
+                "proposed_loss": 0.43938538432121277,
+                "verified_loss": 0.4414456784725189
+              }
+            ]
+          }
+        }
+      },
+      "repeatability": {
+        "v1": {
+          "mean": 0.45787085096041363,
+          "std": 7.596614639748517e-05,
+          "values": [
+            0.4579780399799347,
+            0.4578235149383545,
+            0.45781099796295166
+          ]
+        },
+        "cached-direct": {
+          "mean": 0.4398406247297923,
+          "std": 2.4958543005977667e-06,
+          "values": [
+            0.4398437440395355,
+            0.43984049558639526,
+            0.43983763456344604
+          ]
+        }
+      },
+      "demo80": {
+        "spectral_convergence": 0.8039246201515198,
+        "log_band_mae": 0.4911217987537384,
+        "waveform_rmse": 0.04214807227253914,
+        "peak": 0.2122802734375,
+        "mr_log_mae": 0.08333143716057141,
+        "envelope_correlation": 0.8422539353039317,
+        "notes": 80,
+        "wall_seconds": 2.050134510733187,
+        "pursuit": {
+          "accepted": 80,
+          "surrogate_improvements": [
+            5916.513671875,
+            5717.4951171875,
+            5563.51708984375,
+            5457.5986328125,
+            5339.6513671875,
+            4557.30859375,
+            4461.421875,
+            4023.216796875,
+            3645.86865234375,
+            3323.744384765625,
+            3316.1884765625,
+            3010.720703125,
+            2904.56396484375,
+            2534.529296875,
+            2343.675048828125,
+            2303.1025390625,
+            2144.43798828125,
+            2015.81494140625,
+            2000.453125,
+            1886.265380859375,
+            1795.488525390625,
+            1759.138671875,
+            1752.35009765625,
+            1665.095458984375,
+            1599.0599365234375,
+            1485.7021484375,
+            1435.3748779296875,
+            1390.4815673828125,
+            1355.667724609375,
+            1347.99365234375,
+            1347.15234375,
+            1261.7603759765625,
+            1244.9462890625,
+            1153.1685791015625,
+            1145.288818359375,
+            1081.5821533203125,
+            987.1796875,
+            982.9544067382812,
+            956.2537841796875,
+            948.100341796875,
+            934.62109375,
+            913.42822265625,
+            855.7322998046875,
+            834.106201171875,
+            826.7166137695312,
+            813.8125610351562,
+            762.2947998046875,
+            725.436767578125,
+            723.60986328125,
+            723.1986694335938,
+            693.0306396484375,
+            672.04345703125,
+            631.8018188476562,
+            626.3843383789062,
+            613.303466796875,
+            583.525390625,
+            576.7784423828125,
+            560.48681640625,
+            559.1673583984375,
+            557.3177490234375,
+            532.4115600585938,
+            529.4742431640625,
+            515.6253662109375,
+            483.1894226074219,
+            456.2608642578125,
+            445.09942626953125,
+            442.2008056640625,
+            438.65673828125,
+            433.6912841796875,
+            430.4818420410156,
+            423.36016845703125,
+            420.79815673828125,
+            403.1209411621094,
+            376.44122314453125,
+            374.46258544921875,
+            373.0321350097656,
+            372.0036926269531,
+            371.9725036621094,
+            356.99951171875,
+            333.5224914550781
+          ],
+          "device": "cuda"
+        },
+        "calibration": {
+          "evaluations": 5,
+          "loss_history": [
+            0.4972846806049347
+          ],
+          "accepted": [],
+          "wall_seconds": 1.0259262612089515
+        }
+      }
+    },
+    {
+      "name": "spring-dawn",
+      "title": "春晓",
+      "language": "Chinese",
+      "text": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+      "seconds": 8.16,
+      "source_sha256": "316f58a7865d1f31822471e2e84f507af683ece80dab7b1f41414310796b6b67",
+      "old": {
+        "silence": {
+          "spectral_convergence": 1.0,
+          "log_band_mae": 0.5655444264411926,
+          "waveform_rmse": 0.03500000014901161,
+          "peak": 0.0,
+          "mr_log_mae": 0.08374879757563274,
+          "envelope_correlation": 0.0
+        },
+        "baseline": {
+          "spectral_convergence": 0.8456587195396423,
+          "log_band_mae": 0.4701385498046875,
+          "waveform_rmse": 0.0363583043217659,
+          "peak": 0.084808349609375,
+          "mr_log_mae": 0.07704322536786397,
+          "envelope_correlation": 0.8605216024024055,
+          "notes": 410,
+          "wall_seconds": 4.5516299600712955
+        },
+        "dictionary": {
+          "spectral_convergence": 0.7876401543617249,
+          "log_band_mae": 0.4177010953426361,
+          "waveform_rmse": 0.041731420904397964,
+          "peak": 0.1497650146484375,
+          "mr_log_mae": 0.07712633535265923,
+          "envelope_correlation": 0.8621599724358296,
+          "notes": 126,
+          "wall_seconds": 1.8211909071542323
+        },
+        "quick": {
+          "spectral_convergence": 0.7961157560348511,
+          "log_band_mae": 0.41231462359428406,
+          "waveform_rmse": 0.03985965624451637,
+          "peak": 0.134063720703125,
+          "mr_log_mae": 0.0751406302054723,
+          "envelope_correlation": 0.8558283519629705,
+          "notes": 126,
+          "wall_seconds": 1.735131981316954
+        },
+        "v1": {
+          "spectral_convergence": 0.8086581826210022,
+          "log_band_mae": 0.3986579477787018,
+          "waveform_rmse": 0.040338609367609024,
+          "peak": 0.1453857421875,
+          "mr_log_mae": 0.07409552857279778,
+          "envelope_correlation": 0.7991887264769174,
+          "notes": 117,
+          "wall_seconds": 290.8593649677932
+        }
+      },
+      "new": {
+        "spectral_convergence": 0.8182555437088013,
+        "log_band_mae": 0.3811955153942108,
+        "waveform_rmse": 0.03919209539890289,
+        "peak": 0.1576690673828125,
+        "mr_log_mae": 0.07333245128393173,
+        "envelope_correlation": 0.7344362197560637,
+        "notes": 121,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 11.71418593917042,
+          "cache_misses": 2786,
+          "candidates_evaluated": 5292,
+          "initial_additivity": {
+            "spectral_convergence": 0.0026264593470841646,
+            "log_band_mae": 0.003339156275615096,
+            "waveform_rmse": 6.157450843602419e-05,
+            "peak": 0.13409423828125
+          },
+          "verified_loss_history": [
+            0.4123068153858185,
+            0.39688166975975037,
+            0.38891708850860596,
+            0.38403838872909546,
+            0.38119280338287354
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 48,
+                "start": 20,
+                "delete": 4,
+                "pitch": 15,
+                "duration": 27
+              },
+              "proposed_loss": 0.39532795548439026,
+              "verified_loss": 0.39688166975975037
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "pitch": 8,
+                "start": 35,
+                "delete": 1,
+                "velocity": 49,
+                "duration": 19
+              },
+              "proposed_loss": 0.38749945163726807,
+              "verified_loss": 0.38891708850860596
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "start": 8,
+                "duration": 32,
+                "velocity": 53,
+                "pitch": 4
+              },
+              "proposed_loss": 0.3825543522834778,
+              "verified_loss": 0.38403838872909546
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "velocity": 48,
+                "duration": 34,
+                "start": 7,
+                "pitch": 2
+              },
+              "proposed_loss": 0.3795817792415619,
+              "verified_loss": 0.38119280338287354
+            }
+          ]
+        },
+        "initial_midi_sha256": "f004f6f29d326b6a6f6981b8c128f43d1fa966f47e5a67cb8cc31051e96fe4ed",
+        "passes": 4,
+        "refinement": "cached-waveform-with-pitch"
+      },
+      "ablation": {
+        "cached-no-pitch": {
+          "spectral_convergence": 0.8240197896957397,
+          "log_band_mae": 0.3839043080806732,
+          "waveform_rmse": 0.03971228003501892,
+          "peak": 0.1589813232421875,
+          "mr_log_mae": 0.07376587763428688,
+          "envelope_correlation": 0.7359562098165607,
+          "notes": 116,
+          "trace": {
+            "device": "cuda",
+            "wall_seconds": 4.870051973033696,
+            "cache_misses": 1190,
+            "candidates_evaluated": 1826,
+            "initial_additivity": {
+              "spectral_convergence": 0.0030413016211241484,
+              "log_band_mae": 0.0031128062400966883,
+              "waveform_rmse": 7.261506107170135e-05,
+              "peak": 0.1453399658203125
+            },
+            "verified_loss_history": [
+              0.39866137504577637,
+              0.388392835855484,
+              0.38391345739364624
+            ],
+            "passes": [
+              {
+                "pass_index": 0,
+                "accepted": true,
+                "edits": {
+                  "start": 20,
+                  "duration": 31,
+                  "velocity": 45,
+                  "delete": 1
+                },
+                "proposed_loss": 0.3869929313659668,
+                "verified_loss": 0.388392835855484
+              },
+              {
+                "pass_index": 1,
+                "accepted": true,
+                "edits": {
+                  "velocity": 39,
+                  "start": 24,
+                  "duration": 35
+                },
+                "proposed_loss": 0.3825627565383911,
+                "verified_loss": 0.38391345739364624
+              }
+            ]
+          }
+        },
+        "cached-pitch": {
+          "spectral_convergence": 0.8250954151153564,
+          "log_band_mae": 0.38223859667778015,
+          "waveform_rmse": 0.03959040716290474,
+          "peak": 0.1499176025390625,
+          "mr_log_mae": 0.0736786276102066,
+          "envelope_correlation": 0.7345252742139952,
+          "notes": 115,
+          "trace": {
+            "device": "cuda",
+            "wall_seconds": 6.126964179333299,
+            "cache_misses": 1662,
+            "candidates_evaluated": 2508,
+            "initial_additivity": {
+              "spectral_convergence": 0.00304196635261178,
+              "log_band_mae": 0.00310169137082994,
+              "waveform_rmse": 7.258542609633878e-05,
+              "peak": 0.145355224609375
+            },
+            "verified_loss_history": [
+              0.39866146445274353,
+              0.38713547587394714,
+              0.38225042819976807
+            ],
+            "passes": [
+              {
+                "pass_index": 0,
+                "accepted": true,
+                "edits": {
+                  "pitch": 16,
+                  "velocity": 42,
+                  "delete": 1,
+                  "start": 21,
+                  "duration": 26
+                },
+                "proposed_loss": 0.3860091269016266,
+                "verified_loss": 0.38713547587394714
+              },
+              {
+                "pass_index": 1,
+                "accepted": true,
+                "edits": {
+                  "velocity": 41,
+                  "delete": 1,
+                  "duration": 27,
+                  "start": 23,
+                  "pitch": 6
+                },
+                "proposed_loss": 0.38093170523643494,
+                "verified_loss": 0.38225042819976807
+              }
+            ]
+          }
+        }
+      },
+      "repeatability": {
+        "v1": {
+          "mean": 0.398656169573466,
+          "std": 3.018367022633194e-06,
+          "values": [
+            0.39865490794181824,
+            0.3986603319644928,
+            0.3986532688140869
+          ]
+        },
+        "cached-direct": {
+          "mean": 0.3811892370382945,
+          "std": 1.5946021852206213e-06,
+          "values": [
+            0.38118812441825867,
+            0.3811914920806885,
+            0.3811880946159363
+          ]
+        }
+      },
+      "demo80": {
+        "spectral_convergence": 0.8039777278900146,
+        "log_band_mae": 0.423564612865448,
+        "waveform_rmse": 0.03982199355959892,
+        "peak": 0.1228179931640625,
+        "mr_log_mae": 0.07557154074311256,
+        "envelope_correlation": 0.8513807955516569,
+        "notes": 80,
+        "wall_seconds": 1.484140930697322,
+        "pursuit": {
+          "accepted": 80,
+          "surrogate_improvements": [
+            8318.82421875,
+            6841.685546875,
+            5623.501953125,
+            4936.95068359375,
+            4523.34423828125,
+            3675.4384765625,
+            3662.74365234375,
+            2822.90234375,
+            2685.263671875,
+            2414.84521484375,
+            2376.974609375,
+            2325.9150390625,
+            2283.6982421875,
+            2244.921630859375,
+            2082.407958984375,
+            1954.793701171875,
+            1849.3984375,
+            1821.107421875,
+            1725.33203125,
+            1569.8594970703125,
+            1414.912109375,
+            1375.884033203125,
+            1346.30078125,
+            1328.6253662109375,
+            1243.565185546875,
+            1165.913330078125,
+            1095.6834716796875,
+            1001.92236328125,
+            983.4913330078125,
+            915.633544921875,
+            908.3270263671875,
+            814.206787109375,
+            757.28369140625,
+            705.4391479492188,
+            702.3443603515625,
+            697.917724609375,
+            662.0724487304688,
+            654.5673828125,
+            653.2037353515625,
+            628.7347412109375,
+            598.2401733398438,
+            576.53955078125,
+            565.2849731445312,
+            563.3115234375,
+            551.721435546875,
+            543.8690795898438,
+            497.363525390625,
+            478.0286865234375,
+            466.41943359375,
+            462.8062744140625,
+            447.9986572265625,
+            445.32257080078125,
+            436.4430847167969,
+            424.4479064941406,
+            401.73321533203125,
+            399.05389404296875,
+            392.5299072265625,
+            356.6845703125,
+            350.0470275878906,
+            346.9776611328125,
+            328.3419189453125,
+            317.741455078125,
+            317.52166748046875,
+            311.12353515625,
+            309.5128173828125,
+            288.0277099609375,
+            287.41241455078125,
+            270.37774658203125,
+            266.783935546875,
+            258.9793701171875,
+            257.38275146484375,
+            255.4874267578125,
+            233.16917419433594,
+            228.20591735839844,
+            223.23089599609375,
+            219.32659912109375,
+            214.14483642578125,
+            200.07830810546875,
+            193.58843994140625,
+            187.88796997070312
+          ],
+          "device": "cuda"
+        },
+        "calibration": {
+          "evaluations": 5,
+          "loss_history": [
+            0.4270022511482239
+          ],
+          "accepted": [],
+          "wall_seconds": 0.9347372781485319
+        }
+      }
+    },
+    {
+      "name": "stork-tower",
+      "title": "登鹳雀楼",
+      "language": "Chinese",
+      "text": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+      "seconds": 7.6,
+      "source_sha256": "0aae65399547fef6d999e4b929b252fc9a428e82c7f159779d3a9bd1ca061c08",
+      "old": {
+        "silence": {
+          "spectral_convergence": 1.0,
+          "log_band_mae": 0.6038284301757812,
+          "waveform_rmse": 0.03500000014901161,
+          "peak": 0.0,
+          "mr_log_mae": 0.08151532461245854,
+          "envelope_correlation": 0.0
+        },
+        "baseline": {
+          "spectral_convergence": 0.8580811619758606,
+          "log_band_mae": 0.49007648229599,
+          "waveform_rmse": 0.03703716769814491,
+          "peak": 0.0898284912109375,
+          "mr_log_mae": 0.0737580768764019,
+          "envelope_correlation": 0.7971223511634463,
+          "notes": 460,
+          "wall_seconds": 4.787357503082603
+        },
+        "dictionary": {
+          "spectral_convergence": 0.8101912140846252,
+          "log_band_mae": 0.4381038546562195,
+          "waveform_rmse": 0.041981395334005356,
+          "peak": 0.2174072265625,
+          "mr_log_mae": 0.07390322536230087,
+          "envelope_correlation": 0.8217845621095493,
+          "notes": 142,
+          "wall_seconds": 1.925131040159613
+        },
+        "quick": {
+          "spectral_convergence": 0.8195104598999023,
+          "log_band_mae": 0.43310198187828064,
+          "waveform_rmse": 0.039886169135570526,
+          "peak": 0.184051513671875,
+          "mr_log_mae": 0.07176150133212407,
+          "envelope_correlation": 0.8019443239865689,
+          "notes": 142,
+          "wall_seconds": 1.7728110048919916
+        },
+        "v1": {
+          "spectral_convergence": 0.8383367657661438,
+          "log_band_mae": 0.4152887761592865,
+          "waveform_rmse": 0.0392724983394146,
+          "peak": 0.1998443603515625,
+          "mr_log_mae": 0.07049657280246417,
+          "envelope_correlation": 0.71087062303392,
+          "notes": 134,
+          "wall_seconds": 349.91553551563993
+        }
+      },
+      "new": {
+        "spectral_convergence": 0.8426358699798584,
+        "log_band_mae": 0.39341047406196594,
+        "waveform_rmse": 0.038873396813869476,
+        "peak": 0.15850830078125,
+        "mr_log_mae": 0.07000148793061574,
+        "envelope_correlation": 0.6788008895351785,
+        "notes": 134,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 12.492313829250634,
+          "cache_misses": 2978,
+          "candidates_evaluated": 5884,
+          "initial_additivity": {
+            "spectral_convergence": 0.0027617323212325573,
+            "log_band_mae": 0.003918855916708708,
+            "waveform_rmse": 5.986576070426963e-05,
+            "peak": 0.183990478515625
+          },
+          "verified_loss_history": [
+            0.43309295177459717,
+            0.4123855233192444,
+            0.4032399356365204,
+            0.396618515253067,
+            0.39340901374816895
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "duration": 30,
+                "start": 20,
+                "velocity": 66,
+                "pitch": 17,
+                "delete": 8
+              },
+              "proposed_loss": 0.4092847406864166,
+              "verified_loss": 0.4123855233192444
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 43,
+                "velocity": 60,
+                "duration": 20,
+                "pitch": 9
+              },
+              "proposed_loss": 0.4002726376056671,
+              "verified_loss": 0.4032399356365204
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "duration": 41,
+                "start": 17,
+                "velocity": 69,
+                "pitch": 5
+              },
+              "proposed_loss": 0.3939492106437683,
+              "verified_loss": 0.396618515253067
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "velocity": 64,
+                "duration": 45,
+                "start": 13,
+                "pitch": 3
+              },
+              "proposed_loss": 0.39077267050743103,
+              "verified_loss": 0.39340901374816895
+            }
+          ]
+        },
+        "initial_midi_sha256": "128865d284b42e2ac730e98cbde5fb005f71a96c118114c6d639744d2350d187",
+        "passes": 4,
+        "refinement": "cached-waveform-with-pitch"
+      },
+      "ablation": {
+        "cached-no-pitch": {
+          "spectral_convergence": 0.8478878736495972,
+          "log_band_mae": 0.39758971333503723,
+          "waveform_rmse": 0.03903370350599289,
+          "peak": 0.1680908203125,
+          "mr_log_mae": 0.07019264996051788,
+          "envelope_correlation": 0.6747442156564083,
+          "notes": 132,
+          "trace": {
+            "device": "cuda",
+            "wall_seconds": 5.772239915560931,
+            "cache_misses": 1302,
+            "candidates_evaluated": 2089,
+            "initial_additivity": {
+              "spectral_convergence": 0.003060398856177926,
+              "log_band_mae": 0.003720963606610894,
+              "waveform_rmse": 6.233100430108607e-05,
+              "peak": 0.19989013671875
+            },
+            "verified_loss_history": [
+              0.4152839481830597,
+              0.4022004008293152,
+              0.3975885212421417
+            ],
+            "passes": [
+              {
+                "pass_index": 0,
+                "accepted": true,
+                "edits": {
+                  "velocity": 62,
+                  "duration": 39,
+                  "start": 28,
+                  "delete": 1
+                },
+                "proposed_loss": 0.3994622528553009,
+                "verified_loss": 0.4022004008293152
+              },
+              {
+                "pass_index": 1,
+                "accepted": true,
+                "edits": {
+                  "velocity": 60,
+                  "duration": 40,
+                  "start": 28,
+                  "delete": 1
+                },
+                "proposed_loss": 0.39491796493530273,
+                "verified_loss": 0.3975885212421417
+              }
+            ]
+          }
+        },
+        "cached-pitch": {
+          "spectral_convergence": 0.8493499159812927,
+          "log_band_mae": 0.3954622447490692,
+          "waveform_rmse": 0.038967929780483246,
+          "peak": 0.1765594482421875,
+          "mr_log_mae": 0.07014823704957962,
+          "envelope_correlation": 0.678011829212007,
+          "notes": 133,
+          "trace": {
+            "device": "cuda",
+            "wall_seconds": 7.0486556850373745,
+            "cache_misses": 1782,
+            "candidates_evaluated": 2893,
+            "initial_additivity": {
+              "spectral_convergence": 0.0030451915226876736,
+              "log_band_mae": 0.0037325636949390173,
+              "waveform_rmse": 6.186690734466538e-05,
+              "peak": 0.1998138427734375
+            },
+            "verified_loss_history": [
+              0.41528597474098206,
+              0.40098807215690613,
+              0.39546507596969604
+            ],
+            "passes": [
+              {
+                "pass_index": 0,
+                "accepted": true,
+                "edits": {
+                  "velocity": 48,
+                  "duration": 30,
+                  "start": 27,
+                  "pitch": 19,
+                  "delete": 1
+                },
+                "proposed_loss": 0.3982648551464081,
+                "verified_loss": 0.40098807215690613
+              },
+              {
+                "pass_index": 1,
+                "accepted": true,
+                "edits": {
+                  "velocity": 57,
+                  "duration": 36,
+                  "start": 30,
+                  "pitch": 8
+                },
+                "proposed_loss": 0.3928122818470001,
+                "verified_loss": 0.39546507596969604
+              }
+            ]
+          }
+        }
+      },
+      "repeatability": {
+        "v1": {
+          "mean": 0.41528257727622986,
+          "std": 5.753212068704867e-07,
+          "values": [
+            0.41528332233428955,
+            0.4152824878692627,
+            0.41528192162513733
+          ]
+        },
+        "cached-direct": {
+          "mean": 0.3934089740117391,
+          "std": 2.068251590657664e-06,
+          "values": [
+            0.3934062123298645,
+            0.39341118931770325,
+            0.39340952038764954
+          ]
+        }
+      },
+      "demo80": {
+        "spectral_convergence": 0.8305166363716125,
+        "log_band_mae": 0.4496256113052368,
+        "waveform_rmse": 0.039617061614990234,
+        "peak": 0.18414306640625,
+        "mr_log_mae": 0.07239447658260663,
+        "envelope_correlation": 0.7956199754691271,
+        "notes": 80,
+        "wall_seconds": 1.3310601408593357,
+        "pursuit": {
+          "accepted": 80,
+          "surrogate_improvements": [
+            5408.2392578125,
+            5401.2958984375,
+            4268.015625,
+            3848.41064453125,
+            3658.202392578125,
+            3366.48681640625,
+            3254.9091796875,
+            3249.6328125,
+            2974.51904296875,
+            2908.26513671875,
+            2802.140869140625,
+            2670.808837890625,
+            2653.062744140625,
+            2136.60791015625,
+            2110.183837890625,
+            2004.5179443359375,
+            1936.90869140625,
+            1922.98681640625,
+            1885.0191650390625,
+            1503.9122314453125,
+            1497.7572021484375,
+            1412.13037109375,
+            1366.48388671875,
+            1350.46142578125,
+            1311.07373046875,
+            1199.8665771484375,
+            1145.5191650390625,
+            995.4925537109375,
+            992.992919921875,
+            958.2564697265625,
+            955.9837646484375,
+            855.8218383789062,
+            845.828857421875,
+            833.697509765625,
+            831.7210693359375,
+            827.1480712890625,
+            801.0833740234375,
+            775.91943359375,
+            768.4637451171875,
+            768.395263671875,
+            702.4423217773438,
+            682.51220703125,
+            668.1553955078125,
+            641.6915283203125,
+            636.4035034179688,
+            621.1403198242188,
+            594.2347412109375,
+            544.3390502929688,
+            525.376953125,
+            506.77008056640625,
+            502.56573486328125,
+            482.46734619140625,
+            476.6434020996094,
+            448.9576416015625,
+            401.34368896484375,
+            397.1986999511719,
+            395.0041198730469,
+            389.952392578125,
+            371.06744384765625,
+            355.30230712890625,
+            348.39117431640625,
+            336.838134765625,
+            330.5289306640625,
+            329.1178894042969,
+            327.3292236328125,
+            312.7588806152344,
+            302.80340576171875,
+            277.684814453125,
+            261.4273986816406,
+            258.88519287109375,
+            258.55657958984375,
+            250.78854370117188,
+            250.4615478515625,
+            248.4144287109375,
+            247.47943115234375,
+            242.3284912109375,
+            226.19393920898438,
+            223.76531982421875,
+            205.40359497070312,
+            202.27691650390625
+          ],
+          "device": "cuda"
+        },
+        "calibration": {
+          "evaluations": 5,
+          "loss_history": [
+            0.452609121799469
+          ],
+          "accepted": [],
+          "wall_seconds": 0.8124319422058761
+        }
+      }
+    },
+    {
+      "name": "sonnet-18",
+      "title": "Sonnet 18 (opening couplet)",
+      "language": "English",
+      "text": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+      "seconds": 4.64,
+      "source_sha256": "55f718b8da437c778f35c9a22c8b0b8c7ab8c176e8a91ad460f036afa53cc5e5",
+      "old": {
+        "silence": {
+          "spectral_convergence": 1.0,
+          "log_band_mae": 0.5159661173820496,
+          "waveform_rmse": 0.03500000387430191,
+          "peak": 0.0,
+          "mr_log_mae": 0.06558540960152943,
+          "envelope_correlation": 0.0
+        },
+        "baseline": {
+          "spectral_convergence": 0.8022893667221069,
+          "log_band_mae": 0.4001528322696686,
+          "waveform_rmse": 0.039745911955833435,
+          "peak": 0.0969696044921875,
+          "mr_log_mae": 0.05726818864544233,
+          "envelope_correlation": 0.7777552545190651,
+          "notes": 281,
+          "wall_seconds": 2.7073943512514234
+        },
+        "dictionary": {
+          "spectral_convergence": 0.7599596977233887,
+          "log_band_mae": 0.3728511333465576,
+          "waveform_rmse": 0.0433751605451107,
+          "peak": 0.19024658203125,
+          "mr_log_mae": 0.05896570781866709,
+          "envelope_correlation": 0.852365435890903,
+          "notes": 90,
+          "wall_seconds": 0.9925271840766072
+        },
+        "quick": {
+          "spectral_convergence": 0.7551706433296204,
+          "log_band_mae": 0.3657534718513489,
+          "waveform_rmse": 0.04068482667207718,
+          "peak": 0.156768798828125,
+          "mr_log_mae": 0.05650613456964493,
+          "envelope_correlation": 0.8446799882985622,
+          "notes": 90,
+          "wall_seconds": 0.857653914950788
+        },
+        "v1": {
+          "spectral_convergence": 0.760835587978363,
+          "log_band_mae": 0.3506465256214142,
+          "waveform_rmse": 0.04040311649441719,
+          "peak": 0.18505859375,
+          "mr_log_mae": 0.054936282336711884,
+          "envelope_correlation": 0.8147633714522864,
+          "notes": 80,
+          "wall_seconds": 99.83342863200232
+        }
+      },
+      "new": {
+        "spectral_convergence": 0.7755877375602722,
+        "log_band_mae": 0.33664166927337646,
+        "waveform_rmse": 0.04019428789615631,
+        "peak": 0.1710968017578125,
+        "mr_log_mae": 0.05440287788709005,
+        "envelope_correlation": 0.7935740656854544,
+        "notes": 84,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 6.828609413933009,
+          "cache_misses": 2167,
+          "candidates_evaluated": 3815,
+          "initial_additivity": {
+            "spectral_convergence": 0.0017519487300887704,
+            "log_band_mae": 0.004267072770744562,
+            "waveform_rmse": 4.917441037832759e-05,
+            "peak": 0.1567535400390625
+          },
+          "verified_loss_history": [
+            0.36574453115463257,
+            0.3492949306964874,
+            0.3425349295139313,
+            0.3392960727214813,
+            0.3366507887840271
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "velocity": 38,
+                "duration": 19,
+                "start": 17,
+                "delete": 6,
+                "pitch": 7
+              },
+              "proposed_loss": 0.34554389119148254,
+              "verified_loss": 0.3492949306964874
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "start": 16,
+                "velocity": 40,
+                "duration": 14,
+                "pitch": 6
+              },
+              "proposed_loss": 0.338641881942749,
+              "verified_loss": 0.3425349295139313
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "velocity": 39,
+                "duration": 22,
+                "start": 11,
+                "pitch": 4
+              },
+              "proposed_loss": 0.3354986310005188,
+              "verified_loss": 0.3392960727214813
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 31,
+                "velocity": 34,
+                "pitch": 2,
+                "start": 10
+              },
+              "proposed_loss": 0.33303582668304443,
+              "verified_loss": 0.3366507887840271
+            }
+          ]
+        },
+        "initial_midi_sha256": "7a0e0cae3a234439438cb76835d52e781dff6ea40de003055f6c4388ede76d2b",
+        "passes": 4,
+        "refinement": "cached-waveform-with-pitch"
+      },
+      "ablation": {
+        "cached-no-pitch": {
+          "spectral_convergence": 0.776629626750946,
+          "log_band_mae": 0.3390132188796997,
+          "waveform_rmse": 0.04136142507195473,
+          "peak": 0.1931610107421875,
+          "mr_log_mae": 0.0546472022930781,
+          "envelope_correlation": 0.7728031626672027,
+          "notes": 80,
+          "trace": {
+            "device": "cuda",
+            "wall_seconds": 2.980262708850205,
+            "cache_misses": 884,
+            "candidates_evaluated": 1253,
+            "initial_additivity": {
+              "spectral_convergence": 0.0016063946532085538,
+              "log_band_mae": 0.0038112392649054527,
+              "waveform_rmse": 4.580851600621827e-05,
+              "peak": 0.1850433349609375
+            },
+            "verified_loss_history": [
+              0.35065993666648865,
+              0.3423670828342438,
+              0.3390195965766907
+            ],
+            "passes": [
+              {
+                "pass_index": 0,
+                "accepted": true,
+                "edits": {
+                  "duration": 20,
+                  "start": 13,
+                  "velocity": 39
+                },
+                "proposed_loss": 0.3391580581665039,
+                "verified_loss": 0.3423670828342438
+              },
+              {
+                "pass_index": 1,
+                "accepted": true,
+                "edits": {
+                  "start": 12,
+                  "velocity": 36,
+                  "duration": 25
+                },
+                "proposed_loss": 0.3356434404850006,
+                "verified_loss": 0.3390195965766907
+              }
+            ]
+          }
+        },
+        "cached-pitch": {
+          "spectral_convergence": 0.7764716148376465,
+          "log_band_mae": 0.3379068672657013,
+          "waveform_rmse": 0.04134397208690643,
+          "peak": 0.19793701171875,
+          "mr_log_mae": 0.054425434519847236,
+          "envelope_correlation": 0.7717013999231057,
+          "notes": 80,
+          "trace": {
+            "device": "cuda",
+            "wall_seconds": 3.860519067849964,
+            "cache_misses": 1231,
+            "candidates_evaluated": 1778,
+            "initial_additivity": {
+              "spectral_convergence": 0.0016094086458906531,
+              "log_band_mae": 0.003799397498369217,
+              "waveform_rmse": 4.5764325477648526e-05,
+              "peak": 0.18505859375
+            },
+            "verified_loss_history": [
+              0.3506511151790619,
+              0.34210821986198425,
+              0.33789801597595215
+            ],
+            "passes": [
+              {
+                "pass_index": 0,
+                "accepted": true,
+                "edits": {
+                  "pitch": 8,
+                  "start": 11,
+                  "velocity": 35,
+                  "duration": 17
+                },
+                "proposed_loss": 0.33889198303222656,
+                "verified_loss": 0.34210821986198425
+              },
+              {
+                "pass_index": 1,
+                "accepted": true,
+                "edits": {
+                  "duration": 21,
+                  "velocity": 34,
+                  "pitch": 6,
+                  "start": 12
+                },
+                "proposed_loss": 0.33456432819366455,
+                "verified_loss": 0.33789801597595215
+              }
+            ]
+          }
+        }
+      },
+      "repeatability": {
+        "v1": {
+          "mean": 0.35065244634946185,
+          "std": 3.761263516687677e-06,
+          "values": [
+            0.3506544232368469,
+            0.350655734539032,
+            0.3506471812725067
+          ]
+        },
+        "cached-direct": {
+          "mean": 0.3366488218307495,
+          "std": 1.4577773831656075e-06,
+          "values": [
+            0.3366468846797943,
+            0.33664917945861816,
+            0.33665040135383606
+          ]
+        }
+      },
+      "demo80": {
+        "spectral_convergence": 0.7565507292747498,
+        "log_band_mae": 0.36880600452423096,
+        "waveform_rmse": 0.04060716554522514,
+        "peak": 0.1567535400390625,
+        "mr_log_mae": 0.056472860276699066,
+        "envelope_correlation": 0.8448171054435974,
+        "notes": 80,
+        "wall_seconds": 1.1824305481277406,
+        "pursuit": {
+          "accepted": 80,
+          "surrogate_improvements": [
+            7724.04248046875,
+            5842.126953125,
+            4372.4619140625,
+            4318.27685546875,
+            3848.779296875,
+            3227.873046875,
+            3112.914794921875,
+            2730.899658203125,
+            2467.808837890625,
+            2308.693603515625,
+            2107.1943359375,
+            1874.2108154296875,
+            1790.152587890625,
+            1580.3968505859375,
+            1566.62646484375,
+            1484.429931640625,
+            1388.40625,
+            1037.22900390625,
+            1011.8399658203125,
+            937.0863037109375,
+            929.5059814453125,
+            877.2862548828125,
+            864.6251220703125,
+            839.660888671875,
+            754.06494140625,
+            705.6246337890625,
+            691.1284790039062,
+            673.3848876953125,
+            629.8096923828125,
+            612.3778076171875,
+            610.3544921875,
+            562.6123657226562,
+            505.551513671875,
+            469.33563232421875,
+            461.40496826171875,
+            412.16259765625,
+            398.47357177734375,
+            386.2220764160156,
+            377.8659973144531,
+            371.3656005859375,
+            369.88671875,
+            336.436767578125,
+            322.0567626953125,
+            314.7585754394531,
+            291.37371826171875,
+            284.09234619140625,
+            253.9633026123047,
+            252.45660400390625,
+            250.01651000976562,
+            220.61672973632812,
+            210.5789031982422,
+            207.46127319335938,
+            197.77227783203125,
+            179.62820434570312,
+            174.10848999023438,
+            172.8109130859375,
+            135.35687255859375,
+            134.39111328125,
+            133.75167846679688,
+            121.26258850097656,
+            117.34259033203125,
+            106.33993530273438,
+            104.92469787597656,
+            90.09307861328125,
+            87.00990295410156,
+            84.65679931640625,
+            79.30597686767578,
+            77.35356140136719,
+            65.45208740234375,
+            64.13109588623047,
+            62.4052734375,
+            61.57183837890625,
+            60.761722564697266,
+            52.01470947265625,
+            49.845603942871094,
+            48.08367919921875,
+            36.32392883300781,
+            35.13356018066406,
+            30.625045776367188,
+            20.853717803955078
+          ],
+          "device": "cuda"
+        },
+        "calibration": {
+          "evaluations": 5,
+          "loss_history": [
+            0.3745768964290619
+          ],
+          "accepted": [],
+          "wall_seconds": 0.741189690772444
+        }
+      }
+    },
+    {
+      "name": "the-tyger",
+      "title": "The Tyger (first stanza)",
+      "language": "English",
+      "text": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+      "seconds": 8.24,
+      "source_sha256": "bd807433cebced5629a63b5cf0ecaf213c301ccf3fc110b9b20ab74dc6f94d04",
+      "old": {
+        "silence": {
+          "spectral_convergence": 1.0,
+          "log_band_mae": 0.6753262281417847,
+          "waveform_rmse": 0.03500000014901161,
+          "peak": 0.0,
+          "mr_log_mae": 0.09108563512563705,
+          "envelope_correlation": 0.0
+        },
+        "baseline": {
+          "spectral_convergence": 0.7963120937347412,
+          "log_band_mae": 0.5139721632003784,
+          "waveform_rmse": 0.03847645968198776,
+          "peak": 0.1076507568359375,
+          "mr_log_mae": 0.07877175634106,
+          "envelope_correlation": 0.7414697552476369,
+          "notes": 699,
+          "wall_seconds": 6.002803282812238
+        },
+        "dictionary": {
+          "spectral_convergence": 0.7981455326080322,
+          "log_band_mae": 0.4463411569595337,
+          "waveform_rmse": 0.046483252197504044,
+          "peak": 0.2413330078125,
+          "mr_log_mae": 0.07889202982187271,
+          "envelope_correlation": 0.8492052709489072,
+          "notes": 206,
+          "wall_seconds": 2.0121489129960537
+        },
+        "quick": {
+          "spectral_convergence": 0.8315038084983826,
+          "log_band_mae": 0.446340948343277,
+          "waveform_rmse": 0.049921490252017975,
+          "peak": 0.235687255859375,
+          "mr_log_mae": 0.08203327904144923,
+          "envelope_correlation": 0.856579523147647,
+          "notes": 206,
+          "wall_seconds": 2.9747580559924245
+        },
+        "v1": {
+          "spectral_convergence": 0.8239487409591675,
+          "log_band_mae": 0.4199138879776001,
+          "waveform_rmse": 0.047820184379816055,
+          "peak": 0.209442138671875,
+          "mr_log_mae": 0.07806702206532161,
+          "envelope_correlation": 0.8022322448883986,
+          "notes": 182,
+          "wall_seconds": 812.9634987763129
+        }
+      },
+      "new": {
+        "spectral_convergence": 0.8167303800582886,
+        "log_band_mae": 0.39922669529914856,
+        "waveform_rmse": 0.046954650431871414,
+        "peak": 0.21710205078125,
+        "mr_log_mae": 0.07598430290818214,
+        "envelope_correlation": 0.7966208743346094,
+        "notes": 187,
+        "trace": {
+          "device": "cuda",
+          "wall_seconds": 18.102802332956344,
+          "cache_misses": 4084,
+          "candidates_evaluated": 8526,
+          "initial_additivity": {
+            "spectral_convergence": 0.003512684954330325,
+            "log_band_mae": 0.0050050620920956135,
+            "waveform_rmse": 0.00015805300790816545,
+            "peak": 0.235626220703125
+          },
+          "verified_loss_history": [
+            0.4463611841201782,
+            0.4161541759967804,
+            0.4075483977794647,
+            0.4026884138584137,
+            0.399222195148468
+          ],
+          "passes": [
+            {
+              "pass_index": 0,
+              "accepted": true,
+              "edits": {
+                "delete": 17,
+                "pitch": 22,
+                "velocity": 83,
+                "start": 45,
+                "duration": 38
+              },
+              "proposed_loss": 0.4116717576980591,
+              "verified_loss": 0.4161541759967804
+            },
+            {
+              "pass_index": 1,
+              "accepted": true,
+              "edits": {
+                "velocity": 77,
+                "duration": 43,
+                "pitch": 12,
+                "start": 54,
+                "delete": 2
+              },
+              "proposed_loss": 0.4034349024295807,
+              "verified_loss": 0.4075483977794647
+            },
+            {
+              "pass_index": 2,
+              "accepted": true,
+              "edits": {
+                "duration": 63,
+                "velocity": 90,
+                "pitch": 9,
+                "start": 22
+              },
+              "proposed_loss": 0.3987092673778534,
+              "verified_loss": 0.4026884138584137
+            },
+            {
+              "pass_index": 3,
+              "accepted": true,
+              "edits": {
+                "duration": 82,
+                "velocity": 80,
+                "start": 21,
+                "pitch": 1
+              },
+              "proposed_loss": 0.39530742168426514,
+              "verified_loss": 0.399222195148468
+            }
+          ]
+        },
+        "initial_midi_sha256": "d48e1eb8f13c15ebcc1d38b8424df4ebcc753da1c25cf2dc004ca939934c97d4",
+        "passes": 4,
+        "refinement": "cached-waveform-with-pitch"
+      },
+      "ablation": {
+        "cached-no-pitch": {
+          "spectral_convergence": 0.8310515880584717,
+          "log_band_mae": 0.4052208662033081,
+          "waveform_rmse": 0.047327056527137756,
+          "peak": 0.2234954833984375,
+          "mr_log_mae": 0.0766192836066087,
+          "envelope_correlation": 0.7791434613772522,
+          "notes": 180,
+          "trace": {
+            "device": "cuda",
+            "wall_seconds": 7.773919572122395,
+            "cache_misses": 1726,
+            "candidates_evaluated": 2836,
+            "initial_additivity": {
+              "spectral_convergence": 0.0036294509191066027,
+              "log_band_mae": 0.004420669749379158,
+              "waveform_rmse": 0.00015268195420503616,
+              "peak": 0.209442138671875
+            },
+            "verified_loss_history": [
+              0.4199083149433136,
+              0.40984028577804565,
+              0.4052223861217499
+            ],
+            "passes": [
+              {
+                "pass_index": 0,
+                "accepted": true,
+                "edits": {
+                  "velocity": 77,
+                  "start": 28,
+                  "duration": 68,
+                  "delete": 2
+                },
+                "proposed_loss": 0.40584686398506165,
+                "verified_loss": 0.40984028577804565
+              },
+              {
+                "pass_index": 1,
+                "accepted": true,
+                "edits": {
+                  "start": 40,
+                  "duration": 65,
+                  "velocity": 75
+                },
+                "proposed_loss": 0.40131115913391113,
+                "verified_loss": 0.4052223861217499
+              }
+            ]
+          }
+        },
+        "cached-pitch": {
+          "spectral_convergence": 0.830956220626831,
+          "log_band_mae": 0.40302714705467224,
+          "waveform_rmse": 0.04733861982822418,
+          "peak": 0.220001220703125,
+          "mr_log_mae": 0.07653661693135898,
+          "envelope_correlation": 0.7763805560666764,
+          "notes": 180,
+          "trace": {
+            "device": "cuda",
+            "wall_seconds": 9.233609006740153,
+            "cache_misses": 2416,
+            "candidates_evaluated": 3999,
+            "initial_additivity": {
+              "spectral_convergence": 0.003571390639990568,
+              "log_band_mae": 0.004398431163281202,
+              "waveform_rmse": 0.00015040933794807643,
+              "peak": 0.20941162109375
+            },
+            "verified_loss_history": [
+              0.4199215769767761,
+              0.4082834720611572,
+              0.40300583839416504
+            ],
+            "passes": [
+              {
+                "pass_index": 0,
+                "accepted": true,
+                "edits": {
+                  "pitch": 23,
+                  "start": 22,
+                  "velocity": 62,
+                  "duration": 64,
+                  "delete": 2
+                },
+                "proposed_loss": 0.4042584300041199,
+                "verified_loss": 0.4082834720611572
+              },
+              {
+                "pass_index": 1,
+                "accepted": true,
+                "edits": {
+                  "duration": 50,
+                  "start": 37,
+                  "pitch": 9,
+                  "velocity": 84
+                },
+                "proposed_loss": 0.3990911543369293,
+                "verified_loss": 0.40300583839416504
+              }
+            ]
+          }
+        }
+      },
+      "repeatability": {
+        "v1": {
+          "mean": 0.4199037750562032,
+          "std": 2.887939184603154e-06,
+          "values": [
+            0.41990333795547485,
+            0.41990751028060913,
+            0.41990047693252563
+          ]
+        },
+        "cached-direct": {
+          "mean": 0.39925238490104675,
+          "std": 2.028880879975871e-05,
+          "values": [
+            0.3992682099342346,
+            0.39926519989967346,
+            0.3992237448692322
+          ]
+        }
+      },
+      "demo80": {
+        "spectral_convergence": 0.8910564184188843,
+        "log_band_mae": 0.46922004222869873,
+        "waveform_rmse": 0.051584143191576004,
+        "peak": 0.255706787109375,
+        "mr_log_mae": 0.08393989503383636,
+        "envelope_correlation": 0.8433756924116563,
+        "notes": 80,
+        "wall_seconds": 1.5959472889080644,
+        "pursuit": {
+          "accepted": 80,
+          "surrogate_improvements": [
+            8314.8017578125,
+            7597.9423828125,
+            7086.6064453125,
+            6875.02099609375,
+            6474.1650390625,
+            6102.0908203125,
+            5419.966796875,
+            4177.80029296875,
+            4129.7421875,
+            3661.7021484375,
+            3423.550048828125,
+            3160.42138671875,
+            2814.88623046875,
+            2713.068359375,
+            2262.586181640625,
+            2064.573486328125,
+            2011.439453125,
+            1990.156982421875,
+            1928.54345703125,
+            1914.608154296875,
+            1897.498291015625,
+            1856.5106201171875,
+            1811.463134765625,
+            1617.69873046875,
+            1531.81396484375,
+            1508.412841796875,
+            1343.714111328125,
+            1285.30908203125,
+            1259.318603515625,
+            1236.7783203125,
+            1223.712158203125,
+            1179.9013671875,
+            1156.9718017578125,
+            1140.06787109375,
+            1136.9805908203125,
+            1113.892578125,
+            1101.866455078125,
+            1089.26806640625,
+            1052.049560546875,
+            1011.37451171875,
+            969.3646850585938,
+            923.232177734375,
+            889.4255981445312,
+            838.74462890625,
+            787.4009399414062,
+            739.25830078125,
+            734.978759765625,
+            733.5447387695312,
+            733.227783203125,
+            704.8515625,
+            689.7542114257812,
+            631.03369140625,
+            582.6842651367188,
+            563.0697021484375,
+            557.8450927734375,
+            550.0640258789062,
+            544.6073608398438,
+            542.4994506835938,
+            541.4107666015625,
+            527.2307739257812,
+            522.4082641601562,
+            497.48724365234375,
+            485.0198059082031,
+            479.4115295410156,
+            477.69512939453125,
+            461.9678039550781,
+            445.695556640625,
+            442.5606689453125,
+            428.5164794921875,
+            425.20098876953125,
+            382.64385986328125,
+            381.0390625,
+            380.80596923828125,
+            368.39892578125,
+            354.78387451171875,
+            336.529052734375,
+            335.33001708984375,
+            335.26849365234375,
+            329.5164794921875,
+            326.086181640625
+          ],
+          "device": "cuda"
+        },
+        "calibration": {
+          "evaluations": 5,
+          "loss_history": [
+            0.47865042090415955
+          ],
+          "accepted": [],
+          "wall_seconds": 1.0353405489586294
+        }
+      }
+    }
+  ],
+  "asr": {
+    "model": "Systran/faster-whisper-base",
+    "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+    "library": "1.2.1",
+    "device": "cpu",
+    "compute_type": "int8",
+    "beam_size": 5,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "prompt": null,
+    "results": [
+      {
+        "sample": "quiet-night",
+        "variant": "source",
+        "hypothesis": "闯前明月光,一世地上霜,举头望明月,低头思故乡。",
+        "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+        "metric": "CER",
+        "error_rate": 0.15
+      },
+      {
+        "sample": "quiet-night",
+        "variant": "v1",
+        "hypothesis": "嗯嗯嗯嗯嗯",
+        "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+        "metric": "CER",
+        "error_rate": 1.0
+      },
+      {
+        "sample": "quiet-night",
+        "variant": "cached-direct",
+        "hypothesis": "《字幕》",
+        "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+        "metric": "CER",
+        "error_rate": 1.0
+      },
+      {
+        "sample": "spring-dawn",
+        "variant": "source",
+        "hypothesis": "春眠不绝小 处处闻体鸟夜来风雨升 花落之多少",
+        "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+        "metric": "CER",
+        "error_rate": 0.25
+      },
+      {
+        "sample": "spring-dawn",
+        "variant": "v1",
+        "hypothesis": "借了一句 借了一句",
+        "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+        "metric": "CER",
+        "error_rate": 1.0
+      },
+      {
+        "sample": "spring-dawn",
+        "variant": "cached-direct",
+        "hypothesis": "我我我我我我我",
+        "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+        "metric": "CER",
+        "error_rate": 1.0
+      },
+      {
+        "sample": "stork-tower",
+        "variant": "source",
+        "hypothesis": "白日衣山镜 黄河入海流玉穹千里幕 更上一层楼",
+        "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+        "metric": "CER",
+        "error_rate": 0.25
+      },
+      {
+        "sample": "stork-tower",
+        "variant": "v1",
+        "hypothesis": "好好",
+        "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+        "metric": "CER",
+        "error_rate": 1.0
+      },
+      {
+        "sample": "stork-tower",
+        "variant": "cached-direct",
+        "hypothesis": "字幕製作品",
+        "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+        "metric": "CER",
+        "error_rate": 1.0
+      },
+      {
+        "sample": "sonnet-18",
+        "variant": "source",
+        "hypothesis": "Shall I compare thee to a summer's day? Now art more lovely and more temperate.",
+        "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+        "metric": "WER",
+        "error_rate": 0.0625
+      },
+      {
+        "sample": "sonnet-18",
+        "variant": "v1",
+        "hypothesis": "You",
+        "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+        "metric": "WER",
+        "error_rate": 1.0
+      },
+      {
+        "sample": "sonnet-18",
+        "variant": "cached-direct",
+        "hypothesis": "I don't know what that is, I don't know what that is, I don't know what that is.",
+        "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+        "metric": "WER",
+        "error_rate": 1.3125
+      },
+      {
+        "sample": "the-tyger",
+        "variant": "source",
+        "hypothesis": "Tiger, tiger, burning bright in the forests of the night. What immortal hand or eye could frame thy fearful symmetry?",
+        "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+        "metric": "WER",
+        "error_rate": 0.1
+      },
+      {
+        "sample": "the-tyger",
+        "variant": "v1",
+        "hypothesis": "I don't know what to do, but I'm just going to have to do it all the way to the end of the game.",
+        "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+        "metric": "WER",
+        "error_rate": 1.3
+      },
+      {
+        "sample": "the-tyger",
+        "variant": "cached-direct",
+        "hypothesis": "I don't know how to play this game, but I'm not sure if I can play this game, but I'm not sure if I can play this game, but I'm not sure if I can play this game.",
+        "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+        "metric": "WER",
+        "error_rate": 2.1
+      }
+    ]
+  },
+  "failed_power_pilot": {
+    "quiet-night": {
+      "power-dictionary": {
+        "spectral_convergence": 1.1435880661010742,
+        "log_band_mae": 0.5581271052360535,
+        "waveform_rmse": 0.05298656225204468,
+        "peak": 0.2156829833984375,
+        "mr_log_mae": 0.09406967709461848,
+        "envelope_correlation": 0.7898182182938228,
+        "notes": 34,
+        "trace": {
+          "device": "cuda",
+          "accepted": 34,
+          "surrogate_improvements": [
+            0.004176401862289634,
+            0.0039718315550817,
+            0.00338136639898223,
+            0.0033688480913753914,
+            0.0028534508853978505,
+            0.002957096357106703,
+            0.0026303173719343653,
+            0.003248403619020201,
+            0.003488462370944161,
+            0.002573464968760349,
+            0.002603153089108035,
+            0.003789277710666546,
+            0.0032671959643648767,
+            0.0010711484332075467,
+            0.0038399157955926735,
+            0.0020329855770044934,
+            0.001459238203045031,
+            0.001346327022780343,
+            0.001041328929981974,
+            0.0004918692428941672,
+            0.0006696482384595338,
+            0.0001215691626186775,
+            0.0008586718167872787,
+            0.00010259979492437403,
+            0.0028320988708378492,
+            0.0015481687924306057,
+            0.001951721500110075,
+            0.0011058540932245566,
+            0.000686221591310005,
+            0.00024387795112036555,
+            0.002751264774271059,
+            0.0013127744083000286,
+            0.0008657662165647297,
+            3.3958328022892536e-05
+          ],
+          "shortlist": 64,
+          "wall_seconds": 0.7030127770267427
+        }
+      },
+      "power-v1": {
+        "spectral_convergence": 1.2515358924865723,
+        "log_band_mae": 0.5348394513130188,
+        "waveform_rmse": 0.05660470575094223,
+        "peak": 0.2601776123046875,
+        "mr_log_mae": 0.09506190071503322,
+        "envelope_correlation": 0.7920010865445075,
+        "notes": 32,
+        "trace": {
+          "evaluations": 243,
+          "loss_history": [
+            0.5579972267150879,
+            0.5348334312438965
+          ],
+          "accepted": [
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5428658127784729
+            },
+            {
+              "pass_index": 0,
+              "kind": "delete",
+              "loss": 0.542641818523407
+            },
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.5421222448348999
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5421093106269836
+            },
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.5416668653488159
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5415145754814148
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5413650870323181
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5411384701728821
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5405290126800537
+            },
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.5404495596885681
+            },
+            {
+              "pass_index": 0,
+              "kind": "delete",
+              "loss": 0.538889467716217
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5388073325157166
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5386432409286499
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5383533835411072
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5381247997283936
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5379643440246582
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5377768874168396
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5376135110855103
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.53757244348526
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5374252796173096
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5372570157051086
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.536779522895813
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5367339253425598
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.536342978477478
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5362349152565002
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5360376238822937
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5358287692070007
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.535747766494751
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5354422330856323
+            },
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.5352116823196411
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.5350633263587952
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5349050760269165
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5348539352416992
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.5348334312438965
+            }
+          ],
+          "wall_seconds": 14.86891918303445
+        }
+      }
+    },
+    "sonnet-18": {
+      "power-dictionary": {
+        "spectral_convergence": 1.1895723342895508,
+        "log_band_mae": 0.43716520071029663,
+        "waveform_rmse": 0.05379369482398033,
+        "peak": 0.2270660400390625,
+        "mr_log_mae": 0.06605469932158788,
+        "envelope_correlation": 0.6936818012764068,
+        "notes": 16,
+        "trace": {
+          "device": "cuda",
+          "accepted": 16,
+          "surrogate_improvements": [
+            0.011508906101240479,
+            0.009123189645856084,
+            0.006372430589463976,
+            0.005199344525627765,
+            0.004926504798260214,
+            0.003640645550143334,
+            0.004196671858483318,
+            0.0036767187084348397,
+            0.004500255447989297,
+            0.007218316464441224,
+            0.0036025098575058804,
+            0.002816521224155221,
+            0.002162198439293865,
+            0.0018395379452722474,
+            0.001678148905436198,
+            0.0010157771435262482
+          ],
+          "shortlist": 64,
+          "wall_seconds": 0.07234346913173795
+        }
+      },
+      "power-v1": {
+        "spectral_convergence": 1.2006580829620361,
+        "log_band_mae": 0.4261740744113922,
+        "waveform_rmse": 0.05379873886704445,
+        "peak": 0.235321044921875,
+        "mr_log_mae": 0.06637602671980858,
+        "envelope_correlation": 0.7025149215998603,
+        "notes": 16,
+        "trace": {
+          "evaluations": 117,
+          "loss_history": [
+            0.43717116117477417,
+            0.4261763393878937
+          ],
+          "accepted": [
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.4321330487728119
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.4316760301589966
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.4311797618865967
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.43076780438423157
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.4304007887840271
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.43010643124580383
+            },
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.42925503849983215
+            },
+            {
+              "pass_index": 0,
+              "kind": "duration",
+              "loss": 0.42901724576950073
+            },
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.4285244643688202
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.42826229333877563
+            },
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.42816630005836487
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.42785242199897766
+            },
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.42749902606010437
+            },
+            {
+              "pass_index": 0,
+              "kind": "start",
+              "loss": 0.4271942973136902
+            },
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.4266558587551117
+            },
+            {
+              "pass_index": 0,
+              "kind": "velocity",
+              "loss": 0.4261763393878937
+            }
+          ],
+          "wall_seconds": 3.058860696852207
+        }
+      }
+    }
+  },
+  "cpu_check": {
+    "spectral_convergence": 0.7781854867935181,
+    "log_band_mae": 0.3358686864376068,
+    "waveform_rmse": 0.04103081300854683,
+    "peak": 0.172698974609375,
+    "mr_log_mae": 0.054367399464050926,
+    "envelope_correlation": 0.7880020269727674,
+    "notes": 82,
+    "trace": {
+      "device": "cpu",
+      "wall_seconds": 22.77433292195201,
+      "cache_misses": 2187,
+      "candidates_evaluated": 3776,
+      "initial_additivity": {
+        "spectral_convergence": 0.004963455721735954,
+        "log_band_mae": 0.005428588483482599,
+        "waveform_rmse": 0.00015516897838097066,
+        "peak": 0.156768798828125
+      },
+      "verified_loss_history": [
+        0.3658446967601776,
+        0.3492448329925537,
+        0.34198564291000366,
+        0.33829817175865173,
+        0.3358724117279053
+      ],
+      "passes": [
+        {
+          "pass_index": 0,
+          "accepted": true,
+          "edits": {
+            "velocity": 38,
+            "duration": 19,
+            "start": 15,
+            "delete": 7,
+            "pitch": 7
+          },
+          "proposed_loss": 0.3452991247177124,
+          "verified_loss": 0.3492448329925537
+        },
+        {
+          "pass_index": 1,
+          "accepted": true,
+          "edits": {
+            "start": 19,
+            "velocity": 36,
+            "duration": 16,
+            "pitch": 8
+          },
+          "proposed_loss": 0.3383901119232178,
+          "verified_loss": 0.34198564291000366
+        },
+        {
+          "pass_index": 2,
+          "accepted": true,
+          "edits": {
+            "velocity": 37,
+            "duration": 22,
+            "start": 14,
+            "pitch": 3,
+            "delete": 1
+          },
+          "proposed_loss": 0.33470138907432556,
+          "verified_loss": 0.33829817175865173
+        },
+        {
+          "pass_index": 3,
+          "accepted": true,
+          "edits": {
+            "duration": 29,
+            "velocity": 37,
+            "pitch": 3,
+            "start": 6
+          },
+          "proposed_loss": 0.33228519558906555,
+          "verified_loss": 0.3358724117279053
+        }
+      ]
+    }
+  }
+}

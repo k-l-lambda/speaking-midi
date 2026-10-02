@@ -344,6 +344,20 @@ The tests establish operation on limited controls, not general speech reconstruc
 
 Useful next experiments include lower velocities, denser duration grids, multiple analysis resolutions, repeated local search, explicit tail penalties, and evaluation across speakers and held-out phrases. Spectral fidelity and intelligibility should be measured separately. ASR is an auxiliary evaluator, not the optimization target in this implementation.
 
+## Poetry backtest and experimental refinement
+
+All five full recordings in [examples/poetry](examples/poetry) are evaluated in the [poetry backtest report](experiments/POETRY_BACKTEST.md), including acoustic errors, source/piano ASR, CPU validation, and pitch-search ablations. The report distinguishes the demo’s 80-iteration setting from the original 240-iteration research algorithm.
+
+The experimental optimizer caches individual piano waveforms, subtracts and adds them to evaluate note edits in batches, and verifies each complete pass with FluidSynth. Cache keys retain the note onset within the renderer’s 64-sample block. It searches pitch, velocity, onset, duration, and deletion, with smaller timing steps after the first pass. A pass is rolled back if the real renderer’s log-band loss does not improve. This makes additional search practical while checking the approximate waveform sum against the actual instrument.
+
+```bash
+OPENBLAS_NUM_THREADS=1 scripts/env.sh -m speaking_midi.optimize \
+  examples/poetry/quiet-night.wav --out outputs/cached-demo --passes 4 --device auto
+# Use --device cpu for CPU pursuit and refinement.
+```
+
+The original command remains available. Log-spectral errors improve on this small corpus, while envelope correlation worsens; this is not a uniform quality improvement or evidence of intelligible piano speech. Run the report’s reproduction commands to generate an offline source/original/improved listening page at `outputs/poetry-backtest/index.html`.
+
 ## References
 
 - [Qwen3-TTS source](https://github.com/QwenLM/Qwen3-TTS) and [0.6B CustomVoice model card](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice). The initial short experiment uses the built-in Vivian and Ryan voices. The longer demos use the [1.7B VoiceDesign model](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign) with a natural-language voice description. Both paths record model provenance with the generated samples.

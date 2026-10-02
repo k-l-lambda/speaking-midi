@@ -141,10 +141,10 @@ def make_dictionary(piano, cache):
     np.savez_compressed(path,atoms=atoms,params=params)
     return atoms,params,config
 
-def fit_temporal(y, atoms, params, max_notes=240):
+def fit_temporal(y, atoms, params, max_notes=240, device=None):
     import torch
     import torch.nn.functional as F
-    device='cuda' if torch.cuda.is_available() else 'cpu'
+    device=device or ('cuda' if torch.cuda.is_available() else 'cpu')
     target=features(y)
     # Inverse RMS band weights cap dominance by the strongest formant.
     weight=1/np.maximum(np.sqrt(np.mean(target**2,axis=1)),.15)**.5

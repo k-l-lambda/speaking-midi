@@ -1,0 +1,91 @@
+{
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+  "source": {
+    "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+    "revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+  },
+  "mode": "voice_design",
+  "seed": 42,
+  "seed_policy": "Reset RNG before each sample",
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "max_new_tokens": 512,
+  "samples": [
+    {
+      "name": "quiet-night",
+      "title": "静夜思",
+      "author": "李白",
+      "text": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+      "language": "Chinese",
+      "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。",
+      "seed": 42,
+      "sample_rate": 24000,
+      "seconds": 8.64,
+      "wall_seconds": 24.568893432617188,
+      "file": "quiet-night.wav",
+      "sha256": "7bdbca39bd9c406b639b9fda231219484711ca319bd4da9c0c9d991874707981",
+      "bytes": 829520
+    },
+    {
+      "name": "spring-dawn",
+      "title": "春晓",
+      "author": "孟浩然",
+      "text": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+      "language": "Chinese",
+      "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。",
+      "seed": 42,
+      "sample_rate": 24000,
+      "seconds": 8.16,
+      "wall_seconds": 22.90131402015686,
+      "file": "spring-dawn.wav",
+      "sha256": "316f58a7865d1f31822471e2e84f507af683ece80dab7b1f41414310796b6b67",
+      "bytes": 783440
+    },
+    {
+      "name": "stork-tower",
+      "title": "登鹳雀楼",
+      "author": "王之涣",
+      "text": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+      "language": "Chinese",
+      "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。",
+      "seed": 42,
+      "sample_rate": 24000,
+      "seconds": 7.6,
+      "wall_seconds": 21.23459029197693,
+      "file": "stork-tower.wav",
+      "sha256": "0aae65399547fef6d999e4b929b252fc9a428e82c7f159779d3a9bd1ca061c08",
+      "bytes": 729680
+    },
+    {
+      "name": "sonnet-18",
+      "title": "Sonnet 18 (opening couplet)",
+      "author": "William Shakespeare",
+      "text": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+      "language": "English",
+      "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。",
+      "seed": 42,
+      "sample_rate": 24000,
+      "seconds": 4.64,
+      "wall_seconds": 14.138381242752075,
+      "file": "sonnet-18.wav",
+      "sha256": "55f718b8da437c778f35c9a22c8b0b8c7ab8c176e8a91ad460f036afa53cc5e5",
+      "bytes": 445520
+    },
+    {
+      "name": "the-tyger",
+      "title": "The Tyger (first stanza)",
+      "author": "William Blake",
+      "text": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+      "language": "English",
+      "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。",
+      "seed": 42,
+      "sample_rate": 24000,
+      "seconds": 8.24,
+      "wall_seconds": 24.128756523132324,
+      "file": "the-tyger.wav",
+      "sha256": "bd807433cebced5629a63b5cf0ecaf213c301ccf3fc110b9b20ab74dc6f94d04",
+      "bytes": 791120
+    }
+  ]
+}

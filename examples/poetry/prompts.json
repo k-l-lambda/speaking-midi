@@ -1,0 +1,42 @@
+[
+  {
+    "name": "quiet-night",
+    "title": "静夜思",
+    "author": "李白",
+    "text": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+    "language": "Chinese",
+    "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。"
+  },
+  {
+    "name": "spring-dawn",
+    "title": "春晓",
+    "author": "孟浩然",
+    "text": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+    "language": "Chinese",
+    "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。"
+  },
+  {
+    "name": "stork-tower",
+    "title": "登鹳雀楼",
+    "author": "王之涣",
+    "text": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+    "language": "Chinese",
+    "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。"
+  },
+  {
+    "name": "sonnet-18",
+    "title": "Sonnet 18 (opening couplet)",
+    "author": "William Shakespeare",
+    "text": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+    "language": "English",
+    "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。"
+  },
+  {
+    "name": "the-tyger",
+    "title": "The Tyger (first stanza)",
+    "author": "William Blake",
+    "text": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+    "language": "English",
+    "instruct": "一位温柔自信的年轻女性，声音清晰，语气亲切，表达轻快而富有感染力。"
+  }
+]
