@@ -1,0 +1,76 @@
+{
+  "selection": {
+    "pilot_samples": [
+      "quiet-night",
+      "sonnet-18"
+    ],
+    "selected_run": "dense-floor-high",
+    "config": {
+      "power": 2,
+      "gate": 0.02,
+      "step": 2,
+      "nfft": 1024,
+      "floor": 0.001,
+      "velocity": 48,
+      "steps": 600
+    },
+    "reason": "Selected after seven exploratory pilots: this setting improves raw CER/WER in both languages and has the lowest arithmetic mean of the two error rates (0.65). No text or ASR model is used in the optimizer.",
+    "frozen_before_validation": [
+      "spring-dawn",
+      "stork-tower",
+      "the-tyger"
+    ],
+    "pilot_runs": [
+      "dense-fit",
+      "dense-magnitude",
+      "dense-10ms",
+      "dense-floor-high",
+      "dense-floor-low",
+      "dense-10ms-high",
+      "dense-512"
+    ],
+    "success_check": "At least 20 percentage points lower pooled Chinese CER and pooled English WER versus original v1, on all five recordings together, with correct-content gains and fresh-render repeat checks. Report per-recording results and regressions. This is a corpus-level ASR improvement, not proof of human intelligibility or new-voice generalization."
+  },
+  "files": [
+    {
+      "name": "quiet-night",
+      "source_sha256": "7bdbca39bd9c406b639b9fda231219484711ca319bd4da9c0c9d991874707981",
+      "midi_sha256": "5408c4eba06808db8f15d5f1fc59340313bc8b1dde0855f2d4dd13e9c844374d",
+      "audio_sha256": "4cc520461e30b844776b5a38445fd66beed5b9ffc85877e59d72a83be0099d42",
+      "notes": 2759,
+      "seconds": 9.14
+    },
+    {
+      "name": "spring-dawn",
+      "source_sha256": "316f58a7865d1f31822471e2e84f507af683ece80dab7b1f41414310796b6b67",
+      "midi_sha256": "72255f9eb6ac4e2e5f50d4f94cfa728b02f23df100f629c67ebc81eb744534b4",
+      "audio_sha256": "c040f33045c8d270e1c2e2475c671b1092f97f982d5f5e21ed06a2a2893e5bcb",
+      "notes": 2426,
+      "seconds": 8.66
+    },
+    {
+      "name": "stork-tower",
+      "source_sha256": "0aae65399547fef6d999e4b929b252fc9a428e82c7f159779d3a9bd1ca061c08",
+      "midi_sha256": "67c97678afa2f0ce871ffce3f2c0cdb7222ae426efd192e2ea6bbde2a92d60d9",
+      "audio_sha256": "f7e2326cae329f2cd749e4536ef47a1c7f821d07bc01f5ae37d7b88277114e64",
+      "notes": 2520,
+      "seconds": 8.1
+    },
+    {
+      "name": "sonnet-18",
+      "source_sha256": "55f718b8da437c778f35c9a22c8b0b8c7ab8c176e8a91ad460f036afa53cc5e5",
+      "midi_sha256": "f2212721fe5d09c715f6dd6c277e299aa9950800c23a7ed209b98cb447e5306c",
+      "audio_sha256": "8145f8edf46f65b6ef8d21f2c50b5f47657ebce8773b97f2ead293d234f6d914",
+      "notes": 1218,
+      "seconds": 5.14
+    },
+    {
+      "name": "the-tyger",
+      "source_sha256": "bd807433cebced5629a63b5cf0ecaf213c301ccf3fc110b9b20ab74dc6f94d04",
+      "midi_sha256": "9300cdbce9a1fd07655fa48845ba225a8f9b8ce9b83e07ef8bd471962fe62b13",
+      "audio_sha256": "de80935e2f6dc060b88b5bb756cfce4eb58fcb16f64a466b038ea492b2c79281",
+      "notes": 3140,
+      "seconds": 8.74
+    }
+  ]
+}

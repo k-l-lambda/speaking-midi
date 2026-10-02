@@ -1,0 +1,9 @@
+{
+  "pilot_samples": ["quiet-night", "sonnet-18"],
+  "selected_run": "dense-floor-high",
+  "config": {"power": 2, "gate": 0.02, "step": 2, "nfft": 1024, "floor": 0.001, "velocity": 48, "steps": 600},
+  "reason": "Selected after seven exploratory pilots: this setting improves raw CER/WER in both languages and has the lowest arithmetic mean of the two error rates (0.65). No text or ASR model is used in the optimizer.",
+  "frozen_before_validation": ["spring-dawn", "stork-tower", "the-tyger"],
+  "pilot_runs": ["dense-fit", "dense-magnitude", "dense-10ms", "dense-floor-high", "dense-floor-low", "dense-10ms-high", "dense-512"],
+  "success_check": "At least 20 percentage points lower pooled Chinese CER and pooled English WER versus original v1, on all five recordings together, with correct-content gains and fresh-render repeat checks. Report per-recording results and regressions. This is a corpus-level ASR improvement, not proof of human intelligibility or new-voice generalization."
+}

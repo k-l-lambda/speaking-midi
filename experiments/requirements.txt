@@ -1,0 +1,2 @@
+# Optional ASR backtest dependency; install alongside the root requirements.
+faster-whisper==1.2.1

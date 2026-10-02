@@ -1,0 +1,5248 @@
+{
+  "selection": {
+    "pilot_samples": [
+      "quiet-night",
+      "sonnet-18"
+    ],
+    "selected_run": "dense-floor-high",
+    "config": {
+      "power": 2,
+      "gate": 0.02,
+      "step": 2,
+      "nfft": 1024,
+      "floor": 0.001,
+      "velocity": 48,
+      "steps": 600
+    },
+    "reason": "Selected after seven exploratory pilots: this setting improves raw CER/WER in both languages and has the lowest arithmetic mean of the two error rates (0.65). No text or ASR model is used in the optimizer.",
+    "frozen_before_validation": [
+      "spring-dawn",
+      "stork-tower",
+      "the-tyger"
+    ],
+    "pilot_runs": [
+      "dense-fit",
+      "dense-magnitude",
+      "dense-10ms",
+      "dense-floor-high",
+      "dense-floor-low",
+      "dense-10ms-high",
+      "dense-512"
+    ],
+    "success_check": "At least 20 percentage points lower pooled Chinese CER and pooled English WER versus original v1, on all five recordings together, with correct-content gains and fresh-render repeat checks. Report per-recording results and regressions. This is a corpus-level ASR improvement, not proof of human intelligibility or new-voice generalization."
+  },
+  "samples": [
+    {
+      "name": "quiet-night",
+      "title": "静夜思",
+      "language": "Chinese",
+      "text": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+      "source_seconds": 8.64,
+      "original": {
+        "spectral_convergence": 0.8031753897666931,
+        "log_band_mae": 0.4578131437301636,
+        "waveform_rmse": 0.04201411455869675,
+        "peak": 0.2062225341796875,
+        "mr_log_mae": 0.08130397150913875,
+        "envelope_correlation": 0.8122553147731906,
+        "notes": 147,
+        "wall_seconds": 464.80754121625796
+      },
+      "dense": {
+        "config": {
+          "power": 2,
+          "gate": 0.02,
+          "velocity": 48,
+          "sr": 24000,
+          "nfft": 1024,
+          "hop": 240,
+          "pitches": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+          "revision": 1
+        },
+        "optimization": {
+          "steps": 600,
+          "grid_frames": 2,
+          "floor": 0.001,
+          "device": "cuda",
+          "lr_schedule": "cosine .04 to .001"
+        },
+        "metrics": {
+          "spectral_convergence": 0.8104307055473328,
+          "log_band_mae": 0.4648427665233612,
+          "waveform_rmse": 0.03722667321562767,
+          "peak": 0.10009765625,
+          "mr_log_mae": 0.07809968789418538,
+          "envelope_correlation": 0.8604701076958263
+        },
+        "notes": 2759,
+        "loss_history": [
+          [
+            0,
+            4.463901519775391
+          ],
+          [
+            100,
+            0.7258548736572266
+          ],
+          [
+            200,
+            0.7223665118217468
+          ],
+          [
+            300,
+            0.7200113534927368
+          ],
+          [
+            400,
+            0.7193714380264282
+          ],
+          [
+            500,
+            0.7192818522453308
+          ],
+          [
+            599,
+            0.7192714214324951
+          ]
+        ],
+        "wall_seconds": 4.883578613866121
+      },
+      "asr": {
+        "source": {
+          "sample": "quiet-night",
+          "variant": "source",
+          "hypothesis": "闯前明月光,一世地上霜,举头望明月,低头思故乡。",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "metric": "CER",
+          "error_rate": 0.15,
+          "errors": 3,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "original": {
+          "sample": "quiet-night",
+          "variant": "v1",
+          "hypothesis": "嗯嗯嗯嗯嗯",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "metric": "CER",
+          "error_rate": 1.0,
+          "errors": 20,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "balanced": {
+          "sample": "quiet-night",
+          "variant": "balanced",
+          "hypothesis": "嫂子薄薄薄",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "audio_sha256": "bcdeb69f4d203bcec9195527b2990cb90b3b51a77956d623ceab4f6bdc0a4099",
+          "metric": "CER",
+          "error_rate": 1.0,
+          "errors": 20,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "dense": {
+          "sample": "quiet-night",
+          "variant": "dense",
+          "hypothesis": "從前明月光你是地象說是頭髮明月地頭似故鄉",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "audio_sha256": "4cc520461e30b844776b5a38445fd66beed5b9ffc85877e59d72a83be0099d42",
+          "metric": "CER",
+          "error_rate": 0.55,
+          "errors": 11,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "cpu": {
+          "sample": "quiet-night",
+          "variant": "dense",
+          "hypothesis": "從前明月光你是地相說是頭髮明月地頭似故鄉",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "audio_sha256": "186bd022643cca8ffdf2753d939490bbe8d2c8c66999d6b53b437ebca178dac7",
+          "metric": "CER",
+          "error_rate": 0.55,
+          "errors": 11,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "repeat1": {
+          "sample": "quiet-night",
+          "variant": "dense",
+          "hypothesis": "從前明月光你是地象說是頭髮明月地頭似故鄉",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "audio_sha256": "f6cd306ff755288a565baac94ed030d21219ccdd678a1a45aaf5ffab9542b60b",
+          "metric": "CER",
+          "error_rate": 0.55,
+          "errors": 11,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "repeat2": {
+          "sample": "quiet-night",
+          "variant": "dense",
+          "hypothesis": "從前明月光你是地象說是頭髮明月地頭似故鄉",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "audio_sha256": "d9048595bf5fc0812279f7b1f27ffe4dab5bbfd4882a215696559a9d5c979e5e",
+          "metric": "CER",
+          "error_rate": 0.55,
+          "errors": 11,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "fixed_original": {
+          "sample": "quiet-night",
+          "variant": "v1",
+          "hypothesis": "嗯嗯嗯嗯嗯",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "audio_sha256": "4ce38f63a88351d442f2723600cd549fc89193af9dd186a1df900feda0c0adfe",
+          "metric": "CER",
+          "error_rate": 1.0,
+          "errors": 20,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "fixed_source": {
+          "sample": "quiet-night",
+          "variant": "source",
+          "hypothesis": "闯前明月光,一世地上霜,举头望明月,低头思故乡。",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "audio_sha256": "7bdbca39bd9c406b639b9fda231219484711ca319bd4da9c0c9d991874707981",
+          "metric": "CER",
+          "error_rate": 0.15,
+          "errors": 3,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "fixed_dense": {
+          "sample": "quiet-night",
+          "variant": "dense",
+          "hypothesis": "從前明月光你是地象說是頭髮明月地頭似故鄉",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "audio_sha256": "4cc520461e30b844776b5a38445fd66beed5b9ffc85877e59d72a83be0099d42",
+          "metric": "CER",
+          "error_rate": 0.55,
+          "errors": 11,
+          "reference_units": 20,
+          "language": "Chinese"
+        }
+      }
+    },
+    {
+      "name": "spring-dawn",
+      "title": "春晓",
+      "language": "Chinese",
+      "text": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+      "source_seconds": 8.16,
+      "original": {
+        "spectral_convergence": 0.8086581826210022,
+        "log_band_mae": 0.3986579477787018,
+        "waveform_rmse": 0.040338609367609024,
+        "peak": 0.1453857421875,
+        "mr_log_mae": 0.07409552857279778,
+        "envelope_correlation": 0.7991887264769174,
+        "notes": 117,
+        "wall_seconds": 290.8593649677932
+      },
+      "dense": {
+        "config": {
+          "power": 2,
+          "gate": 0.02,
+          "velocity": 48,
+          "sr": 24000,
+          "nfft": 1024,
+          "hop": 240,
+          "pitches": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+          "revision": 1
+        },
+        "optimization": {
+          "steps": 600,
+          "grid_frames": 2,
+          "floor": 0.001,
+          "device": "cuda",
+          "lr_schedule": "cosine .04 to .001"
+        },
+        "metrics": {
+          "spectral_convergence": 0.8338821530342102,
+          "log_band_mae": 0.4010012447834015,
+          "waveform_rmse": 0.03595171496272087,
+          "peak": 0.085479736328125,
+          "mr_log_mae": 0.07147355129321416,
+          "envelope_correlation": 0.8452841304257818
+        },
+        "notes": 2426,
+        "loss_history": [
+          [
+            0,
+            4.37403678894043
+          ],
+          [
+            100,
+            0.6370706558227539
+          ],
+          [
+            200,
+            0.6326748728752136
+          ],
+          [
+            300,
+            0.6282651424407959
+          ],
+          [
+            400,
+            0.6274635195732117
+          ],
+          [
+            500,
+            0.6272099614143372
+          ],
+          [
+            599,
+            0.6271886229515076
+          ]
+        ],
+        "wall_seconds": 4.549658532254398
+      },
+      "asr": {
+        "source": {
+          "sample": "spring-dawn",
+          "variant": "source",
+          "hypothesis": "春眠不绝小 处处闻体鸟夜来风雨升 花落之多少",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "metric": "CER",
+          "error_rate": 0.25,
+          "errors": 5,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "original": {
+          "sample": "spring-dawn",
+          "variant": "v1",
+          "hypothesis": "借了一句 借了一句",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "metric": "CER",
+          "error_rate": 1.0,
+          "errors": 20,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "balanced": {
+          "sample": "spring-dawn",
+          "variant": "balanced",
+          "hypothesis": "你不是...你不是...你不是...你不是...",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "audio_sha256": "7b6af103eebe93440b58e592f2e3ceb5d87fdc0bb08b2932d7d7afe3b4454cd0",
+          "metric": "CER",
+          "error_rate": 0.95,
+          "errors": 19,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "dense": {
+          "sample": "spring-dawn",
+          "variant": "dense",
+          "hypothesis": "春年不知曉 触触門平雅越來風一聲 花肚吃多少",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "audio_sha256": "c040f33045c8d270e1c2e2475c671b1092f97f982d5f5e21ed06a2a2893e5bcb",
+          "metric": "CER",
+          "error_rate": 0.75,
+          "errors": 15,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "cpu": {
+          "sample": "spring-dawn",
+          "variant": "dense",
+          "hypothesis": "春年不結晓,觸觸完平洋越來風一聲,花肚吃多少",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "audio_sha256": "adeb5feec772bd607f122d00621ad51dff2d5d50926f32a551b8846ea1f84836",
+          "metric": "CER",
+          "error_rate": 0.7,
+          "errors": 14,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "repeat1": {
+          "sample": "spring-dawn",
+          "variant": "dense",
+          "hypothesis": "春年不知曉 触触門平洋越來風一聲 花肚吃多少",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "audio_sha256": "8ff673d42904a73ee46f7de9399dd228f4763d21e3b2973005c7de49ded91adf",
+          "metric": "CER",
+          "error_rate": 0.75,
+          "errors": 15,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "repeat2": {
+          "sample": "spring-dawn",
+          "variant": "dense",
+          "hypothesis": "春年不知曉 触触門平洋越來風一聲 花肚吃多少",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "audio_sha256": "54e35267d322758c207eb1cf762713080e16090324899af4edc2248426974e9c",
+          "metric": "CER",
+          "error_rate": 0.75,
+          "errors": 15,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "fixed_original": {
+          "sample": "spring-dawn",
+          "variant": "v1",
+          "hypothesis": "這次的影片,請按讚、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、分享、",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "audio_sha256": "3cdd8e3fe60ffa3f83ad5175ecedd6c80fd294077293d069be90c9bf770c15f5",
+          "metric": "CER",
+          "error_rate": 11.1,
+          "errors": 222,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "fixed_source": {
+          "sample": "spring-dawn",
+          "variant": "source",
+          "hypothesis": "春眠不绝小 处处闻体鸟夜来风雨升 花落之多少",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "audio_sha256": "316f58a7865d1f31822471e2e84f507af683ece80dab7b1f41414310796b6b67",
+          "metric": "CER",
+          "error_rate": 0.25,
+          "errors": 5,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "fixed_dense": {
+          "sample": "spring-dawn",
+          "variant": "dense",
+          "hypothesis": "春年不知曉 触触門平雅越來風一聲 花肚吃多少",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "audio_sha256": "c040f33045c8d270e1c2e2475c671b1092f97f982d5f5e21ed06a2a2893e5bcb",
+          "metric": "CER",
+          "error_rate": 0.75,
+          "errors": 15,
+          "reference_units": 20,
+          "language": "Chinese"
+        }
+      }
+    },
+    {
+      "name": "stork-tower",
+      "title": "登鹳雀楼",
+      "language": "Chinese",
+      "text": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+      "source_seconds": 7.6,
+      "original": {
+        "spectral_convergence": 0.8383367657661438,
+        "log_band_mae": 0.4152887761592865,
+        "waveform_rmse": 0.0392724983394146,
+        "peak": 0.1998443603515625,
+        "mr_log_mae": 0.07049657280246417,
+        "envelope_correlation": 0.71087062303392,
+        "notes": 134,
+        "wall_seconds": 349.91553551563993
+      },
+      "dense": {
+        "config": {
+          "power": 2,
+          "gate": 0.02,
+          "velocity": 48,
+          "sr": 24000,
+          "nfft": 1024,
+          "hop": 240,
+          "pitches": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+          "revision": 1
+        },
+        "optimization": {
+          "steps": 600,
+          "grid_frames": 2,
+          "floor": 0.001,
+          "device": "cuda",
+          "lr_schedule": "cosine .04 to .001"
+        },
+        "metrics": {
+          "spectral_convergence": 0.8439297080039978,
+          "log_band_mae": 0.4055050015449524,
+          "waveform_rmse": 0.03675881028175354,
+          "peak": 0.0999298095703125,
+          "mr_log_mae": 0.0663451390961806,
+          "envelope_correlation": 0.8246381403103039
+        },
+        "notes": 2520,
+        "loss_history": [
+          [
+            0,
+            4.140613555908203
+          ],
+          [
+            100,
+            0.6497824192047119
+          ],
+          [
+            200,
+            0.6453463435173035
+          ],
+          [
+            300,
+            0.6431964635848999
+          ],
+          [
+            400,
+            0.6420812606811523
+          ],
+          [
+            500,
+            0.64178466796875
+          ],
+          [
+            599,
+            0.6417531967163086
+          ]
+        ],
+        "wall_seconds": 2.9441952230408788
+      },
+      "asr": {
+        "source": {
+          "sample": "stork-tower",
+          "variant": "source",
+          "hypothesis": "白日衣山镜 黄河入海流玉穹千里幕 更上一层楼",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "metric": "CER",
+          "error_rate": 0.25,
+          "errors": 5,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "original": {
+          "sample": "stork-tower",
+          "variant": "v1",
+          "hypothesis": "好好",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "metric": "CER",
+          "error_rate": 1.0,
+          "errors": 20,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "balanced": {
+          "sample": "stork-tower",
+          "variant": "balanced",
+          "hypothesis": "我自己认为我们是第一代的我们是第一代的我是第一代的",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "audio_sha256": "0fdd6747f9239f70a2795f427282dc23c998e64b7ec51470b02b138d3126d70b",
+          "metric": "CER",
+          "error_rate": 1.2,
+          "errors": 24,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "dense": {
+          "sample": "stork-tower",
+          "variant": "dense",
+          "hypothesis": "白日一生季 黃藤樹海流日征心裡霧 中生一層樓",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "audio_sha256": "f7e2326cae329f2cd749e4536ef47a1c7f821d07bc01f5ae37d7b88277114e64",
+          "metric": "CER",
+          "error_rate": 0.75,
+          "errors": 15,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "cpu": {
+          "sample": "stork-tower",
+          "variant": "dense",
+          "hypothesis": "白日一生禁,皇庞是海流,日程星禮物更生一層樓",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "audio_sha256": "7339d104226529dbf56ad5411147c2b655836e445a00b2367c1e7e70f47616ae",
+          "metric": "CER",
+          "error_rate": 0.7,
+          "errors": 14,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "repeat1": {
+          "sample": "stork-tower",
+          "variant": "dense",
+          "hypothesis": "白日溺生氣 黃蓬樹海流日程心裡霧 中生一層樓",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "audio_sha256": "b0c4600778ef833598b3b8e12b0b52c996644a19323ce67b417fde2b1ad6e0ff",
+          "metric": "CER",
+          "error_rate": 0.75,
+          "errors": 15,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "repeat2": {
+          "sample": "stork-tower",
+          "variant": "dense",
+          "hypothesis": "白日溺生氣 黃蓬樹海流日程心裡霧 中生一層樓",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "audio_sha256": "76a793f77b5146c4bd01ac30375d4fed1842ade333271c7ee0f40ce2c522622b",
+          "metric": "CER",
+          "error_rate": 0.75,
+          "errors": 15,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "fixed_original": {
+          "sample": "stork-tower",
+          "variant": "v1",
+          "hypothesis": "好好",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "audio_sha256": "2bcb3c7203e8c11c55e0dd6fd298320d98b5a0451bc5d35245c4cad564af872e",
+          "metric": "CER",
+          "error_rate": 1.0,
+          "errors": 20,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "fixed_source": {
+          "sample": "stork-tower",
+          "variant": "source",
+          "hypothesis": "白日衣山镜 黄河入海流玉穹千里幕 更上一层楼",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "audio_sha256": "0aae65399547fef6d999e4b929b252fc9a428e82c7f159779d3a9bd1ca061c08",
+          "metric": "CER",
+          "error_rate": 0.25,
+          "errors": 5,
+          "reference_units": 20,
+          "language": "Chinese"
+        },
+        "fixed_dense": {
+          "sample": "stork-tower",
+          "variant": "dense",
+          "hypothesis": "白日一生季 黃藤樹海流日征心裡霧 中生一層樓",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "audio_sha256": "f7e2326cae329f2cd749e4536ef47a1c7f821d07bc01f5ae37d7b88277114e64",
+          "metric": "CER",
+          "error_rate": 0.75,
+          "errors": 15,
+          "reference_units": 20,
+          "language": "Chinese"
+        }
+      }
+    },
+    {
+      "name": "sonnet-18",
+      "title": "Sonnet 18 (opening couplet)",
+      "language": "English",
+      "text": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+      "source_seconds": 4.64,
+      "original": {
+        "spectral_convergence": 0.760835587978363,
+        "log_band_mae": 0.3506465256214142,
+        "waveform_rmse": 0.04040311649441719,
+        "peak": 0.18505859375,
+        "mr_log_mae": 0.054936282336711884,
+        "envelope_correlation": 0.8147633714522864,
+        "notes": 80,
+        "wall_seconds": 99.83342863200232
+      },
+      "dense": {
+        "config": {
+          "power": 2,
+          "gate": 0.02,
+          "velocity": 48,
+          "sr": 24000,
+          "nfft": 1024,
+          "hop": 240,
+          "pitches": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+          "revision": 1
+        },
+        "optimization": {
+          "steps": 600,
+          "grid_frames": 2,
+          "floor": 0.001,
+          "device": "cuda",
+          "lr_schedule": "cosine .04 to .001"
+        },
+        "metrics": {
+          "spectral_convergence": 0.8029999136924744,
+          "log_band_mae": 0.3422422707080841,
+          "waveform_rmse": 0.038648929446935654,
+          "peak": 0.079559326171875,
+          "mr_log_mae": 0.052122630178928375,
+          "envelope_correlation": 0.8748829996598239
+        },
+        "notes": 1218,
+        "loss_history": [
+          [
+            0,
+            4.267277240753174
+          ],
+          [
+            100,
+            0.5278080105781555
+          ],
+          [
+            200,
+            0.5231083631515503
+          ],
+          [
+            300,
+            0.5202075242996216
+          ],
+          [
+            400,
+            0.5196850299835205
+          ],
+          [
+            500,
+            0.5194455981254578
+          ],
+          [
+            599,
+            0.5194329023361206
+          ]
+        ],
+        "wall_seconds": 2.466881189029664
+      },
+      "asr": {
+        "source": {
+          "sample": "sonnet-18",
+          "variant": "source",
+          "hypothesis": "Shall I compare thee to a summer's day? Now art more lovely and more temperate.",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "metric": "WER",
+          "error_rate": 0.0625,
+          "errors": 1,
+          "reference_units": 16,
+          "language": "English"
+        },
+        "original": {
+          "sample": "sonnet-18",
+          "variant": "v1",
+          "hypothesis": "You",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "metric": "WER",
+          "error_rate": 1.0,
+          "errors": 16,
+          "reference_units": 16,
+          "language": "English"
+        },
+        "balanced": {
+          "sample": "sonnet-18",
+          "variant": "balanced",
+          "hypothesis": "I'll see you in the next episode.",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "audio_sha256": "04ad771eddb15213a280fee546d13f7e533812124af75e9ba6f3bfa411d3fbb8",
+          "metric": "WER",
+          "error_rate": 0.9375,
+          "errors": 15,
+          "reference_units": 16,
+          "language": "English"
+        },
+        "dense": {
+          "sample": "sonnet-18",
+          "variant": "dense",
+          "hypothesis": "So I can pair these two so I can Now it's more lovely and more different",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "audio_sha256": "8145f8edf46f65b6ef8d21f2c50b5f47657ebce8773b97f2ead293d234f6d914",
+          "metric": "WER",
+          "error_rate": 0.75,
+          "errors": 12,
+          "reference_units": 16,
+          "language": "English"
+        },
+        "cpu": {
+          "sample": "sonnet-18",
+          "variant": "dense",
+          "hypothesis": "So I can pair these ones the way they are. They work more quickly and more quickly.",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "audio_sha256": "6d04b84e64502d1e0b713b60436158539534729f3f78dc2360366daadd643705",
+          "metric": "WER",
+          "error_rate": 0.8125,
+          "errors": 13,
+          "reference_units": 16,
+          "language": "English"
+        },
+        "repeat1": {
+          "sample": "sonnet-18",
+          "variant": "dense",
+          "hypothesis": "So I can pair these to look so like this, but we're more likely and more different.",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "audio_sha256": "a0935fc59d470eab8caa86459cba5bac29c82ad2b384e1b7f7176cec33b0457f",
+          "metric": "WER",
+          "error_rate": 0.8125,
+          "errors": 13,
+          "reference_units": 16,
+          "language": "English"
+        },
+        "repeat2": {
+          "sample": "sonnet-18",
+          "variant": "dense",
+          "hypothesis": "So I can pair these to look so like this, but we're more likely and more different.",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "audio_sha256": "e506c99b4f84dc75b8f9a31a7f2d86a6c7a2e4ac88e6ab482b9051796f65315b",
+          "metric": "WER",
+          "error_rate": 0.8125,
+          "errors": 13,
+          "reference_units": 16,
+          "language": "English"
+        },
+        "fixed_original": {
+          "sample": "sonnet-18",
+          "variant": "v1",
+          "hypothesis": "You",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "audio_sha256": "6ac9d2c2d17ddc41d85ea5d1d5ac20dd22a686164b5ea3276754d7ece5b3dd43",
+          "metric": "WER",
+          "error_rate": 1.0,
+          "errors": 16,
+          "reference_units": 16,
+          "language": "English"
+        },
+        "fixed_source": {
+          "sample": "sonnet-18",
+          "variant": "source",
+          "hypothesis": "Shall I compare thee to a summer's day? Now art more lovely and more temperate.",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "audio_sha256": "55f718b8da437c778f35c9a22c8b0b8c7ab8c176e8a91ad460f036afa53cc5e5",
+          "metric": "WER",
+          "error_rate": 0.0625,
+          "errors": 1,
+          "reference_units": 16,
+          "language": "English"
+        },
+        "fixed_dense": {
+          "sample": "sonnet-18",
+          "variant": "dense",
+          "hypothesis": "So I can pair these two so I can Now it's more lovely and more different",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "audio_sha256": "8145f8edf46f65b6ef8d21f2c50b5f47657ebce8773b97f2ead293d234f6d914",
+          "metric": "WER",
+          "error_rate": 0.75,
+          "errors": 12,
+          "reference_units": 16,
+          "language": "English"
+        }
+      }
+    },
+    {
+      "name": "the-tyger",
+      "title": "The Tyger (first stanza)",
+      "language": "English",
+      "text": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+      "source_seconds": 8.24,
+      "original": {
+        "spectral_convergence": 0.8239487409591675,
+        "log_band_mae": 0.4199138879776001,
+        "waveform_rmse": 0.047820184379816055,
+        "peak": 0.209442138671875,
+        "mr_log_mae": 0.07806702206532161,
+        "envelope_correlation": 0.8022322448883986,
+        "notes": 182,
+        "wall_seconds": 812.9634987763129
+      },
+      "dense": {
+        "config": {
+          "power": 2,
+          "gate": 0.02,
+          "velocity": 48,
+          "sr": 24000,
+          "nfft": 1024,
+          "hop": 240,
+          "pitches": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+          "revision": 1
+        },
+        "optimization": {
+          "steps": 600,
+          "grid_frames": 2,
+          "floor": 0.001,
+          "device": "cuda",
+          "lr_schedule": "cosine .04 to .001"
+        },
+        "metrics": {
+          "spectral_convergence": 0.7890517115592957,
+          "log_band_mae": 0.4172348976135254,
+          "waveform_rmse": 0.03725587949156761,
+          "peak": 0.088348388671875,
+          "mr_log_mae": 0.07024333005150159,
+          "envelope_correlation": 0.860843754328336
+        },
+        "notes": 3140,
+        "loss_history": [
+          [
+            0,
+            4.080715656280518
+          ],
+          [
+            100,
+            0.6443037390708923
+          ],
+          [
+            200,
+            0.6393406987190247
+          ],
+          [
+            300,
+            0.6365151405334473
+          ],
+          [
+            400,
+            0.6353092193603516
+          ],
+          [
+            500,
+            0.6349682807922363
+          ],
+          [
+            599,
+            0.634937584400177
+          ]
+        ],
+        "wall_seconds": 3.3393354159779847
+      },
+      "asr": {
+        "source": {
+          "sample": "the-tyger",
+          "variant": "source",
+          "hypothesis": "Tiger, tiger, burning bright in the forests of the night. What immortal hand or eye could frame thy fearful symmetry?",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "metric": "WER",
+          "error_rate": 0.1,
+          "errors": 2,
+          "reference_units": 20,
+          "language": "English"
+        },
+        "original": {
+          "sample": "the-tyger",
+          "variant": "v1",
+          "hypothesis": "I don't know what to do, but I'm just going to have to do it all the way to the end of the game.",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "metric": "WER",
+          "error_rate": 1.3,
+          "errors": 26,
+          "reference_units": 20,
+          "language": "English"
+        },
+        "balanced": {
+          "sample": "the-tyger",
+          "variant": "balanced",
+          "hypothesis": ".",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "audio_sha256": "0432becb4c2c1300f05cb26e784ae81456a99bba53b9a438c94f97279d1b8303",
+          "metric": "WER",
+          "error_rate": 1.0,
+          "errors": 20,
+          "reference_units": 20,
+          "language": "English"
+        },
+        "dense": {
+          "sample": "the-tyger",
+          "variant": "dense",
+          "hypothesis": "Tiger, tiger, burning bright in the forest of the night. One more hand or eye could frame by fearful symmetry.",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "audio_sha256": "de80935e2f6dc060b88b5bb756cfce4eb58fcb16f64a466b038ea492b2c79281",
+          "metric": "WER",
+          "error_rate": 0.3,
+          "errors": 6,
+          "reference_units": 20,
+          "language": "English"
+        },
+        "cpu": {
+          "sample": "the-tyger",
+          "variant": "dense",
+          "hypothesis": "Tiger, tiger, burning bright in the forest of the night. One more hand or eye could frame by fearful symmetry.",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "audio_sha256": "3ed93b3bba803898040e0c3eb7f5c07a139f7eb3bff8e42d72afa9c6d11156bd",
+          "metric": "WER",
+          "error_rate": 0.3,
+          "errors": 6,
+          "reference_units": 20,
+          "language": "English"
+        },
+        "repeat1": {
+          "sample": "the-tyger",
+          "variant": "dense",
+          "hypothesis": "Tiger, tiger, birding bright in the forest of the night. One more hand or eye could frame by fearful symmetry.",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "audio_sha256": "ab0d3a5d734a654aceae08f1ec971538f6f8efef3f0e0b80d257d2b6f173a9f7",
+          "metric": "WER",
+          "error_rate": 0.35,
+          "errors": 7,
+          "reference_units": 20,
+          "language": "English"
+        },
+        "repeat2": {
+          "sample": "the-tyger",
+          "variant": "dense",
+          "hypothesis": "Tiger, tiger, birding bright in the forest of the night. One more hand or eye could frame by fearful symmetry.",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "audio_sha256": "2b8d1a80b0f29ac1b3b458e2f3d9abe7ff98ca35e22c334cefdb2256777bd5c4",
+          "metric": "WER",
+          "error_rate": 0.35,
+          "errors": 7,
+          "reference_units": 20,
+          "language": "English"
+        },
+        "fixed_original": {
+          "sample": "the-tyger",
+          "variant": "v1",
+          "hypothesis": "I don't know what to do, but I'm just going to have to do it all the way to the end of the game.",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "audio_sha256": "219bc18b327de2278d3a859bb398ce00d8880e093418b5ac224c9d8adb6860b6",
+          "metric": "WER",
+          "error_rate": 1.3,
+          "errors": 26,
+          "reference_units": 20,
+          "language": "English"
+        },
+        "fixed_source": {
+          "sample": "the-tyger",
+          "variant": "source",
+          "hypothesis": "Tiger, tiger, burning bright in the forests of the night. What immortal hand or eye could frame thy fearful symmetry?",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "audio_sha256": "bd807433cebced5629a63b5cf0ecaf213c301ccf3fc110b9b20ab74dc6f94d04",
+          "metric": "WER",
+          "error_rate": 0.1,
+          "errors": 2,
+          "reference_units": 20,
+          "language": "English"
+        },
+        "fixed_dense": {
+          "sample": "the-tyger",
+          "variant": "dense",
+          "hypothesis": "Tiger, tiger, burning bright in the forest of the night. One more hand or eye could frame by fearful symmetry.",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "audio_sha256": "de80935e2f6dc060b88b5bb756cfce4eb58fcb16f64a466b038ea492b2c79281",
+          "metric": "WER",
+          "error_rate": 0.3,
+          "errors": 6,
+          "reference_units": 20,
+          "language": "English"
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "source": {
+      "Chinese": {
+        "errors": 13,
+        "reference_units": 60,
+        "error_rate": 0.21666666666666667
+      },
+      "English": {
+        "errors": 3,
+        "reference_units": 36,
+        "error_rate": 0.08333333333333333
+      }
+    },
+    "original": {
+      "Chinese": {
+        "errors": 60,
+        "reference_units": 60,
+        "error_rate": 1.0
+      },
+      "English": {
+        "errors": 42,
+        "reference_units": 36,
+        "error_rate": 1.1666666666666667
+      }
+    },
+    "balanced": {
+      "Chinese": {
+        "errors": 63,
+        "reference_units": 60,
+        "error_rate": 1.05
+      },
+      "English": {
+        "errors": 35,
+        "reference_units": 36,
+        "error_rate": 0.9722222222222222
+      }
+    },
+    "dense": {
+      "Chinese": {
+        "errors": 41,
+        "reference_units": 60,
+        "error_rate": 0.6833333333333333
+      },
+      "English": {
+        "errors": 18,
+        "reference_units": 36,
+        "error_rate": 0.5
+      }
+    },
+    "cpu": {
+      "Chinese": {
+        "errors": 39,
+        "reference_units": 60,
+        "error_rate": 0.65
+      },
+      "English": {
+        "errors": 19,
+        "reference_units": 36,
+        "error_rate": 0.5277777777777778
+      }
+    },
+    "repeat1": {
+      "Chinese": {
+        "errors": 41,
+        "reference_units": 60,
+        "error_rate": 0.6833333333333333
+      },
+      "English": {
+        "errors": 20,
+        "reference_units": 36,
+        "error_rate": 0.5555555555555556
+      }
+    },
+    "repeat2": {
+      "Chinese": {
+        "errors": 41,
+        "reference_units": 60,
+        "error_rate": 0.6833333333333333
+      },
+      "English": {
+        "errors": 20,
+        "reference_units": 36,
+        "error_rate": 0.5555555555555556
+      }
+    },
+    "fixed_original": {
+      "Chinese": {
+        "errors": 262,
+        "reference_units": 60,
+        "error_rate": 4.366666666666666
+      },
+      "English": {
+        "errors": 42,
+        "reference_units": 36,
+        "error_rate": 1.1666666666666667
+      }
+    },
+    "fixed_source": {
+      "Chinese": {
+        "errors": 13,
+        "reference_units": 60,
+        "error_rate": 0.21666666666666667
+      },
+      "English": {
+        "errors": 3,
+        "reference_units": 36,
+        "error_rate": 0.08333333333333333
+      }
+    },
+    "fixed_dense": {
+      "Chinese": {
+        "errors": 41,
+        "reference_units": 60,
+        "error_rate": 0.6833333333333333
+      },
+      "English": {
+        "errors": 18,
+        "reference_units": 36,
+        "error_rate": 0.5
+      }
+    }
+  },
+  "material_improvement_checks": {
+    "dense": {
+      "Chinese": true,
+      "English": true
+    },
+    "repeat1": {
+      "Chinese": true,
+      "English": true
+    },
+    "repeat2": {
+      "Chinese": true,
+      "English": true
+    },
+    "fixed_dense": {
+      "Chinese": true,
+      "English": true
+    },
+    "cpu": {
+      "Chinese": true,
+      "English": true
+    }
+  },
+  "pilots": {
+    "dense-fit": {
+      "asr": {
+        "model": "Systran/faster-whisper-base",
+        "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "library": "1.2.1",
+        "device": "cpu",
+        "compute_type": "int8",
+        "beam_size": 5,
+        "vad_filter": false,
+        "condition_on_previous_text": false,
+        "prompt": null,
+        "results": [
+          {
+            "sample": "quiet-night",
+            "variant": "dense",
+            "hypothesis": "看前明月光你是不是想說是偷望你呢你偷思過想",
+            "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+            "audio_sha256": "669dd68b3396d145da5fdf914375e1bca9430c011898ba1d95634071f188e6aa",
+            "metric": "CER",
+            "error_rate": 0.7
+          },
+          {
+            "sample": "sonnet-18",
+            "variant": "dense",
+            "hypothesis": "Now I can bear this in my soul like this. Now I'm more, more, more, and more, and more, and more, and more.",
+            "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+            "audio_sha256": "4c616c3584ea0ba5f418eb27b42a335a2df52968722e0cd897a4f2c54f46ee50",
+            "metric": "WER",
+            "error_rate": 1.25
+          }
+        ]
+      },
+      "results": {
+        "quiet-night": {
+          "config": {
+            "power": 2,
+            "gate": 0.02,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 2,
+            "floor": 0.0001,
+            "device": "cuda"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8553364276885986,
+            "log_band_mae": 0.4746103584766388,
+            "waveform_rmse": 0.03644144535064697,
+            "peak": 0.0818023681640625,
+            "mr_log_mae": 0.07955143352349599,
+            "envelope_correlation": 0.8111657861277425
+          },
+          "notes": 3070,
+          "loss_history": [
+            [
+              0,
+              11.215315818786621
+            ],
+            [
+              100,
+              2.5164482593536377
+            ],
+            [
+              200,
+              2.3959360122680664
+            ],
+            [
+              300,
+              2.407398223876953
+            ],
+            [
+              400,
+              2.441065549850464
+            ],
+            [
+              500,
+              2.4151771068573
+            ],
+            [
+              599,
+              2.4087889194488525
+            ]
+          ],
+          "wall_seconds": 4.988215661142021
+        },
+        "sonnet-18": {
+          "config": {
+            "power": 2,
+            "gate": 0.02,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 2,
+            "floor": 0.0001,
+            "device": "cuda"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8535254597663879,
+            "log_band_mae": 0.35939881205558777,
+            "waveform_rmse": 0.037035975605249405,
+            "peak": 0.061767578125,
+            "mr_log_mae": 0.05418457711736361,
+            "envelope_correlation": 0.8105654660663572
+          },
+          "notes": 1358,
+          "loss_history": [
+            [
+              0,
+              10.540233612060547
+            ],
+            [
+              100,
+              1.8398957252502441
+            ],
+            [
+              200,
+              1.7468798160552979
+            ],
+            [
+              300,
+              1.7200534343719482
+            ],
+            [
+              400,
+              1.6870455741882324
+            ],
+            [
+              500,
+              1.6432385444641113
+            ],
+            [
+              599,
+              1.682672381401062
+            ]
+          ],
+          "wall_seconds": 2.748087089974433
+        }
+      }
+    },
+    "dense-magnitude": {
+      "asr": {
+        "model": "Systran/faster-whisper-base",
+        "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "library": "1.2.1",
+        "device": "cpu",
+        "compute_type": "int8",
+        "beam_size": 5,
+        "vad_filter": false,
+        "condition_on_previous_text": false,
+        "prompt": null,
+        "results": [
+          {
+            "sample": "quiet-night",
+            "variant": "dense",
+            "hypothesis": "從前明夜光,你是不是想說其實頭髮忘記了,你頭是故鄉",
+            "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+            "audio_sha256": "69ff591369437020fd41c84505aa914afdc706f82542e554d1ccc4d5a5802dc3",
+            "metric": "CER",
+            "error_rate": 0.9
+          },
+          {
+            "sample": "sonnet-18",
+            "variant": "dense",
+            "hypothesis": "Now I can turn into a toy toy, now I've known what we're in love with.",
+            "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+            "audio_sha256": "bf15ccd159a211c1785f6e2c9a3b6b988152ea9892f554a19f74313306179088",
+            "metric": "WER",
+            "error_rate": 1.0
+          }
+        ]
+      },
+      "results": {
+        "quiet-night": {
+          "config": {
+            "power": 1,
+            "gate": 0.02,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 2,
+            "floor": 0.01,
+            "device": "cuda"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8856313824653625,
+            "log_band_mae": 0.50418621301651,
+            "waveform_rmse": 0.03594157472252846,
+            "peak": 0.05889892578125,
+            "mr_log_mae": 0.08055946230888367,
+            "envelope_correlation": 0.8032096409951158
+          },
+          "notes": 1060,
+          "loss_history": [
+            [
+              0,
+              0.751886785030365
+            ],
+            [
+              100,
+              0.15953998267650604
+            ],
+            [
+              200,
+              0.15943744778633118
+            ],
+            [
+              300,
+              0.1594284474849701
+            ],
+            [
+              400,
+              0.1594274938106537
+            ],
+            [
+              500,
+              0.159427210688591
+            ],
+            [
+              599,
+              0.15942712128162384
+            ]
+          ],
+          "wall_seconds": 4.3149219010956585
+        },
+        "sonnet-18": {
+          "config": {
+            "power": 1,
+            "gate": 0.02,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 2,
+            "floor": 0.01,
+            "device": "cuda"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8717530369758606,
+            "log_band_mae": 0.386534720659256,
+            "waveform_rmse": 0.03611210361123085,
+            "peak": 0.0552825927734375,
+            "mr_log_mae": 0.05454427500565847,
+            "envelope_correlation": 0.812755620287183
+          },
+          "notes": 518,
+          "loss_history": [
+            [
+              0,
+              0.7196277379989624
+            ],
+            [
+              100,
+              0.11907754093408585
+            ],
+            [
+              200,
+              0.11888618022203445
+            ],
+            [
+              300,
+              0.11886321008205414
+            ],
+            [
+              400,
+              0.1188657209277153
+            ],
+            [
+              500,
+              0.11886277049779892
+            ],
+            [
+              599,
+              0.11886680871248245
+            ]
+          ],
+          "wall_seconds": 2.4912384562194347
+        }
+      }
+    },
+    "dense-10ms": {
+      "asr": {
+        "model": "Systran/faster-whisper-base",
+        "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "library": "1.2.1",
+        "device": "cpu",
+        "compute_type": "int8",
+        "beam_size": 5,
+        "vad_filter": false,
+        "condition_on_previous_text": false,
+        "prompt": null,
+        "results": [
+          {
+            "sample": "quiet-night",
+            "variant": "dense",
+            "hypothesis": "三千米月光一世一生生一頭往一日一頭似故鄉",
+            "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+            "audio_sha256": "fd75836b209f4ce094db58d09fb146fbf85b39acd7d165a16f562626f936ea54",
+            "metric": "CER",
+            "error_rate": 0.85
+          },
+          {
+            "sample": "sonnet-18",
+            "variant": "dense",
+            "hypothesis": "So I could pair me to a summer day Now I'm more likely and more separate",
+            "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+            "audio_sha256": "b12ac40db5cdc61c9862963edf3030fa4db7b8ee0b1c78fa541e5579dd88960f",
+            "metric": "WER",
+            "error_rate": 0.625
+          }
+        ]
+      },
+      "results": {
+        "quiet-night": {
+          "config": {
+            "power": 2,
+            "gate": 0.01,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 1,
+            "floor": 0.0001,
+            "device": "cuda",
+            "lr_schedule": "cosine .04 to .001"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8642304539680481,
+            "log_band_mae": 0.4695671796798706,
+            "waveform_rmse": 0.036239225417375565,
+            "peak": 0.08538818359375,
+            "mr_log_mae": 0.07858334730068843,
+            "envelope_correlation": 0.799106749505305
+          },
+          "notes": 4323,
+          "loss_history": [
+            [
+              0,
+              13.141579627990723
+            ],
+            [
+              100,
+              3.370887517929077
+            ],
+            [
+              200,
+              2.456496238708496
+            ],
+            [
+              300,
+              2.343766927719116
+            ],
+            [
+              400,
+              2.223834753036499
+            ],
+            [
+              500,
+              2.1872661113739014
+            ],
+            [
+              599,
+              2.181964874267578
+            ]
+          ],
+          "wall_seconds": 5.281691645737737
+        },
+        "sonnet-18": {
+          "config": {
+            "power": 2,
+            "gate": 0.01,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 1,
+            "floor": 0.0001,
+            "device": "cuda",
+            "lr_schedule": "cosine .04 to .001"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8511137962341309,
+            "log_band_mae": 0.3522660434246063,
+            "waveform_rmse": 0.0371641144156456,
+            "peak": 0.06732177734375,
+            "mr_log_mae": 0.05275553713242213,
+            "envelope_correlation": 0.8463767392772064
+          },
+          "notes": 1794,
+          "loss_history": [
+            [
+              0,
+              12.555733680725098
+            ],
+            [
+              100,
+              2.714372158050537
+            ],
+            [
+              200,
+              1.7515379190444946
+            ],
+            [
+              300,
+              1.542043685913086
+            ],
+            [
+              400,
+              1.45840585231781
+            ],
+            [
+              500,
+              1.394395351409912
+            ],
+            [
+              599,
+              1.385231375694275
+            ]
+          ],
+          "wall_seconds": 2.805587987881154
+        }
+      }
+    },
+    "dense-floor-high": {
+      "asr": {
+        "model": "Systran/faster-whisper-base",
+        "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "library": "1.2.1",
+        "device": "cpu",
+        "compute_type": "int8",
+        "beam_size": 5,
+        "vad_filter": false,
+        "condition_on_previous_text": false,
+        "prompt": null,
+        "results": [
+          {
+            "sample": "quiet-night",
+            "variant": "dense",
+            "hypothesis": "從前明月光你是地象說是頭髮明月地頭似故鄉",
+            "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+            "audio_sha256": "4cc520461e30b844776b5a38445fd66beed5b9ffc85877e59d72a83be0099d42",
+            "metric": "CER",
+            "error_rate": 0.55
+          },
+          {
+            "sample": "spring-dawn",
+            "variant": "dense",
+            "hypothesis": "春年不知曉 触触門平雅越來風一聲 花肚吃多少",
+            "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+            "audio_sha256": "c040f33045c8d270e1c2e2475c671b1092f97f982d5f5e21ed06a2a2893e5bcb",
+            "metric": "CER",
+            "error_rate": 0.75
+          },
+          {
+            "sample": "stork-tower",
+            "variant": "dense",
+            "hypothesis": "白日一生季 黃藤樹海流日征心裡霧 中生一層樓",
+            "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+            "audio_sha256": "f7e2326cae329f2cd749e4536ef47a1c7f821d07bc01f5ae37d7b88277114e64",
+            "metric": "CER",
+            "error_rate": 0.75
+          },
+          {
+            "sample": "sonnet-18",
+            "variant": "dense",
+            "hypothesis": "So I can pair these two so I can Now it's more lovely and more different",
+            "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+            "audio_sha256": "8145f8edf46f65b6ef8d21f2c50b5f47657ebce8773b97f2ead293d234f6d914",
+            "metric": "WER",
+            "error_rate": 0.75
+          },
+          {
+            "sample": "the-tyger",
+            "variant": "dense",
+            "hypothesis": "Tiger, tiger, burning bright in the forest of the night. One more hand or eye could frame by fearful symmetry.",
+            "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+            "audio_sha256": "de80935e2f6dc060b88b5bb756cfce4eb58fcb16f64a466b038ea492b2c79281",
+            "metric": "WER",
+            "error_rate": 0.3
+          }
+        ]
+      },
+      "results": {
+        "quiet-night": {
+          "config": {
+            "power": 2,
+            "gate": 0.02,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 2,
+            "floor": 0.001,
+            "device": "cuda",
+            "lr_schedule": "cosine .04 to .001"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8104307055473328,
+            "log_band_mae": 0.4648427665233612,
+            "waveform_rmse": 0.03722667321562767,
+            "peak": 0.10009765625,
+            "mr_log_mae": 0.07809968789418538,
+            "envelope_correlation": 0.8604701076958263
+          },
+          "notes": 2759,
+          "loss_history": [
+            [
+              0,
+              4.463901519775391
+            ],
+            [
+              100,
+              0.7258548736572266
+            ],
+            [
+              200,
+              0.7223665118217468
+            ],
+            [
+              300,
+              0.7200113534927368
+            ],
+            [
+              400,
+              0.7193714380264282
+            ],
+            [
+              500,
+              0.7192818522453308
+            ],
+            [
+              599,
+              0.7192714214324951
+            ]
+          ],
+          "wall_seconds": 4.883578613866121
+        },
+        "sonnet-18": {
+          "config": {
+            "power": 2,
+            "gate": 0.02,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 2,
+            "floor": 0.001,
+            "device": "cuda",
+            "lr_schedule": "cosine .04 to .001"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8029999136924744,
+            "log_band_mae": 0.3422422707080841,
+            "waveform_rmse": 0.038648929446935654,
+            "peak": 0.079559326171875,
+            "mr_log_mae": 0.052122630178928375,
+            "envelope_correlation": 0.8748829996598239
+          },
+          "notes": 1218,
+          "loss_history": [
+            [
+              0,
+              4.267277240753174
+            ],
+            [
+              100,
+              0.5278080105781555
+            ],
+            [
+              200,
+              0.5231083631515503
+            ],
+            [
+              300,
+              0.5202075242996216
+            ],
+            [
+              400,
+              0.5196850299835205
+            ],
+            [
+              500,
+              0.5194455981254578
+            ],
+            [
+              599,
+              0.5194329023361206
+            ]
+          ],
+          "wall_seconds": 2.466881189029664
+        }
+      }
+    },
+    "dense-floor-low": {
+      "asr": {
+        "model": "Systran/faster-whisper-base",
+        "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "library": "1.2.1",
+        "device": "cpu",
+        "compute_type": "int8",
+        "beam_size": 5,
+        "vad_filter": false,
+        "condition_on_previous_text": false,
+        "prompt": null,
+        "results": [
+          {
+            "sample": "quiet-night",
+            "variant": "dense",
+            "hypothesis": "看見你樂觀你自己想說你偷玩你樂你偷笑笑",
+            "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+            "audio_sha256": "5c64d500e25c3d848ce357c34aed3f529088924d1a403fce6098fd830d6aa576",
+            "metric": "CER",
+            "error_rate": 1.0
+          },
+          {
+            "sample": "sonnet-18",
+            "variant": "dense",
+            "hypothesis": "So what do they think was supposed to do? They weren't more important, weren't they?",
+            "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+            "audio_sha256": "b2d1c295988476234e6daf4b5edd06d64610e1e74e671a54e35ba4621d396578",
+            "metric": "WER",
+            "error_rate": 1.0
+          }
+        ]
+      },
+      "results": {
+        "quiet-night": {
+          "config": {
+            "power": 2,
+            "gate": 0.02,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 2,
+            "floor": 1e-05,
+            "device": "cuda",
+            "lr_schedule": "cosine .04 to .001"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8745517134666443,
+            "log_band_mae": 0.4722133278846741,
+            "waveform_rmse": 0.03608874976634979,
+            "peak": 0.077178955078125,
+            "mr_log_mae": 0.0789676159620285,
+            "envelope_correlation": 0.7404667140530364
+          },
+          "notes": 3319,
+          "loss_history": [
+            [
+              0,
+              19.970407485961914
+            ],
+            [
+              100,
+              7.0892438888549805
+            ],
+            [
+              200,
+              5.998777866363525
+            ],
+            [
+              300,
+              5.659115791320801
+            ],
+            [
+              400,
+              5.3969221115112305
+            ],
+            [
+              500,
+              5.24711799621582
+            ],
+            [
+              599,
+              5.166926383972168
+            ]
+          ],
+          "wall_seconds": 5.03098602918908
+        },
+        "sonnet-18": {
+          "config": {
+            "power": 2,
+            "gate": 0.02,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 2,
+            "floor": 1e-05,
+            "device": "cuda",
+            "lr_schedule": "cosine .04 to .001"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8750861287117004,
+            "log_band_mae": 0.37068185210227966,
+            "waveform_rmse": 0.03670140355825424,
+            "peak": 0.0714111328125,
+            "mr_log_mae": 0.05436927949388822,
+            "envelope_correlation": 0.6771051995510349
+          },
+          "notes": 1481,
+          "loss_history": [
+            [
+              0,
+              18.618118286132812
+            ],
+            [
+              100,
+              6.304030895233154
+            ],
+            [
+              200,
+              5.112900733947754
+            ],
+            [
+              300,
+              4.355738639831543
+            ],
+            [
+              400,
+              3.91050124168396
+            ],
+            [
+              500,
+              3.6395225524902344
+            ],
+            [
+              599,
+              3.5239667892456055
+            ]
+          ],
+          "wall_seconds": 2.8118628947995603
+        }
+      }
+    },
+    "dense-10ms-high": {
+      "asr": {
+        "model": "Systran/faster-whisper-base",
+        "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "library": "1.2.1",
+        "device": "cpu",
+        "compute_type": "int8",
+        "beam_size": 5,
+        "vad_filter": false,
+        "condition_on_previous_text": false,
+        "prompt": null,
+        "results": [
+          {
+            "sample": "quiet-night",
+            "variant": "dense",
+            "hypothesis": "闯前明月光,你是地上说,是头望明月,一头是故乡",
+            "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+            "audio_sha256": "99cb55b42c44d192a359e05cb9eb89770c675c92cb5a67ad1a0f2c11e273ba93",
+            "metric": "CER",
+            "error_rate": 0.3
+          },
+          {
+            "sample": "sonnet-18",
+            "variant": "dense",
+            "hypothesis": "So I can pair these two with some like this? No, it won't work. We have more text left.",
+            "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+            "audio_sha256": "4ca862a1beb93a9cd547034a08094f696497f502c0fa58435e21b9d6880b33b4",
+            "metric": "WER",
+            "error_rate": 1.125
+          }
+        ]
+      },
+      "results": {
+        "quiet-night": {
+          "config": {
+            "power": 2,
+            "gate": 0.01,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 1,
+            "floor": 0.001,
+            "device": "cuda",
+            "lr_schedule": "cosine .04 to .001"
+          },
+          "metrics": {
+            "spectral_convergence": 0.829426109790802,
+            "log_band_mae": 0.46875184774398804,
+            "waveform_rmse": 0.03731250762939453,
+            "peak": 0.110748291015625,
+            "mr_log_mae": 0.07880460470914841,
+            "envelope_correlation": 0.8205416785790812
+          },
+          "notes": 3755,
+          "loss_history": [
+            [
+              0,
+              5.559656143188477
+            ],
+            [
+              100,
+              0.7206767201423645
+            ],
+            [
+              200,
+              0.7165425419807434
+            ],
+            [
+              300,
+              0.715641975402832
+            ],
+            [
+              400,
+              0.7146950364112854
+            ],
+            [
+              500,
+              0.7145518660545349
+            ],
+            [
+              599,
+              0.7145434021949768
+            ]
+          ],
+          "wall_seconds": 5.28258005483076
+        },
+        "sonnet-18": {
+          "config": {
+            "power": 2,
+            "gate": 0.01,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 1024,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 1,
+            "floor": 0.001,
+            "device": "cuda",
+            "lr_schedule": "cosine .04 to .001"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8085905313491821,
+            "log_band_mae": 0.34487393498420715,
+            "waveform_rmse": 0.03853315860033035,
+            "peak": 0.083038330078125,
+            "mr_log_mae": 0.052565558503071465,
+            "envelope_correlation": 0.8483853070053032
+          },
+          "notes": 1559,
+          "loss_history": [
+            [
+              0,
+              5.36616325378418
+            ],
+            [
+              100,
+              0.5189671516418457
+            ],
+            [
+              200,
+              0.5153029561042786
+            ],
+            [
+              300,
+              0.5147096514701843
+            ],
+            [
+              400,
+              0.513542115688324
+            ],
+            [
+              500,
+              0.5134297609329224
+            ],
+            [
+              599,
+              0.5134128928184509
+            ]
+          ],
+          "wall_seconds": 3.820362594909966
+        }
+      }
+    },
+    "dense-512": {
+      "asr": {
+        "model": "Systran/faster-whisper-base",
+        "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+        "library": "1.2.1",
+        "device": "cpu",
+        "compute_type": "int8",
+        "beam_size": 5,
+        "vad_filter": false,
+        "condition_on_previous_text": false,
+        "prompt": null,
+        "results": [
+          {
+            "sample": "quiet-night",
+            "variant": "dense",
+            "hypothesis": "春天明月光,你是地上之中,是同我迷月,是投思故鄉",
+            "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+            "audio_sha256": "d223bf26473ae807f915da38ae4d043cecb1c9f6d0f2bce394f321f42616e8fe",
+            "metric": "CER",
+            "error_rate": 0.6
+          },
+          {
+            "sample": "sonnet-18",
+            "variant": "dense",
+            "hypothesis": "So I can barely see what's on my face. Now I want more and hopefully I'm not that great.",
+            "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+            "audio_sha256": "021c62cc84d0f753973e89d17bbc9cfd0b5988c8c0d037f4730934fe1d404d21",
+            "metric": "WER",
+            "error_rate": 1.1875
+          }
+        ]
+      },
+      "results": {
+        "quiet-night": {
+          "config": {
+            "power": 2,
+            "gate": 0.01,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 512,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 1,
+            "floor": 0.001,
+            "device": "cuda",
+            "lr_schedule": "cosine .04 to .001"
+          },
+          "metrics": {
+            "spectral_convergence": 0.8018913865089417,
+            "log_band_mae": 0.483824759721756,
+            "waveform_rmse": 0.039358701556921005,
+            "peak": 0.154937744140625,
+            "mr_log_mae": 0.08105576286713283,
+            "envelope_correlation": 0.8456760632041612
+          },
+          "notes": 3327,
+          "loss_history": [
+            [
+              0,
+              2.4401817321777344
+            ],
+            [
+              100,
+              0.32709261775016785
+            ],
+            [
+              200,
+              0.32477518916130066
+            ],
+            [
+              300,
+              0.32413148880004883
+            ],
+            [
+              400,
+              0.3239021301269531
+            ],
+            [
+              500,
+              0.32381823658943176
+            ],
+            [
+              599,
+              0.3237961530685425
+            ]
+          ],
+          "wall_seconds": 6.88913856074214
+        },
+        "sonnet-18": {
+          "config": {
+            "power": 2,
+            "gate": 0.01,
+            "velocity": 48,
+            "sr": 24000,
+            "nfft": 512,
+            "hop": 240,
+            "pitches": [
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108
+            ],
+            "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+            "revision": 1
+          },
+          "optimization": {
+            "steps": 600,
+            "grid_frames": 1,
+            "floor": 0.001,
+            "device": "cuda",
+            "lr_schedule": "cosine .04 to .001"
+          },
+          "metrics": {
+            "spectral_convergence": 0.7511906027793884,
+            "log_band_mae": 0.35483330488204956,
+            "waveform_rmse": 0.04093271493911743,
+            "peak": 0.1587982177734375,
+            "mr_log_mae": 0.054243663946787514,
+            "envelope_correlation": 0.8645784981497419
+          },
+          "notes": 1433,
+          "loss_history": [
+            [
+              0,
+              2.3964366912841797
+            ],
+            [
+              100,
+              0.26355403661727905
+            ],
+            [
+              200,
+              0.26050975918769836
+            ],
+            [
+              300,
+              0.2596801519393921
+            ],
+            [
+              400,
+              0.2594054937362671
+            ],
+            [
+              500,
+              0.25930696725845337
+            ],
+            [
+              599,
+              0.2592810392379761
+            ]
+          ],
+          "wall_seconds": 2.6830544690601528
+        }
+      }
+    }
+  },
+  "asr_protocol": {
+    "model": "Systran/faster-whisper-base",
+    "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+    "library": "1.2.1",
+    "device": "cpu",
+    "compute_type": "int8",
+    "beam_size": 5,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "prompt": null,
+    "results": [
+      {
+        "sample": "quiet-night",
+        "variant": "dense",
+        "hypothesis": "從前明月光你是地象說是頭髮明月地頭似故鄉",
+        "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+        "audio_sha256": "4cc520461e30b844776b5a38445fd66beed5b9ffc85877e59d72a83be0099d42",
+        "metric": "CER",
+        "error_rate": 0.55
+      },
+      {
+        "sample": "spring-dawn",
+        "variant": "dense",
+        "hypothesis": "春年不知曉 触触門平雅越來風一聲 花肚吃多少",
+        "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+        "audio_sha256": "c040f33045c8d270e1c2e2475c671b1092f97f982d5f5e21ed06a2a2893e5bcb",
+        "metric": "CER",
+        "error_rate": 0.75
+      },
+      {
+        "sample": "stork-tower",
+        "variant": "dense",
+        "hypothesis": "白日一生季 黃藤樹海流日征心裡霧 中生一層樓",
+        "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+        "audio_sha256": "f7e2326cae329f2cd749e4536ef47a1c7f821d07bc01f5ae37d7b88277114e64",
+        "metric": "CER",
+        "error_rate": 0.75
+      },
+      {
+        "sample": "sonnet-18",
+        "variant": "dense",
+        "hypothesis": "So I can pair these two so I can Now it's more lovely and more different",
+        "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+        "audio_sha256": "8145f8edf46f65b6ef8d21f2c50b5f47657ebce8773b97f2ead293d234f6d914",
+        "metric": "WER",
+        "error_rate": 0.75
+      },
+      {
+        "sample": "the-tyger",
+        "variant": "dense",
+        "hypothesis": "Tiger, tiger, burning bright in the forest of the night. One more hand or eye could frame by fearful symmetry.",
+        "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+        "audio_sha256": "de80935e2f6dc060b88b5bb756cfce4eb58fcb16f64a466b038ea492b2c79281",
+        "metric": "WER",
+        "error_rate": 0.3
+      }
+    ]
+  },
+  "fixed_protocol": {
+    "model": "Systran/faster-whisper-base",
+    "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+    "library": "1.2.1",
+    "device": "cpu",
+    "compute_type": "int8",
+    "beam_size": 5,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "prompt": null,
+    "temperature": 0.0,
+    "results": [
+      {
+        "sample": "quiet-night",
+        "variant": "dense",
+        "hypothesis": "從前明月光你是地象說是頭髮明月地頭似故鄉",
+        "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+        "audio_sha256": "4cc520461e30b844776b5a38445fd66beed5b9ffc85877e59d72a83be0099d42",
+        "metric": "CER",
+        "error_rate": 0.55
+      },
+      {
+        "sample": "spring-dawn",
+        "variant": "dense",
+        "hypothesis": "春年不知曉 触触門平雅越來風一聲 花肚吃多少",
+        "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+        "audio_sha256": "c040f33045c8d270e1c2e2475c671b1092f97f982d5f5e21ed06a2a2893e5bcb",
+        "metric": "CER",
+        "error_rate": 0.75
+      },
+      {
+        "sample": "stork-tower",
+        "variant": "dense",
+        "hypothesis": "白日一生季 黃藤樹海流日征心裡霧 中生一層樓",
+        "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+        "audio_sha256": "f7e2326cae329f2cd749e4536ef47a1c7f821d07bc01f5ae37d7b88277114e64",
+        "metric": "CER",
+        "error_rate": 0.75
+      },
+      {
+        "sample": "sonnet-18",
+        "variant": "dense",
+        "hypothesis": "So I can pair these two so I can Now it's more lovely and more different",
+        "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+        "audio_sha256": "8145f8edf46f65b6ef8d21f2c50b5f47657ebce8773b97f2ead293d234f6d914",
+        "metric": "WER",
+        "error_rate": 0.75
+      },
+      {
+        "sample": "the-tyger",
+        "variant": "dense",
+        "hypothesis": "Tiger, tiger, burning bright in the forest of the night. One more hand or eye could frame by fearful symmetry.",
+        "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+        "audio_sha256": "de80935e2f6dc060b88b5bb756cfce4eb58fcb16f64a466b038ea492b2c79281",
+        "metric": "WER",
+        "error_rate": 0.3
+      }
+    ]
+  },
+  "cpu": {
+    "warm": {
+      "config": {
+        "power": 2,
+        "gate": 0.02,
+        "velocity": 48,
+        "sr": 24000,
+        "nfft": 1024,
+        "hop": 240,
+        "pitches": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108
+        ],
+        "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+        "revision": 1
+      },
+      "optimization": {
+        "steps": 600,
+        "grid_frames": 2,
+        "floor": 0.001,
+        "device": "cpu",
+        "lr_schedule": "cosine .04 to .001"
+      },
+      "loss_history": [
+        [
+          0,
+          4.267277240753174
+        ],
+        [
+          100,
+          0.5303051471710205
+        ],
+        [
+          200,
+          0.5219219326972961
+        ],
+        [
+          300,
+          0.5202729105949402
+        ],
+        [
+          400,
+          0.5196474194526672
+        ],
+        [
+          500,
+          0.5194451212882996
+        ],
+        [
+          599,
+          0.5194329619407654
+        ]
+      ],
+      "dictionary": {
+        "cache_hit": true,
+        "seconds": 0.391802289057523,
+        "sha256": "42cce4ee9296c15749aa28ea0def3e82d6a8517cb629089feae40311e1059fd6"
+      },
+      "fitting_seconds": 3.6524173822253942,
+      "metrics": {
+        "spectral_convergence": 0.8029285669326782,
+        "log_band_mae": 0.34267914295196533,
+        "waveform_rmse": 0.03865210339426994,
+        "peak": 0.0795440673828125
+      },
+      "notes": 1218,
+      "wall_seconds": 5.739529034122825
+    },
+    "cold": {
+      "config": {
+        "power": 2,
+        "gate": 0.02,
+        "velocity": 48,
+        "sr": 24000,
+        "nfft": 1024,
+        "hop": 240,
+        "pitches": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108
+        ],
+        "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+        "revision": 1
+      },
+      "optimization": {
+        "steps": 600,
+        "grid_frames": 2,
+        "floor": 0.001,
+        "device": "cpu",
+        "lr_schedule": "cosine .04 to .001"
+      },
+      "loss_history": [
+        [
+          0,
+          4.267277240753174
+        ],
+        [
+          100,
+          0.5274409651756287
+        ],
+        [
+          200,
+          0.5226088762283325
+        ],
+        [
+          300,
+          0.5202304124832153
+        ],
+        [
+          400,
+          0.5196355581283569
+        ],
+        [
+          500,
+          0.5194447040557861
+        ],
+        [
+          599,
+          0.5194329619407654
+        ]
+      ],
+      "dictionary": {
+        "cache_hit": false,
+        "seconds": 1.7563298936001956,
+        "sha256": "adf73718b6f27e1d0d551ed8011089b9787fc5d9a105302558254f6286dffafd"
+      },
+      "fitting_seconds": 5.045478269923478,
+      "metrics": {
+        "spectral_convergence": 0.8029286861419678,
+        "log_band_mae": 0.3426840603351593,
+        "waveform_rmse": 0.038652073591947556,
+        "peak": 0.079559326171875
+      },
+      "notes": 1218,
+      "wall_seconds": 7.118835024069995
+    },
+    "warm_asr": {
+      "model": "Systran/faster-whisper-base",
+      "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+      "library": "1.2.1",
+      "device": "cpu",
+      "compute_type": "int8",
+      "beam_size": 5,
+      "vad_filter": false,
+      "condition_on_previous_text": false,
+      "prompt": null,
+      "results": [
+        {
+          "sample": "sonnet-18",
+          "variant": "dense",
+          "hypothesis": "So I can pair these with some like this? Now it's more like me and more different.",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "audio_sha256": "f320189728b27a2b42f355a4925ef9e827b5ee0cb6f58afba41e4720a52edf91",
+          "metric": "WER",
+          "error_rate": 0.875
+        }
+      ]
+    },
+    "cold_asr": {
+      "model": "Systran/faster-whisper-base",
+      "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+      "library": "1.2.1",
+      "device": "cpu",
+      "compute_type": "int8",
+      "beam_size": 5,
+      "vad_filter": false,
+      "condition_on_previous_text": false,
+      "prompt": null,
+      "temperature": "default fallback schedule",
+      "results": [
+        {
+          "sample": "quiet-night",
+          "variant": "dense",
+          "hypothesis": "從前明月光你是地相說是頭髮明月地頭似故鄉",
+          "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+          "audio_sha256": "186bd022643cca8ffdf2753d939490bbe8d2c8c66999d6b53b437ebca178dac7",
+          "metric": "CER",
+          "error_rate": 0.55
+        },
+        {
+          "sample": "spring-dawn",
+          "variant": "dense",
+          "hypothesis": "春年不結晓,觸觸完平洋越來風一聲,花肚吃多少",
+          "reference": "春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。",
+          "audio_sha256": "adeb5feec772bd607f122d00621ad51dff2d5d50926f32a551b8846ea1f84836",
+          "metric": "CER",
+          "error_rate": 0.7
+        },
+        {
+          "sample": "stork-tower",
+          "variant": "dense",
+          "hypothesis": "白日一生禁,皇庞是海流,日程星禮物更生一層樓",
+          "reference": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。",
+          "audio_sha256": "7339d104226529dbf56ad5411147c2b655836e445a00b2367c1e7e70f47616ae",
+          "metric": "CER",
+          "error_rate": 0.7
+        },
+        {
+          "sample": "sonnet-18",
+          "variant": "dense",
+          "hypothesis": "So I can pair these ones the way they are. They work more quickly and more quickly.",
+          "reference": "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.",
+          "audio_sha256": "6d04b84e64502d1e0b713b60436158539534729f3f78dc2360366daadd643705",
+          "metric": "WER",
+          "error_rate": 0.8125
+        },
+        {
+          "sample": "the-tyger",
+          "variant": "dense",
+          "hypothesis": "Tiger, tiger, burning bright in the forest of the night. One more hand or eye could frame by fearful symmetry.",
+          "reference": "Tyger Tyger, burning bright, In the forests of the night; What immortal hand or eye, Could frame thy fearful symmetry?",
+          "audio_sha256": "3ed93b3bba803898040e0c3eb7f5c07a139f7eb3bff8e42d72afa9c6d11156bd",
+          "metric": "WER",
+          "error_rate": 0.3
+        }
+      ]
+    },
+    "all_results": {
+      "quiet-night": {
+        "config": {
+          "power": 2,
+          "gate": 0.02,
+          "velocity": 48,
+          "sr": 24000,
+          "nfft": 1024,
+          "hop": 240,
+          "pitches": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+          "revision": 1
+        },
+        "optimization": {
+          "steps": 600,
+          "grid_frames": 2,
+          "floor": 0.001,
+          "device": "cpu",
+          "lr_schedule": "cosine .04 to .001"
+        },
+        "loss_history": [
+          [
+            0,
+            4.463901996612549
+          ],
+          [
+            100,
+            0.7257091403007507
+          ],
+          [
+            200,
+            0.7226372957229614
+          ],
+          [
+            300,
+            0.7200397849082947
+          ],
+          [
+            400,
+            0.719370424747467
+          ],
+          [
+            500,
+            0.7192840576171875
+          ],
+          [
+            599,
+            0.7192715406417847
+          ]
+        ],
+        "dictionary": {
+          "cache_hit": true,
+          "seconds": 0.39917032700031996,
+          "sha256": "adf73718b6f27e1d0d551ed8011089b9787fc5d9a105302558254f6286dffafd"
+        },
+        "fitting_seconds": 4.773559445049614,
+        "metrics": {
+          "spectral_convergence": 0.8104263544082642,
+          "log_band_mae": 0.46484270691871643,
+          "waveform_rmse": 0.03722630813717842,
+          "peak": 0.10009765625,
+          "mr_log_mae": 0.0780990794301033,
+          "envelope_correlation": 0.8604979605608626
+        },
+        "notes": 2759,
+        "wall_seconds": 6.4541603568941355
+      },
+      "spring-dawn": {
+        "config": {
+          "power": 2,
+          "gate": 0.02,
+          "velocity": 48,
+          "sr": 24000,
+          "nfft": 1024,
+          "hop": 240,
+          "pitches": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+          "revision": 1
+        },
+        "optimization": {
+          "steps": 600,
+          "grid_frames": 2,
+          "floor": 0.001,
+          "device": "cpu",
+          "lr_schedule": "cosine .04 to .001"
+        },
+        "loss_history": [
+          [
+            0,
+            4.37403678894043
+          ],
+          [
+            100,
+            0.6379002928733826
+          ],
+          [
+            200,
+            0.6310878396034241
+          ],
+          [
+            300,
+            0.6283116340637207
+          ],
+          [
+            400,
+            0.6275355219841003
+          ],
+          [
+            500,
+            0.6272093653678894
+          ],
+          [
+            599,
+            0.627188503742218
+          ]
+        ],
+        "dictionary": {
+          "cache_hit": true,
+          "seconds": 0.14686862006783485,
+          "sha256": "adf73718b6f27e1d0d551ed8011089b9787fc5d9a105302558254f6286dffafd"
+        },
+        "fitting_seconds": 3.434263705275953,
+        "metrics": {
+          "spectral_convergence": 0.8339007496833801,
+          "log_band_mae": 0.40071365237236023,
+          "waveform_rmse": 0.03595013543963432,
+          "peak": 0.0854949951171875,
+          "mr_log_mae": 0.07143230363726616,
+          "envelope_correlation": 0.8448782015954135
+        },
+        "notes": 2427,
+        "wall_seconds": 4.860734730027616
+      },
+      "stork-tower": {
+        "config": {
+          "power": 2,
+          "gate": 0.02,
+          "velocity": 48,
+          "sr": 24000,
+          "nfft": 1024,
+          "hop": 240,
+          "pitches": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+          "revision": 1
+        },
+        "optimization": {
+          "steps": 600,
+          "grid_frames": 2,
+          "floor": 0.001,
+          "device": "cpu",
+          "lr_schedule": "cosine .04 to .001"
+        },
+        "loss_history": [
+          [
+            0,
+            4.140613555908203
+          ],
+          [
+            100,
+            0.6492959856987
+          ],
+          [
+            200,
+            0.6471774578094482
+          ],
+          [
+            300,
+            0.6428768634796143
+          ],
+          [
+            400,
+            0.6420785188674927
+          ],
+          [
+            500,
+            0.6417744755744934
+          ],
+          [
+            599,
+            0.6417533755302429
+          ]
+        ],
+        "dictionary": {
+          "cache_hit": true,
+          "seconds": 0.1478835428133607,
+          "sha256": "adf73718b6f27e1d0d551ed8011089b9787fc5d9a105302558254f6286dffafd"
+        },
+        "fitting_seconds": 3.2786933360621333,
+        "metrics": {
+          "spectral_convergence": 0.8437258005142212,
+          "log_band_mae": 0.40519070625305176,
+          "waveform_rmse": 0.03675667941570282,
+          "peak": 0.10009765625,
+          "mr_log_mae": 0.06626638397574425,
+          "envelope_correlation": 0.8262079972081332
+        },
+        "notes": 2521,
+        "wall_seconds": 4.605543451849371
+      },
+      "sonnet-18": {
+        "config": {
+          "power": 2,
+          "gate": 0.02,
+          "velocity": 48,
+          "sr": 24000,
+          "nfft": 1024,
+          "hop": 240,
+          "pitches": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+          "revision": 1
+        },
+        "optimization": {
+          "steps": 600,
+          "grid_frames": 2,
+          "floor": 0.001,
+          "device": "cpu",
+          "lr_schedule": "cosine .04 to .001"
+        },
+        "loss_history": [
+          [
+            0,
+            4.267277240753174
+          ],
+          [
+            100,
+            0.5274409651756287
+          ],
+          [
+            200,
+            0.5226088762283325
+          ],
+          [
+            300,
+            0.5202304124832153
+          ],
+          [
+            400,
+            0.5196355581283569
+          ],
+          [
+            500,
+            0.5194447040557861
+          ],
+          [
+            599,
+            0.5194329619407654
+          ]
+        ],
+        "dictionary": {
+          "cache_hit": false,
+          "seconds": 1.7563298936001956,
+          "sha256": "adf73718b6f27e1d0d551ed8011089b9787fc5d9a105302558254f6286dffafd"
+        },
+        "fitting_seconds": 5.045478269923478,
+        "metrics": {
+          "spectral_convergence": 0.8029286861419678,
+          "log_band_mae": 0.3426840603351593,
+          "waveform_rmse": 0.038652073591947556,
+          "peak": 0.079559326171875
+        },
+        "notes": 1218,
+        "wall_seconds": 7.118835024069995
+      },
+      "the-tyger": {
+        "config": {
+          "power": 2,
+          "gate": 0.02,
+          "velocity": 48,
+          "sr": 24000,
+          "nfft": 1024,
+          "hop": 240,
+          "pitches": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108
+          ],
+          "soundfont_sha256": "5b85b6c2c61d10b2b91cddd41efcce7b25cd31c8271d511c73afafbef20b6fa3",
+          "revision": 1
+        },
+        "optimization": {
+          "steps": 600,
+          "grid_frames": 2,
+          "floor": 0.001,
+          "device": "cpu",
+          "lr_schedule": "cosine .04 to .001"
+        },
+        "loss_history": [
+          [
+            0,
+            4.080716133117676
+          ],
+          [
+            100,
+            0.6451571583747864
+          ],
+          [
+            200,
+            0.638226330280304
+          ],
+          [
+            300,
+            0.6365102529525757
+          ],
+          [
+            400,
+            0.635400116443634
+          ],
+          [
+            500,
+            0.6349663138389587
+          ],
+          [
+            599,
+            0.634937584400177
+          ]
+        ],
+        "dictionary": {
+          "cache_hit": true,
+          "seconds": 0.14831364480778575,
+          "sha256": "adf73718b6f27e1d0d551ed8011089b9787fc5d9a105302558254f6286dffafd"
+        },
+        "fitting_seconds": 3.360130588989705,
+        "metrics": {
+          "spectral_convergence": 0.7889328598976135,
+          "log_band_mae": 0.41690611839294434,
+          "waveform_rmse": 0.03724904730916023,
+          "peak": 0.088409423828125,
+          "mr_log_mae": 0.07015963022907575,
+          "envelope_correlation": 0.8601242262024633
+        },
+        "notes": 3140,
+        "wall_seconds": 4.997033865656704
+      }
+    }
+  },
+  "cli_matches_selected_midi": true
+}
