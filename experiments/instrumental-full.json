@@ -1,0 +1,24 @@
+[
+  {
+    "file": "footages/\u5723\u5973\u4e4b\u6b4c-\u5668\u4e50\u4f18\u5316.mid",
+    "original_notes": 98705,
+    "notes": 12446,
+    "reduction_percent": 87.39070969049187,
+    "mean_gate": 0.20539611120040094,
+    "seconds": 136.59450000000797,
+    "fitting_seconds": 37.560164442285895,
+    "sha256": "ee52dd37ff97c5dfaa3d376b9c12e1d85e446183638db6ab8ee2068bd476028d",
+    "validated": true
+  },
+  {
+    "file": "footages/\u753b\u5fc3-\u5668\u4e50\u4f18\u5316.mid",
+    "original_notes": 400015,
+    "notes": 51252,
+    "reduction_percent": 87.1874804694824,
+    "mean_gate": 0.20783657223136648,
+    "seconds": 432.0770000000701,
+    "fitting_seconds": 117.01768208108842,
+    "sha256": "6adf6acdc97cb0c75b450f5e6de609da3c965e542b8a282fe77cf5f594e477bd",
+    "validated": true
+  }
+]

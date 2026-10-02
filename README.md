@@ -31,6 +31,49 @@ Open [the offline poetry player](examples/poetry/dense/index.html) from a local 
 
 ![Poetry ASR comparison](experiments/dense-asr.png)
 
+## Instrumental audio: sparse variable-duration fitting
+
+The experimental instrumental fitter replaces the speech model's repeated 20 ms
+gates with 80, 240, and 640 ms notes on a 40 ms onset grid. Each pitch/duration
+template is rendered through the same Grand Piano, including its release, and
+calibrated at 13 velocities. Analysis uses a 2048-sample FFT, 240-sample hop,
+and 128 mel bands at 24 kHz. The objective is
+
+$$
+L=\operatorname{mean}\left[\log(1+(D*A)/10^{-3})-\log(1+M/10^{-3})\right]^2
+ + \lambda\frac{\sum A}{T},\qquad A\geq 0.
+$$
+
+Here $T$ is the number of analysis frames. The coefficient penalty discourages
+redundant attacks, though it is not an exact note-count or notes-per-second limit.
+After 600 optimization steps, candidates below MIDI velocity 12 are discarded.
+Competing durations and overlapping events for the same key are resolved by
+ranking coefficient times gate length. Another 200 steps refit strengths with
+the chosen event support fixed, compensating for energy lost during selection.
+Actual velocity-dependent timbre and waveform interference remain approximate.
+
+Long recordings are fitted in 12-second sections with 1.2 seconds of context on
+both sides. Only onsets in each section's central interval are retained. Same-key
+overlaps across sections are shortened before export to keep note releases
+unambiguous. This bounds optimization memory, but independent sections can still
+produce boundary artifacts.
+
+```bash
+# Decode unsupported containers such as WMA to WAV with FFmpeg first.
+OPENBLAS_NUM_THREADS=1 scripts/env.sh -m speaking_midi.instrumental \
+  input.wav --out outputs/instrumental.mid --device auto --sparsity 0.03
+```
+
+The command saves MIDI and a JSON report, without rendering a WAV file. It
+supports CPU execution and refuses to overwrite an existing MIDI. `--steps`
+controls the initial fitting iterations; `--sparsity` controls the coefficient
+penalty. A larger penalty favors smaller activation mass but does not guarantee
+a monotonically decreasing exported note count. See the
+[instrumental experiment](experiments/INSTRUMENTAL_FITTING.md) for pilot evidence
+and remaining limitations. This is an approximation of a recording's sound, not
+a conventional score transcription or an established improvement in listening
+quality.
+
 ## Eight-second demos
 
 These additional examples use **Qwen3-TTS-12Hz-1.7B-VoiceDesign**, with the same requested voice description for English and Chinese:

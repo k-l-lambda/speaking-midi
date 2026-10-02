@@ -1,0 +1,80 @@
+{
+  "excerpt_start": 20,
+  "excerpt_seconds": 8,
+  "initial_steps": 600,
+  "refit_steps": 200,
+  "rows": [
+    {
+      "name": "\u753b\u5fc3",
+      "variant": "dense",
+      "notes": 2706,
+      "mean_duration": 0.019999999999999313,
+      "metrics": {
+        "spectral_convergence": 0.8165894746780396,
+        "log_band_mae": 0.2844543755054474,
+        "waveform_rmse": 0.01676195301115513,
+        "peak": 0.0642547607421875
+      }
+    },
+    {
+      "name": "\u753b\u5fc3",
+      "variant": "sparse003",
+      "notes": 473,
+      "mean_duration": 0.13775898520084565,
+      "metrics": {
+        "spectral_convergence": 0.8007339835166931,
+        "log_band_mae": 0.27121701836586,
+        "waveform_rmse": 0.017619431018829346,
+        "peak": 0.050567626953125
+      }
+    },
+    {
+      "name": "\u753b\u5fc3",
+      "variant": "sparse010",
+      "notes": 468,
+      "mean_duration": 0.1375213675213675,
+      "metrics": {
+        "spectral_convergence": 0.800128698348999,
+        "log_band_mae": 0.2715367376804352,
+        "waveform_rmse": 0.017613625153899193,
+        "peak": 0.0506439208984375
+      }
+    },
+    {
+      "name": "\u5723\u5973\u4e4b\u6b4c",
+      "variant": "dense",
+      "notes": 4547,
+      "mean_duration": 0.019999999999999057,
+      "metrics": {
+        "spectral_convergence": 0.7909336686134338,
+        "log_band_mae": 0.30526092648506165,
+        "waveform_rmse": 0.043894313275814056,
+        "peak": 0.0994415283203125
+      }
+    },
+    {
+      "name": "\u5723\u5973\u4e4b\u6b4c",
+      "variant": "sparse003",
+      "notes": 522,
+      "mean_duration": 0.20490421455938698,
+      "metrics": {
+        "spectral_convergence": 0.7882797718048096,
+        "log_band_mae": 0.31501010060310364,
+        "waveform_rmse": 0.0441344752907753,
+        "peak": 0.118133544921875
+      }
+    },
+    {
+      "name": "\u5723\u5973\u4e4b\u6b4c",
+      "variant": "sparse010",
+      "notes": 520,
+      "mean_duration": 0.20953846153846156,
+      "metrics": {
+        "spectral_convergence": 0.7847915291786194,
+        "log_band_mae": 0.31578192114830017,
+        "waveform_rmse": 0.04380321875214577,
+        "peak": 0.1308441162109375
+      }
+    }
+  ]
+}
