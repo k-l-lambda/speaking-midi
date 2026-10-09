@@ -1,0 +1,374 @@
+[
+  {
+    "case": "bandao",
+    "variant": "legacy",
+    "metrics": {
+      "spectral_convergence": 0.7943593859672546,
+      "log_band_mae": 0.5427120327949524,
+      "waveform_rmse": 0.06093861162662506,
+      "peak": 0.1520233154296875
+    },
+    "notes": 1327,
+    "high_notes": 776,
+    "high_excess": 9.43690404129696e-05,
+    "low_sc": 0.9165430068969727,
+    "high_energy_ratio": 0.017666976898908615,
+    "envelope_correlation": 0.6439439611537381,
+    "rms_ratio": 0.4473073184490204,
+    "registers": {
+      "low": {
+        "notes": 292,
+        "mean_gate": 0.21301369863013545
+      },
+      "mid": {
+        "notes": 259,
+        "mean_gate": 0.1535135135135121
+      },
+      "high": {
+        "notes": 776,
+        "mean_gate": 0.2222680412371121
+      }
+    }
+  },
+  {
+    "case": "bandao",
+    "variant": "suppressed",
+    "metrics": {
+      "spectral_convergence": 0.7918025255203247,
+      "log_band_mae": 0.6390457153320312,
+      "waveform_rmse": 0.060493700206279755,
+      "peak": 0.1557464599609375
+    },
+    "notes": 1059,
+    "high_notes": 353,
+    "high_excess": 1.553282009260902e-07,
+    "low_sc": 0.9058097004890442,
+    "high_energy_ratio": 0.00019364437321200967,
+    "envelope_correlation": 0.6411540277581905,
+    "rms_ratio": 0.4196906089782715,
+    "registers": {
+      "low": {
+        "notes": 391,
+        "mean_gate": 0.1964194373401521
+      },
+      "mid": {
+        "notes": 315,
+        "mean_gate": 0.13650793650793533
+      },
+      "high": {
+        "notes": 353,
+        "mean_gate": 0.2812464589235118
+      }
+    }
+  },
+  {
+    "case": "bandao",
+    "variant": "multigrid",
+    "metrics": {
+      "spectral_convergence": 0.7878840565681458,
+      "log_band_mae": 0.4926814138889313,
+      "waveform_rmse": 0.06078574061393738,
+      "peak": 0.1669158935546875
+    },
+    "notes": 5023,
+    "high_notes": 4360,
+    "high_excess": 2.4412806040730973e-05,
+    "low_sc": 0.9296687841415405,
+    "high_energy_ratio": 0.026982376351952553,
+    "envelope_correlation": 0.6698967542447595,
+    "rms_ratio": 0.44849851727485657,
+    "registers": {
+      "low": {
+        "notes": 268,
+        "mean_gate": 0.22074626865671215
+      },
+      "mid": {
+        "notes": 395,
+        "mean_gate": 0.08111392405063131
+      },
+      "high": {
+        "notes": 4360,
+        "mean_gate": 0.020938073394495032
+      }
+    }
+  },
+  {
+    "case": "bandao",
+    "variant": "multiwindow",
+    "metrics": {
+      "spectral_convergence": 0.7911157608032227,
+      "log_band_mae": 0.49856036901474,
+      "waveform_rmse": 0.06034472584724426,
+      "peak": 0.1530303955078125
+    },
+    "notes": 5174,
+    "high_notes": 4501,
+    "high_excess": 1.477296925769489e-05,
+    "low_sc": 0.9308618903160095,
+    "high_energy_ratio": 0.024401186034083366,
+    "envelope_correlation": 0.6477372823024584,
+    "rms_ratio": 0.4364147186279297,
+    "registers": {
+      "low": {
+        "notes": 276,
+        "mean_gate": 0.21202898550724225
+      },
+      "mid": {
+        "notes": 397,
+        "mean_gate": 0.08010075566750474
+      },
+      "high": {
+        "notes": 4501,
+        "mean_gate": 0.020435458786935867
+      }
+    }
+  },
+  {
+    "case": "huaxin-voice",
+    "variant": "legacy",
+    "metrics": {
+      "spectral_convergence": 0.9113315343856812,
+      "log_band_mae": 0.7284858226776123,
+      "waveform_rmse": 0.12542058527469635,
+      "peak": 0.21868896484375
+    },
+    "notes": 722,
+    "high_notes": 602,
+    "high_excess": 1.2292780723558175e-05,
+    "low_sc": 0.9878347516059875,
+    "high_energy_ratio": 0.009919852018356323,
+    "envelope_correlation": 0.7480002383012874,
+    "rms_ratio": 0.21162287890911102,
+    "registers": {
+      "low": {
+        "notes": 0,
+        "mean_gate": 0
+      },
+      "mid": {
+        "notes": 120,
+        "mean_gate": 0.18233333333333338
+      },
+      "high": {
+        "notes": 602,
+        "mean_gate": 0.21767441860465128
+      }
+    }
+  },
+  {
+    "case": "huaxin-voice",
+    "variant": "suppressed",
+    "metrics": {
+      "spectral_convergence": 0.9056907296180725,
+      "log_band_mae": 0.8360955119132996,
+      "waveform_rmse": 0.1251799315214157,
+      "peak": 0.14642333984375
+    },
+    "notes": 516,
+    "high_notes": 332,
+    "high_excess": 3.96691624126647e-08,
+    "low_sc": 0.9832288026809692,
+    "high_energy_ratio": 0.00017604895401746035,
+    "envelope_correlation": 0.7700019772155292,
+    "rms_ratio": 0.20572301745414734,
+    "registers": {
+      "low": {
+        "notes": 6,
+        "mean_gate": 0.05999999999999961
+      },
+      "mid": {
+        "notes": 178,
+        "mean_gate": 0.14898876404494388
+      },
+      "high": {
+        "notes": 332,
+        "mean_gate": 0.23156626506024117
+      }
+    }
+  },
+  {
+    "case": "huaxin-voice",
+    "variant": "multigrid",
+    "metrics": {
+      "spectral_convergence": 0.8931803107261658,
+      "log_band_mae": 0.6797072887420654,
+      "waveform_rmse": 0.12601976096630096,
+      "peak": 0.2283172607421875
+    },
+    "notes": 4473,
+    "high_notes": 4317,
+    "high_excess": 1.4973088407342935e-05,
+    "low_sc": 0.9851274490356445,
+    "high_energy_ratio": 0.015051454305648804,
+    "envelope_correlation": 0.8095555362101036,
+    "rms_ratio": 0.23091024160385132,
+    "registers": {
+      "low": {
+        "notes": 0,
+        "mean_gate": 0
+      },
+      "mid": {
+        "notes": 156,
+        "mean_gate": 0.10487179487179304
+      },
+      "high": {
+        "notes": 4317,
+        "mean_gate": 0.017896687514477348
+      }
+    }
+  },
+  {
+    "case": "huaxin-voice",
+    "variant": "multiwindow",
+    "metrics": {
+      "spectral_convergence": 0.8911637663841248,
+      "log_band_mae": 0.6846282482147217,
+      "waveform_rmse": 0.12581327557563782,
+      "peak": 0.194976806640625
+    },
+    "notes": 4514,
+    "high_notes": 4362,
+    "high_excess": 1.42852897555799e-05,
+    "low_sc": 0.9845477342605591,
+    "high_energy_ratio": 0.015079575590789318,
+    "envelope_correlation": 0.8307188064844231,
+    "rms_ratio": 0.23012545704841614,
+    "registers": {
+      "low": {
+        "notes": 0,
+        "mean_gate": 0
+      },
+      "mid": {
+        "notes": 152,
+        "mean_gate": 0.10986842105262966
+      },
+      "high": {
+        "notes": 4362,
+        "mean_gate": 0.018007794589637475
+      }
+    }
+  },
+  {
+    "case": "quiet-night",
+    "variant": "legacy",
+    "metrics": {
+      "spectral_convergence": 0.8697065711021423,
+      "log_band_mae": 0.6702899932861328,
+      "waveform_rmse": 0.08526356518268585,
+      "peak": 0.163482666015625
+    },
+    "notes": 805,
+    "high_notes": 534,
+    "high_excess": 1.2208736623671895e-05,
+    "low_sc": 0.974641740322113,
+    "high_energy_ratio": 0.017306694760918617,
+    "envelope_correlation": 0.7890444496313594,
+    "rms_ratio": 0.23680980503559113,
+    "registers": {
+      "low": {
+        "notes": 34,
+        "mean_gate": 0.08941176470588233
+      },
+      "mid": {
+        "notes": 237,
+        "mean_gate": 0.08540084388185645
+      },
+      "high": {
+        "notes": 534,
+        "mean_gate": 0.18936329588014966
+      }
+    }
+  },
+  {
+    "case": "quiet-night",
+    "variant": "suppressed",
+    "metrics": {
+      "spectral_convergence": 0.863502025604248,
+      "log_band_mae": 0.73663330078125,
+      "waveform_rmse": 0.08599958568811417,
+      "peak": 0.1757659912109375
+    },
+    "notes": 692,
+    "high_notes": 322,
+    "high_excess": 4.847692565611364e-07,
+    "low_sc": 0.9674434065818787,
+    "high_energy_ratio": 0.00045224756468087435,
+    "envelope_correlation": 0.8122615251342058,
+    "rms_ratio": 0.2527320981025696,
+    "registers": {
+      "low": {
+        "notes": 74,
+        "mean_gate": 0.09729729729729722
+      },
+      "mid": {
+        "notes": 296,
+        "mean_gate": 0.08162162162162157
+      },
+      "high": {
+        "notes": 322,
+        "mean_gate": 0.18894409937888174
+      }
+    }
+  },
+  {
+    "case": "quiet-night",
+    "variant": "multigrid",
+    "metrics": {
+      "spectral_convergence": 0.8682199120521545,
+      "log_band_mae": 0.6587827801704407,
+      "waveform_rmse": 0.08551166206598282,
+      "peak": 0.16717529296875
+    },
+    "notes": 3183,
+    "high_notes": 2869,
+    "high_excess": 8.276315892316133e-06,
+    "low_sc": 0.9770562648773193,
+    "high_energy_ratio": 0.013227888382971287,
+    "envelope_correlation": 0.8078954145881352,
+    "rms_ratio": 0.2274787276983261,
+    "registers": {
+      "low": {
+        "notes": 27,
+        "mean_gate": 0.09185185185185052
+      },
+      "mid": {
+        "notes": 287,
+        "mean_gate": 0.05170731707317002
+      },
+      "high": {
+        "notes": 2869,
+        "mean_gate": 0.014820494945973966
+      }
+    }
+  },
+  {
+    "case": "quiet-night",
+    "variant": "multiwindow",
+    "metrics": {
+      "spectral_convergence": 0.8706856369972229,
+      "log_band_mae": 0.6687607169151306,
+      "waveform_rmse": 0.08547095209360123,
+      "peak": 0.143341064453125
+    },
+    "notes": 3462,
+    "high_notes": 3136,
+    "high_excess": 3.4279364497783083e-06,
+    "low_sc": 0.977597713470459,
+    "high_energy_ratio": 0.009170609526336193,
+    "envelope_correlation": 0.8070834167368278,
+    "rms_ratio": 0.22189496457576752,
+    "registers": {
+      "low": {
+        "notes": 27,
+        "mean_gate": 0.09185185185185059
+      },
+      "mid": {
+        "notes": 299,
+        "mean_gate": 0.05083612040133708
+      },
+      "high": {
+        "notes": 3136,
+        "mean_gate": 0.014623724489795677
+      }
+    }
+  }
+]

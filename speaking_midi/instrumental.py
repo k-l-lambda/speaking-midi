@@ -17,6 +17,7 @@ import torch.nn.functional as F
 
 from .core import Note, Piano, SR, SFONT, load_audio, write_midi
 from .dense import DenseFeatures
+from .instrumental_loss import InstrumentalLoss
 
 
 def save_midi(notes, path, seconds):
@@ -83,7 +84,8 @@ def decode(values, calibration, atoms, velocities, seconds, grid=.04, min_veloci
 
 
 def fit_segment(y, bank, calibration, atoms, velocities, *, device, steps=600,
-                sparsity=.03, min_velocity=12, refit_steps=200):
+                sparsity=.03, min_velocity=12, refit_steps=200,
+                objective='legacy', treble_cost=0.):
     feature = DenseFeatures(device, nfft=2048)
     target = feature(y)[None]
     frames = target.shape[-1]
@@ -92,12 +94,11 @@ def fit_segment(y, bank, calibration, atoms, velocities, *, device, steps=600,
     optimizer = torch.optim.Adam([values], lr=.04)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, steps, eta_min=.001)
     history = []
-    target_log = torch.log1p(target/.001)
+    criterion = InstrumentalLoss(target, atoms, objective=objective, treble_cost=treble_cost)
     for iteration in range(steps):
         optimizer.zero_grad()
         estimate = F.conv_transpose1d(values, bank, stride=4)[:, :, 4:4+frames]
-        reconstruction = (torch.log1p(estimate.clamp_min(0)/.001)-target_log).square().mean()
-        penalty = sparsity * values.sum() / frames
+        reconstruction, penalty = criterion(estimate, values, sparsity)
         loss = reconstruction + penalty
         loss.backward()
         optimizer.step()
@@ -128,8 +129,8 @@ def fit_segment(y, bank, calibration, atoms, velocities, *, device, steps=600,
     for iteration in range(refit_steps):
         optimizer.zero_grad()
         estimate = F.conv_transpose1d(values*mask, bank, stride=4)[:, :, 4:4+frames]
-        reconstruction = (torch.log1p(estimate.clamp_min(0)/.001)-target_log).square().mean()
-        loss = reconstruction + sparsity*values.sum()/frames
+        reconstruction, penalty = criterion(estimate, values, sparsity)
+        loss = reconstruction + penalty
         loss.backward()
         optimizer.step()
         scheduler.step()
@@ -144,7 +145,8 @@ def fit_segment(y, bank, calibration, atoms, velocities, *, device, steps=600,
 
 
 def fit_audio(y, piano, *, device='cpu', cache='outputs/cache', steps=600,
-              sparsity=.03, durations=(.08, .24, .64), chunk_seconds=12., context=1.2):
+              sparsity=.03, durations=(.08, .24, .64), chunk_seconds=12., context=1.2,
+              objective='legacy', treble_cost=0.):
     if steps < 1 or sparsity < 0 or chunk_seconds <= 0 or context < max(durations)+.4:
         raise ValueError('Invalid steps, sparsity, chunk length, or context')
     started = time.monotonic()
@@ -156,7 +158,8 @@ def fit_audio(y, piano, *, device='cpu', cache='outputs/cache', steps=600,
         end = min(len(y), start+chunk_samples)
         left, right = max(0, start-context_samples), min(len(y), end+context_samples)
         local, history = fit_segment(y[left:right], bank, calibration, atoms, velocities,
-                                    device=device, steps=steps, sparsity=sparsity)
+                                    device=device, steps=steps, sparsity=sparsity,
+                                    objective=objective, treble_cost=treble_cost)
         for n in local:
             absolute = n.start + left/SR
             if start/SR-1e-7 <= absolute < end/SR-1e-7:
@@ -173,6 +176,7 @@ def fit_audio(y, piano, *, device='cpu', cache='outputs/cache', steps=600,
         previous[note.pitch] = note
     return notes, dict(config=config, device=device, steps=steps, sparsity=sparsity,
                        chunk_seconds=chunk_seconds, context=context, refit_steps=200,
+                       objective=objective, treble_cost=treble_cost,
                        seconds=len(y)/SR, notes=len(notes), chunks=reports,
                        fitting_seconds=time.monotonic()-started)
 
@@ -184,14 +188,22 @@ def main():
     parser.add_argument('--device', choices=['auto', 'cpu', 'cuda'], default='auto')
     parser.add_argument('--steps', type=int, default=600)
     parser.add_argument('--sparsity', type=float, default=.03)
+    parser.add_argument('--objective', choices=['legacy', 'conservative'], default='legacy')
+    parser.add_argument('--treble-cost', type=float, default=0.,
+                        help='Soft cost for high-pitch activations, not a hard pitch cutoff')
     parser.add_argument('--cache', default='outputs/cache')
     parser.add_argument('--soundfont', default=SFONT)
+    parser.add_argument('--gain', type=float, default=1.0,
+                        help='Fixed input amplitude multiplier; default preserves source level')
+    parser.add_argument('--normalization', choices=['fixed', 'legacy-rms'], default='fixed',
+                        help='Fixed gain is independent of distant audio; legacy-rms reproduces older fits')
     parser.add_argument('--seconds', type=float, help='Fit only an initial excerpt')
     args = parser.parse_args()
     if args.out.exists():
         parser.error('Output already exists; choose a new path')
     device = ('cuda' if torch.cuda.is_available() else 'cpu') if args.device == 'auto' else args.device
-    y = load_audio(args.input)
+    y = load_audio(args.input, target_rms=.035 if args.normalization == 'legacy-rms' else None,
+                   gain=args.gain)
     if args.seconds is not None:
         if args.seconds <= 0:
             parser.error('--seconds must be positive')
@@ -199,7 +211,10 @@ def main():
     piano = Piano(args.soundfont)
     try:
         notes, report = fit_audio(y, piano, device=device, cache=args.cache,
-                                  steps=args.steps, sparsity=args.sparsity)
+                                  steps=args.steps, sparsity=args.sparsity,
+                                  objective=args.objective, treble_cost=args.treble_cost)
+        report['input_level'] = dict(normalization=args.normalization, gain=args.gain,
+                                    target_rms=.035 if args.normalization == 'legacy-rms' else None)
         args.out.parent.mkdir(parents=True, exist_ok=True)
         save_midi(notes, args.out, len(y)/SR)
         args.out.with_suffix('.report.json').write_text(json.dumps(report, indent=2))

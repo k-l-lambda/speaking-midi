@@ -1,0 +1,42 @@
+[
+  {
+    "file": "outputs/multigrid/半岛铁盒-分音区时间粒度.mid",
+    "source": "/home/camus/work/wechat-articles/general-piano/footages/半岛铁盒.mp3",
+    "seconds": 61.779625,
+    "normalization": "fixed",
+    "gain": 1,
+    "metrics": {
+      "spectral_convergence": 0.8877639174461365,
+      "log_band_mae": 0.7167648077011108,
+      "waveform_rmse": 0.17357996106147766,
+      "peak": 0.4005584716796875
+    },
+    "notes": 29057,
+    "high_notes": 23077,
+    "high_excess": 3.128060113101761e-05,
+    "low_sc": 0.9908007383346558,
+    "high_energy_ratio": 0.05235939845442772,
+    "envelope_correlation": 0.7017318695282798,
+    "rms_ratio": 0.27384835481643677
+  },
+  {
+    "file": "outputs/multigrid/画心-前38秒-分音区时间粒度.mid",
+    "source": "outputs/footages/画心/input.wav",
+    "seconds": 38.0,
+    "normalization": "fixed",
+    "gain": 1,
+    "metrics": {
+      "spectral_convergence": 0.8881686329841614,
+      "log_band_mae": 0.5344550013542175,
+      "waveform_rmse": 0.10423646122217178,
+      "peak": 0.2283172607421875
+    },
+    "notes": 17459,
+    "high_notes": 16710,
+    "high_excess": 2.045852574839626e-05,
+    "low_sc": 0.9878900647163391,
+    "high_energy_ratio": 0.021930888295173645,
+    "envelope_correlation": 0.8392607258897513,
+    "rms_ratio": 0.2372177541255951
+  }
+]

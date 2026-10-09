@@ -97,14 +97,24 @@ def read_midi(path):
     if active: raise ValueError('Unterminated MIDI notes')
     return notes
 
-def load_audio(path):
+def load_audio(path, *, target_rms=0.035, gain=1.0):
+    """Decode audio; target_rms=None preserves amplitude with a fixed gain.
+
+    The legacy RMS default remains for reproducible speech experiments.
+    Instrumental fitting explicitly opts out of recording-wide normalization.
+    """
+    if not np.isfinite(gain) or gain <= 0:
+        raise ValueError('Input gain must be finite and positive')
+    if target_rms is not None and (not np.isfinite(target_rms) or target_rms <= 0):
+        raise ValueError('Target RMS must be finite and positive, or None')
     y,sr=sf.read(path,always_2d=True); y=y.mean(axis=1)
     if sr!=SR:
         import math
         g=math.gcd(sr,SR); y=signal.resample_poly(y,SR//g,sr//g)
     if not np.isfinite(y).all() or np.max(np.abs(y))<1e-8: raise ValueError('Invalid/silent audio')
-    # Fixed target RMS: all methods share this exact signal; no per-result normalization.
-    return (y*(0.035/np.sqrt(np.mean(y*y)))).astype(np.float32)
+    if target_rms is not None:
+        y = y*(target_rms/np.sqrt(np.mean(y*y)))
+    return (y*gain).astype(np.float32)
 
 def magnitude(y):
     import torch

@@ -1,0 +1,338 @@
+[
+  {
+    "song": "半岛铁盒",
+    "start": 0,
+    "variant": "baseline",
+    "objective": "legacy",
+    "treble_cost": 0.0,
+    "metrics": {
+      "spectral_convergence": 0.7943593859672546,
+      "log_band_mae": 0.5427120327949524,
+      "waveform_rmse": 0.06093861162662506,
+      "peak": 0.1520233154296875
+    },
+    "notes": 1327,
+    "high_notes": 776,
+    "high_excess": 9.43690404129696e-05,
+    "low_sc": 0.9165430068969727,
+    "high_energy_ratio": 0.017666976898908615,
+    "envelope_correlation": 0.6439439611537381,
+    "rms_ratio": 0.4473073184490204,
+    "register_rms": {
+      "body": 0.02278766594827175,
+      "high": 0.01026660855859518
+    },
+    "register_change_db": {
+      "body": 0.0,
+      "high": 0.0
+    }
+  },
+  {
+    "song": "半岛铁盒",
+    "start": 0,
+    "variant": "conservative",
+    "objective": "conservative",
+    "treble_cost": 0.0,
+    "metrics": {
+      "spectral_convergence": 0.7877962589263916,
+      "log_band_mae": 0.5759749412536621,
+      "waveform_rmse": 0.060757506638765335,
+      "peak": 0.156646728515625
+    },
+    "notes": 1330,
+    "high_notes": 708,
+    "high_excess": 2.1127194685695302e-05,
+    "low_sc": 0.9065370559692383,
+    "high_energy_ratio": 0.009709016419947147,
+    "envelope_correlation": 0.6599350535309902,
+    "rms_ratio": 0.43176308274269104,
+    "register_rms": {
+      "body": 0.022365188226103783,
+      "high": 0.008972532115876675
+    },
+    "register_change_db": {
+      "body": -0.1625457361824961,
+      "high": -1.1702396443660086
+    }
+  },
+  {
+    "song": "半岛铁盒",
+    "start": 0,
+    "variant": "treble010",
+    "objective": "conservative",
+    "treble_cost": 0.1,
+    "metrics": {
+      "spectral_convergence": 0.7890036106109619,
+      "log_band_mae": 0.6088227033615112,
+      "waveform_rmse": 0.060663674026727676,
+      "peak": 0.1580657958984375
+    },
+    "notes": 1227,
+    "high_notes": 538,
+    "high_excess": 2.192504099676353e-07,
+    "low_sc": 0.9067328572273254,
+    "high_energy_ratio": 0.0011787572875618935,
+    "envelope_correlation": 0.6522670222149523,
+    "rms_ratio": 0.42607957124710083,
+    "register_rms": {
+      "body": 0.022505691275000572,
+      "high": 0.007665448822081089
+    },
+    "register_change_db": {
+      "body": -0.10814974578839016,
+      "high": -2.537788305482449
+    }
+  },
+  {
+    "song": "半岛铁盒",
+    "start": 20,
+    "variant": "baseline",
+    "objective": "legacy",
+    "treble_cost": 0.0,
+    "metrics": {
+      "spectral_convergence": 0.8119937181472778,
+      "log_band_mae": 0.697710394859314,
+      "waveform_rmse": 0.11107620596885681,
+      "peak": 0.3193511962890625
+    },
+    "notes": 1697,
+    "high_notes": 772,
+    "high_excess": 5.2744512663292754e-05,
+    "low_sc": 0.9690901041030884,
+    "high_energy_ratio": 0.05695214122533798,
+    "envelope_correlation": 0.5514920435174865,
+    "rms_ratio": 0.3867160975933075,
+    "register_rms": {
+      "body": 0.0383700355887413,
+      "high": 0.01141041424125433
+    },
+    "register_change_db": {
+      "body": 0.0,
+      "high": 0.0
+    }
+  },
+  {
+    "song": "半岛铁盒",
+    "start": 20,
+    "variant": "conservative",
+    "objective": "conservative",
+    "treble_cost": 0.0,
+    "metrics": {
+      "spectral_convergence": 0.7987626194953918,
+      "log_band_mae": 0.7428598403930664,
+      "waveform_rmse": 0.11087729036808014,
+      "peak": 0.27490234375
+    },
+    "notes": 1689,
+    "high_notes": 742,
+    "high_excess": 3.595018602920481e-06,
+    "low_sc": 0.9636549949645996,
+    "high_energy_ratio": 0.015760770067572594,
+    "envelope_correlation": 0.5652165021238013,
+    "rms_ratio": 0.386526882648468,
+    "register_rms": {
+      "body": 0.03898294270038605,
+      "high": 0.0091238459572196
+    },
+    "register_change_db": {
+      "body": 0.13764835076204682,
+      "high": -1.9424693399792767
+    }
+  },
+  {
+    "song": "半岛铁盒",
+    "start": 20,
+    "variant": "treble010",
+    "objective": "conservative",
+    "treble_cost": 0.1,
+    "metrics": {
+      "spectral_convergence": 0.7997028827667236,
+      "log_band_mae": 0.7910725474357605,
+      "waveform_rmse": 0.11088816076517105,
+      "peak": 0.2603302001953125
+    },
+    "notes": 1347,
+    "high_notes": 394,
+    "high_excess": 2.3465054506405892e-07,
+    "low_sc": 0.9636802077293396,
+    "high_energy_ratio": 0.0008751197019591928,
+    "envelope_correlation": 0.557302146537419,
+    "rms_ratio": 0.3842645585536957,
+    "register_rms": {
+      "body": 0.03913567215204239,
+      "high": 0.0068816859275102615
+    },
+    "register_change_db": {
+      "body": 0.17161190360626036,
+      "high": -4.392131264376249
+    }
+  },
+  {
+    "song": "枉凝眉",
+    "start": 0,
+    "variant": "baseline",
+    "objective": "legacy",
+    "treble_cost": 0.0,
+    "metrics": {
+      "spectral_convergence": 0.8193439841270447,
+      "log_band_mae": 0.3595486283302307,
+      "waveform_rmse": 0.07674936950206757,
+      "peak": 0.2587890625
+    },
+    "notes": 1125,
+    "high_notes": 525,
+    "high_excess": 8.736085046327495e-06,
+    "low_sc": 0.9323001503944397,
+    "high_energy_ratio": 0.021990619599819183,
+    "envelope_correlation": 0.6073904663208566,
+    "rms_ratio": 0.4156043529510498,
+    "register_rms": {
+      "body": 0.028246844187378883,
+      "high": 0.008440162986516953
+    },
+    "register_change_db": {
+      "body": 0.0,
+      "high": 0.0
+    }
+  },
+  {
+    "song": "枉凝眉",
+    "start": 0,
+    "variant": "conservative",
+    "objective": "conservative",
+    "treble_cost": 0.0,
+    "metrics": {
+      "spectral_convergence": 0.797793447971344,
+      "log_band_mae": 0.36532062292099,
+      "waveform_rmse": 0.07690232247114182,
+      "peak": 0.216278076171875
+    },
+    "notes": 992,
+    "high_notes": 349,
+    "high_excess": 2.5975179205696863e-06,
+    "low_sc": 0.9134780168533325,
+    "high_energy_ratio": 0.01380391139537096,
+    "envelope_correlation": 0.6305418328959036,
+    "rms_ratio": 0.4306583106517792,
+    "register_rms": {
+      "body": 0.02944120019674301,
+      "high": 0.008018337190151215
+    },
+    "register_change_db": {
+      "body": 0.3597115219497873,
+      "high": -0.4453303575443175
+    }
+  },
+  {
+    "song": "枉凝眉",
+    "start": 0,
+    "variant": "treble010",
+    "objective": "conservative",
+    "treble_cost": 0.1,
+    "metrics": {
+      "spectral_convergence": 0.7982432842254639,
+      "log_band_mae": 0.3796938359737396,
+      "waveform_rmse": 0.07692829519510269,
+      "peak": 0.21917724609375
+    },
+    "notes": 898,
+    "high_notes": 247,
+    "high_excess": 6.561108201212349e-07,
+    "low_sc": 0.9131342172622681,
+    "high_energy_ratio": 0.0012186698149889708,
+    "envelope_correlation": 0.6320406459640882,
+    "rms_ratio": 0.4299987256526947,
+    "register_rms": {
+      "body": 0.02954290620982647,
+      "high": 0.007487961556762457
+    },
+    "register_change_db": {
+      "body": 0.38966562770826224,
+      "high": -1.0397445445258804
+    }
+  },
+  {
+    "song": "半岛铁盒",
+    "start": 0,
+    "variant": "treble040",
+    "objective": "conservative",
+    "treble_cost": 0.4,
+    "metrics": {
+      "spectral_convergence": 0.7918025255203247,
+      "log_band_mae": 0.6390457153320312,
+      "waveform_rmse": 0.060493700206279755,
+      "peak": 0.1557464599609375
+    },
+    "notes": 1059,
+    "high_notes": 353,
+    "high_excess": 1.553282009260902e-07,
+    "low_sc": 0.9058097004890442,
+    "high_energy_ratio": 0.00019364437321200967,
+    "envelope_correlation": 0.6411540277581905,
+    "rms_ratio": 0.4196906089782715,
+    "register_rms": {
+      "body": 0.02262186072766781,
+      "high": 0.006086071953177452
+    },
+    "register_change_db": {
+      "body": -0.06343040120686813,
+      "high": -4.541798423583892
+    }
+  },
+  {
+    "song": "半岛铁盒",
+    "start": 20,
+    "variant": "treble040",
+    "objective": "conservative",
+    "treble_cost": 0.4,
+    "metrics": {
+      "spectral_convergence": 0.8002375960350037,
+      "log_band_mae": 0.8008625507354736,
+      "waveform_rmse": 0.11083662509918213,
+      "peak": 0.2502288818359375
+    },
+    "notes": 1182,
+    "high_notes": 242,
+    "high_excess": 2.182111452249059e-07,
+    "low_sc": 0.9637511372566223,
+    "high_energy_ratio": 0.0008605467737652361,
+    "envelope_correlation": 0.5494679660411897,
+    "rms_ratio": 0.38180026412010193,
+    "register_rms": {
+      "body": 0.03913450613617897,
+      "high": 0.005024882033467293
+    },
+    "register_change_db": {
+      "body": 0.17135311065783057,
+      "high": -7.123510814633528
+    }
+  },
+  {
+    "song": "枉凝眉",
+    "start": 0,
+    "variant": "treble040",
+    "objective": "conservative",
+    "treble_cost": 0.4,
+    "metrics": {
+      "spectral_convergence": 0.8010363578796387,
+      "log_band_mae": 0.3910037875175476,
+      "waveform_rmse": 0.07674350589513779,
+      "peak": 0.197357177734375
+    },
+    "notes": 806,
+    "high_notes": 140,
+    "high_excess": 6.385344098686582e-07,
+    "low_sc": 0.9152613282203674,
+    "high_energy_ratio": 0.000799705449026078,
+    "envelope_correlation": 0.6206930957479073,
+    "rms_ratio": 0.42625877261161804,
+    "register_rms": {
+      "body": 0.02958248369395733,
+      "high": 0.006048643961548805
+    },
+    "register_change_db": {
+      "body": 0.401293989439705,
+      "high": -2.8938562340287937
+    }
+  }
+]

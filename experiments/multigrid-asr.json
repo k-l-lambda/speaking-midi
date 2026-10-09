@@ -1,0 +1,49 @@
+{
+  "model": "Systran/faster-whisper-base",
+  "revision": "ebe41f70d5b6dfa9166e2c581c45c9c0cfc57b66",
+  "reference": "床前明月光，疑是地上霜。举头望明月，低头思故乡。",
+  "results": [
+    {
+      "variant": "source",
+      "text": "闯前明月光,一世地上霜,举头望明月,低头思故乡。",
+      "errors": 3,
+      "reference_units": 20,
+      "error_rate": 0.15
+    },
+    {
+      "variant": "legacy",
+      "text": "乾脆的鍋乾脆的鍋乾脆的鍋乾脆的鍋",
+      "errors": 20,
+      "reference_units": 20,
+      "error_rate": 1.0
+    },
+    {
+      "variant": "suppressed",
+      "text": "中文字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕 字幕",
+      "errors": 150,
+      "reference_units": 20,
+      "error_rate": 7.5
+    },
+    {
+      "variant": "multigrid",
+      "text": "看見明明的光你是不是雙手你多麼明了你多似故鄉",
+      "errors": 17,
+      "reference_units": 20,
+      "error_rate": 0.85
+    },
+    {
+      "variant": "multiwindow",
+      "text": "看見明月光你是地上所是同萬月你投肆故鄉",
+      "errors": 12,
+      "reference_units": 20,
+      "error_rate": 0.6
+    },
+    {
+      "variant": "dense",
+      "text": "全前明月光你是地上宿是東望明月地頭似故鄉",
+      "errors": 9,
+      "reference_units": 20,
+      "error_rate": 0.45
+    }
+  ]
+}

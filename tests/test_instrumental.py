@@ -4,12 +4,29 @@ from pathlib import Path
 
 import numpy as np
 import mido
+import soundfile as sf
 
-from speaking_midi.core import Note, Piano, SR, read_midi, write_midi, metrics
+from speaking_midi.core import Note, Piano, SR, read_midi, write_midi, metrics, load_audio
 from speaking_midi.instrumental import decode, fit_audio, save_midi
 
 
 class InstrumentalFitting(unittest.TestCase):
+    def test_fixed_gain_is_independent_of_distant_audio_and_file_length(self):
+        wave = .02*np.sin(2*np.pi*220*np.arange(4*SR)/SR)
+        changed = wave.copy()
+        changed[3*SR:] *= 30
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = [Path(tmp)/f'{name}.wav' for name in ['original', 'loud-tail', 'prefix']]
+            for path, samples in zip(paths, [wave, changed, wave[:2*SR]]):
+                sf.write(path, samples, SR, subtype='FLOAT')
+            fixed = [load_audio(path, target_rms=None, gain=.5) for path in paths]
+            np.testing.assert_array_equal(fixed[0][:2*SR], fixed[1][:2*SR])
+            np.testing.assert_array_equal(fixed[0][:2*SR], fixed[2])
+            np.testing.assert_allclose(fixed[2],wave[:2*SR]*.5,atol=1e-8)
+            # This input would have reproduced the old distant-signal coupling.
+            old = [load_audio(path) for path in paths]
+            self.assertGreater(np.linalg.norm(old[0][:2*SR]-old[1][:2*SR]),1)
+
     def test_conflicting_durations_and_midi_release(self):
         values = np.zeros((2, 10))
         values[0, 0] = .5

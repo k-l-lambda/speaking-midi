@@ -73,10 +73,10 @@ is truncated to the input boundary.
 OPENBLAS_NUM_THREADS=1 scripts/env.sh -m experiments.instrumental_pilot
 OPENBLAS_NUM_THREADS=1 scripts/env.sh -m speaking_midi.instrumental \
   outputs/footages/圣女之歌/input.wav \
-  --out footages/圣女之歌-器乐优化.mid --device cuda --sparsity 0.03
+  --out footages/圣女之歌-器乐优化.mid --device cuda --sparsity 0.03 --normalization legacy-rms
 OPENBLAS_NUM_THREADS=1 scripts/env.sh -m speaking_midi.instrumental \
   outputs/footages/画心/input.wav \
-  --out footages/画心-器乐优化.mid --device cuda --sparsity 0.03
+  --out footages/画心-器乐优化.mid --device cuda --sparsity 0.03 --normalization legacy-rms
 ```
 
 The decoded inputs were reused from the earlier run; original MP3/WMA and original

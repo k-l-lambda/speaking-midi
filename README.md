@@ -64,6 +64,16 @@ OPENBLAS_NUM_THREADS=1 scripts/env.sh -m speaking_midi.instrumental \
   input.wav --out outputs/instrumental.mid --device auto --sparsity 0.03
 ```
 
+Instrumental input now uses a **fixed gain** (default `--gain 1`) instead of
+normalizing the whole recording to RMS 0.035. This preserves source dynamics:
+a distant loud passage does not rescale the current passage. The same gain must
+be used when comparing a crop with the full recording. `--normalization legacy-rms`
+reproduces the preprocessing used in the earlier instrumental report. The mode
+and gain are saved in `input_level` in the fit report. This does not alter the
+speech fitter's legacy normalization or make clipping/velocity limits disappear.
+Resampling and the fitter's explicit 1.2-second context still have local boundary
+effects. See the [normalization diagnosis](experiments/NORMALIZATION_LOCALITY.md).
+
 The command saves MIDI and a JSON report, without rendering a WAV file. It
 supports CPU execution and refuses to overwrite an existing MIDI. `--steps`
 controls the initial fitting iterations; `--sparsity` controls the coefficient
@@ -73,6 +83,65 @@ a monotonically decreasing exported note count. See the
 and remaining limitations. This is an approximation of a recording's sound, not
 a conventional score transcription or an established improvement in listening
 quality.
+
+## Experimental suppression of chime-like artifacts
+
+The optional `--objective conservative` adds a penalty for excess spectral
+energy, a linear-power reconstruction term, and a frame-local floor that reduces
+the influence of very weak details. `--treble-cost` adds a soft cost above MIDI
+pitch 72 without banning high notes. Both the initial fit and fixed-support refit
+use the selected objective. Existing `legacy` loss remains available and is the
+CLI objective default pending listening evaluation.
+
+```bash
+OPENBLAS_NUM_THREADS=1 scripts/env.sh -m speaking_midi.instrumental \
+  input.wav --out outputs/restrained.mid --steps 600 --normalization fixed \
+  --gain 1 --objective conservative --treble-cost 0.4
+```
+
+The current fixed-gain input path and objective scales avoid recording-wide RMS
+statistics. Objective scales use only simultaneous frequency bands, never other
+time frames. This preserves source dynamics, while still allowing the existing
+local context and chunk-boundary effects. In three pilot excerpts, the 0.4 cost
+reduced isolated high-register rendered RMS by 2.9–7.1 dB, with lower-register
+changes within 0.5 dB. The old log-band error worsened, and real high melody notes
+can also be attenuated. These are acoustic proxies, not a listening result; see
+[the experiment and tradeoffs](experiments/CHIME_OBJECTIVE.md).
+
+## Experimental pitch-dependent timing
+
+High-note suppression can remove speech detail along with ringing artifacts.
+The experimental `multigrid` fitter instead allocates finer timing to higher
+pitches, without a treble penalty:
+
+| MIDI pitches | Onset spacing | Candidate key-down durations |
+| --- | --- | --- |
+| 21–59 | 40 ms | 80, 240, 640 ms |
+| 60–83 | 20 ms | 40, 80, 240 ms |
+| 84–108 | 10 ms | 10, 20, 40 ms |
+
+Each register has its own activation grid and rendered piano dictionary. Their
+convolved predictions are summed on a common 10 ms analysis grid before computing
+the log-mel reconstruction loss. All registers compete to explain the same
+target. After selecting nonoverlapping same-pitch notes, a fixed-support refit
+adjusts their strengths. Velocity calibration and saved-MIDI evaluation use the
+same SoundFont. Short key-down durations still include the piano's release;
+this method does not truncate the rendered waveform or add an audio layer.
+
+```bash
+OPENBLAS_NUM_THREADS=1 scripts/env.sh -m speaking_midi.multigrid \
+  input.wav --out outputs/multigrid.mid --device cpu --steps 600 --gain 1
+```
+
+Input uses fixed gain, with no recording-wide or sliding RMS normalization.
+The default `--analysis single` keeps the 2048-sample analysis window to isolate
+the timing change. Optional `--analysis multiwindow` uses shorter windows in
+higher frequency bands; it is an ablation, not a consistently better default.
+
+Three pilot excerpts improved log-band error versus uniform instrumental timing,
+but generated roughly 4–6 times as many notes. Speech recognition remains poor,
+and reduced perceptual ringing has not been established. See the
+[algorithm, controlled comparisons, and limitations](experiments/MULTIGRID.md).
 
 ## Eight-second demos
 
@@ -221,7 +290,7 @@ Fixing these settings is part of the model definition. Playing the resulting MID
 
 ### 1. Prepare a common target representation
 
-Input channels are averaged, resampled to 24 kHz, and scaled to RMS amplitude 0.035 over the whole recording. Nonfinite and effectively silent inputs are rejected. Every method uses this same target; outputs are not individually loudness-normalized.
+In the legacy speech experiments, input channels are averaged, resampled to 24 kHz, and scaled to RMS amplitude 0.035 over the whole recording. Nonfinite and effectively silent inputs are rejected. Those experiments use the same target; outputs are not individually loudness-normalized. The instrumental CLI now defaults to fixed input gain as described above.
 
 The analysis uses a centered short-time Fourier transform (STFT) with a Hann window:
 
